@@ -1,0 +1,68 @@
+table Ucet
+	lineageTag: f9c4e3fd-cfe6-4c76-aa95-0fef035994e4
+
+	column 'Ucet ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: e2b9033e-597d-400c-a8b2-3f8c4c2c2fee
+		summarizeBy: none
+		sourceColumn: Ucet ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mena
+		dataType: string
+		lineageTag: b2346011-269d-47e9-90e7-d4015020fc8a
+		summarizeBy: none
+		sourceColumn: Mena
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aktualni Zustatek'
+		dataType: int64
+		formatString: 0
+		lineageTag: abe9e323-f689-4b77-a8f0-5ebe7bd2d945
+		summarizeBy: none
+		sourceColumn: Aktualni Zustatek
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Celkovy Zustatek'
+		dataType: int64
+		formatString: 0
+		lineageTag: 46209249-ab07-440e-9816-c32380747ce5
+		summarizeBy: none
+		sourceColumn: Celkovy Zustatek
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Datum Vytvoreni'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: e616f3f9-fe0d-413d-9866-75e66c523e32
+		summarizeBy: none
+		sourceColumn: Datum Vytvoreni
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Datum Aktualizace'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: af343c96-32e4-47c1-ad4f-666dcdabbfa1
+		summarizeBy: none
+		sourceColumn: Datum Aktualizace
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Ucet = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("arasynapse-ondemand.sql.azuresynapse.net"),
+				    Amazonie = Source{[Name="Amazonie"]}[Data],
+				    dwh_Ucet = Amazonie{[Schema="dwh",Item="Ucet"]}[Data]
+				in
+				    dwh_Ucet
+
+	annotation PBI_ResultType = Table
+

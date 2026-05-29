@@ -1,0 +1,319 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 428.75217391304363,
+            "y": 450.55652173913046
+          },
+          "nodeIndex": "Aktivita",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 238.64347826086976,
+            "y": 918.79565217391314
+          },
+          "nodeIndex": "Transakce",
+          "size": {
+            "height": 272,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 788.85652173913093,
+            "y": 297.77826086956526
+          },
+          "nodeIndex": "Ucet",
+          "size": {
+            "height": 224,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 379.84346499235795,
+            "y": 19.565217391304344
+          },
+          "nodeIndex": "Uzivatel",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 133.92383982224916
+          },
+          "nodeIndex": "Top N",
+          "nodeLineageTag": "afad2755-bdb6-4742-87a9-50053e3ab11c",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 758.26516431725611,
+            "y": 13.043478260869566
+          },
+          "nodeIndex": "Uzivatele",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 10
+        },
+        {
+          "location": {
+            "x": 812.3825954271399,
+            "y": 745.65217391304327
+          },
+          "nodeIndex": "Prispevek",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Miry",
+          "nodeLineageTag": "b3781001-9069-48d2-9340-dc9899ceaf5e",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 9
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 423.91304347826076
+          },
+          "nodeIndex": "_Kalendar",
+          "nodeLineageTag": "fd53da51-2489-4459-9c20-be3e5b9f114a",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 11
+        }
+      ],
+      "name": "Všechny tabulky",
+      "zoomValue": 64.2156020273491,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 422.5,
+            "y": 304
+          },
+          "nodeIndex": "Aktivita",
+          "nodeLineageTag": "9c62edf8-66b9-4384-aa33-a1c1a4ff5cb0",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 422.5,
+            "y": 16.25
+          },
+          "nodeIndex": "_Kalendar",
+          "nodeLineageTag": "fd53da51-2489-4459-9c20-be3e5b9f114a",
+          "size": {
+            "height": 205.75,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 737.75,
+            "y": 187.5
+          },
+          "nodeIndex": "Prispevek",
+          "nodeLineageTag": "156c2474-2b48-49aa-a97e-52e11f8d76a3",
+          "size": {
+            "height": 207.5,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 82.5,
+            "y": 192.5
+          },
+          "nodeIndex": "Transakce",
+          "nodeLineageTag": "ea67d31a-4c90-4186-afaf-e171ba1cde9e",
+          "size": {
+            "height": 206.75,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 623.25,
+            "y": 614
+          },
+          "nodeIndex": "Ucet",
+          "nodeLineageTag": "f9c4e3fd-cfe6-4c76-aa95-0fef035994e4",
+          "size": {
+            "height": 204,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 223.5,
+            "y": 613.75
+          },
+          "nodeIndex": "Uzivatel",
+          "nodeLineageTag": "0e38a7c9-bbc5-4351-8817-537192bf4142",
+          "size": {
+            "height": 201.5,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Dimenzionální Model",
+      "zoomValue": 80,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 2,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 589.435265104809,
+            "y": 380.62638717632552
+          },
+          "nodeIndex": "Aktivita",
+          "nodeLineageTag": "9c62edf8-66b9-4384-aa33-a1c1a4ff5cb0",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 886.40443896424176,
+            "y": 248.63255240443891
+          },
+          "nodeIndex": "Prispevek",
+          "nodeLineageTag": "156c2474-2b48-49aa-a97e-52e11f8d76a3",
+          "size": {
+            "height": 198.31442663378547,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 588.10561773153074,
+            "y": 76.613647478692826
+          },
+          "nodeIndex": "_Kalendar",
+          "nodeLineageTag": "fd53da51-2489-4459-9c20-be3e5b9f114a",
+          "size": {
+            "height": 202.27620221948212,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 270.66726477935856,
+            "y": 233.35018495684341
+          },
+          "nodeIndex": "Transakce",
+          "nodeLineageTag": "ea67d31a-4c90-4186-afaf-e171ba1cde9e",
+          "size": {
+            "height": 211.02342786683107,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 590.56589527146366,
+            "y": 723.96971779753733
+          },
+          "nodeIndex": "Uzivatel",
+          "nodeLineageTag": "0e38a7c9-bbc5-4351-8817-537192bf4142",
+          "size": {
+            "height": 206.23797780517884,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 888.06165228113446,
+            "y": 621.57953144266344
+          },
+          "nodeIndex": "Ucet",
+          "nodeLineageTag": "f9c4e3fd-cfe6-4c76-aa95-0fef035994e4",
+          "size": {
+            "height": 212.11467324291004,
+            "width": 234
+          },
+          "zIndex": 1
+        }
+      ],
+      "name": "Snowflake",
+      "zoomValue": 68.293050058645775,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Všechny tabulky",
+  "defaultDiagram": "Všechny tabulky"
+}

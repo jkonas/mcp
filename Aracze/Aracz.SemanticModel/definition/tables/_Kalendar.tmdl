@@ -1,0 +1,203 @@
+table _Kalendar
+	lineageTag: fd53da51-2489-4459-9c20-be3e5b9f114a
+	dataCategory: Time
+
+	column Datum
+		dataType: dateTime
+		isKey
+		formatString: Long Date
+		lineageTag: af49e3a0-a7c3-4f9b-a861-f1f5e1e7f05e
+		summarizeBy: none
+		sourceColumn: Datum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Kalendarni Rok'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a8e01cf-a899-433c-aa69-793fe76a8073
+		summarizeBy: none
+		sourceColumn: Kalendarni Rok
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mesic Cislo'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f415039-8d0d-45c0-b474-47397d9db95e
+		summarizeBy: none
+		sourceColumn: Mesic Cislo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mesic Dlouhy Nazev'
+		dataType: string
+		lineageTag: ad021bd4-a00d-4b54-8922-e28920089b9a
+		summarizeBy: none
+		sourceColumn: Mesic Dlouhy Nazev
+		sortByColumn: 'Mesic Cislo'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mesic Kratky Nazev'
+		dataType: string
+		lineageTag: 36c38b75-5638-4aa8-aa27-2303e40925b9
+		summarizeBy: none
+		sourceColumn: Mesic Kratky Nazev
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Den v Tydnu'
+		dataType: string
+		lineageTag: e3b1fa73-3d3d-4a91-b350-e8b7367207ae
+		summarizeBy: none
+		sourceColumn: Den v Tydnu
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ctvrtleti
+		dataType: string
+		lineageTag: 4b146fd7-9751-465c-9ca8-3e92c156b36c
+		summarizeBy: none
+		sourceColumn: Ctvrtleti
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mesic Rok'
+		dataType: string
+		lineageTag: b865a0bd-07a9-449c-a515-48c9f4a53a81
+		summarizeBy: none
+		sourceColumn: Mesic Rok
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ctvrtleti Rok'
+		dataType: string
+		lineageTag: fd35c7c2-4538-4873-a3d9-4a4cee5c896b
+		summarizeBy: none
+		sourceColumn: Ctvrtleti Rok
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Den v Tydnu Razeni'
+		dataType: int64
+		formatString: 0
+		lineageTag: d5862c93-69c6-4c40-b165-f357b3f948ab
+		summarizeBy: none
+		sourceColumn: Den v Tydnu Razeni
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mesic Rok Razeni'
+		dataType: int64
+		formatString: 0
+		lineageTag: 882d4ce6-2352-4a5b-8bce-10058f4a6886
+		summarizeBy: none
+		sourceColumn: Mesic Rok Razeni
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Ctvrtleti Rok Razeni'
+		dataType: int64
+		formatString: 0
+		lineageTag: 0d75b2fd-3032-426d-9f8b-77ce226c79dc
+		summarizeBy: none
+		sourceColumn: Ctvrtleti Rok Razeni
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Den v Tydnu Cely Nazev'
+		dataType: string
+		lineageTag: 8a64c4ab-2316-4519-996c-b630a09dfddb
+		summarizeBy: none
+		sourceColumn: Den v Tydnu Cely Nazev
+
+		annotation SummarizationSetBy = Automatic
+
+	column Víkend
+		dataType: string
+		lineageTag: a8227fec-2f28-44c3-b800-8fd52b324650
+		summarizeBy: none
+		sourceColumn: Víkend
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiskalni Mesic Cislo'
+		dataType: int64
+		formatString: 0
+		lineageTag: eec4e57f-020f-407f-b73a-2d875ecfce63
+		summarizeBy: none
+		sourceColumn: Fiskalni Mesic Cislo
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fiskalni Rok'
+		dataType: string
+		lineageTag: 4269c504-8585-44a9-97b9-b28d1cd1a045
+		summarizeBy: none
+		sourceColumn: Fiskalni Rok
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'FY Nazev'
+		dataType: string
+		lineageTag: 9d247512-87c7-47f7-85b3-4a1ade3bc026
+		summarizeBy: none
+		sourceColumn: FY Nazev
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Kalendar-3ed87553-6219-4434-a2c8-a83b3e614cc4 = m
+		mode: import
+		source = ```
+				let
+				   
+				    /* Aktuálně je nastavený dynamicky začátek a konec datumu. Smažte lomítka //, pokud chcete použít staticky začátek a konec datumu a 
+				        naopak zakomentujete dynamické hodnoty
+				    */
+				    PosledniFiskalniMesic = 6,   //nastavení čísla posledního fiskálního měsíce roku: Červen = 6, Červenec = 7 ...
+				    //ZacatekDatumu= #date(2016,7,1),     // Change start date  #date(yyyy,m,d)   
+				    //KonecDatumu = #date(2018,6,30),  // Could change to DateTime.LocalNow() if you want to always show up to the current date
+				
+				    Tabulka = Aktivita,    
+				    DateSloupec = "Vytvoreno",
+				    ZacatekDatumuRok = Date.Year ( Record.Field ( Table.Min(Tabulka,DateSloupec),DateSloupec) ), 
+				    KonecDatumu = Record.Field ( Table.Max(Tabulka,DateSloupec),DateSloupec),
+				    
+				    Jazyk = "cs-CZ",
+				    
+				    Zdroj = List.Dates (#date(ZacatekDatumuRok,1,1), Number.From(KonecDatumu)- Number.From(#date(ZacatekDatumuRok,1,1))+1 ,#duration(1,0,0,0)),
+				    #"Vytvoření Tabulky" = Table.FromList(Zdroj, Splitter.SplitByNothing(), null, null, ExtraValues.Error),
+				    #"Přejmenování Sloupce" = Table.RenameColumns(#"Vytvoření Tabulky",{{"Column1", "Datum"}}),
+				    #"Změna Typu" = Table.TransformColumnTypes(#"Přejmenování Sloupce",{{"Datum", type date}}),
+				    #"Kalendářní Rok" = Table.AddColumn(#"Změna Typu", "Kalendarni Rok", each Date.Year([Datum]), Int64.Type),
+				    #"Měsíc Číslo" = Table.AddColumn(#"Kalendářní Rok", "Mesic Cislo", each Date.Month([Datum]), Int64.Type),
+				    #"Měsíc Dlouhý Název" = Table.AddColumn(#"Měsíc Číslo", "Mesic Dlouhy Nazev", each Date.MonthName([Datum], Jazyk), type text),
+				    #"Měsíc Krátky Název" = Table.AddColumn(#"Měsíc Dlouhý Název", "Mesic Kratky Nazev", each Text.Start([Mesic Dlouhy Nazev], 3), type text),
+				    #"Den v Týdnu" = Table.AddColumn(#"Měsíc Krátky Název", "Den v Tydnu", each Date.ToText([Datum],"ddd", Jazyk), type text),
+				    #"Den v Týdnu Celý Název" = Table.AddColumn(#"Den v Týdnu", "Den v Tydnu Cely Nazev", each Date.ToText([Datum],"dddd", Jazyk), type text),
+				    #"Den v Týdnu Řazení" = Table.AddColumn(#"Den v Týdnu Celý Název", "Den v Tydnu Razeni", each Date.DayOfWeek([Datum],1), Int64.Type),
+				    Víkend = Table.AddColumn(#"Den v Týdnu Řazení", "Víkend", each if [Den v Tydnu Razeni] >= 6 then "ano" else "ne", type text),
+				
+				    #"Čtvrtletí" = Table.AddColumn(Víkend, "Ctvrtleti", each "Q" & Number.ToText(Date.QuarterOfYear([Datum]),"0"), type text),
+				    #"Měsíc Rok" = Table.AddColumn(#"Čtvrtletí", "Mesic Rok", each [Mesic Kratky Nazev] &" "& Number.ToText([Kalendarni Rok]), type text ),
+				    #"Měsíc Rok Řazení" = Table.AddColumn(#"Měsíc Rok", "Mesic Rok Razeni", each Number.ToText([Kalendarni Rok])&Text.PadStart(Number.ToText([Mesic Cislo]),2,"0"), Int64.Type),
+				    #"Čtvrtletí Rok" = Table.AddColumn(#"Měsíc Rok Řazení", "Ctvrtleti Rok", each [Ctvrtleti]  &" "&  Number.ToText([Kalendarni Rok]), type text ),
+				    #"Čtvrtletí Rok Řazení" = Table.AddColumn(#"Čtvrtletí Rok", "Ctvrtleti Rok Razeni", each Number.ToText([Kalendarni Rok])&Text.PadStart(Number.ToText(Date.QuarterOfYear([Datum])),2,"0"), Int64.Type ),
+				    
+				    //Sloupce pro fiskální rok
+				    #"Fiskální Měsíc Číslo" = Table.AddColumn(#"Čtvrtletí Rok Řazení", "Fiskalni Mesic Cislo", each if [Mesic Cislo] > PosledniFiskalniMesic  then [Mesic Cislo]-PosledniFiskalniMesic  else [Mesic Cislo]+PosledniFiskalniMesic),
+				    #"Fiskální Rok" = Table.AddColumn(#"Fiskální Měsíc Číslo", "Fiskalni Rok", each if [Fiskalni Mesic Cislo] <= PosledniFiskalniMesic  then [Kalendarni Rok]+1 else [Kalendarni Rok]),
+				    #"Změna Typu 2" = Table.TransformColumnTypes(#"Fiskální Rok",{{"Fiskalni Mesic Cislo", Int64.Type}, {"Ctvrtleti Rok Razeni", Int64.Type}, {"Mesic Rok Razeni", Int64.Type}, {"Fiskalni Rok", type text}}),
+				    FYNazev = Table.AddColumn( #"Změna Typu 2", "FY Nazev", each "FY"&Text.End([Fiskalni Rok],2))
+				
+				in
+				    FYNazev
+				```
+
+	annotation PBI_ResultType = Table
+

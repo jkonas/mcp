@@ -1,0 +1,20 @@
+relationship ca76c4d6-b9d0-46b9-be4d-1d4732980d8f
+	fromColumn: Aktivita.'Uzivatel ID'
+	toColumn: Uzivatel.'Uzivatel ID'
+
+relationship cd70b7ba-896b-44c6-8610-d47151cb4b35
+	fromColumn: Aktivita.'Ucet ID'
+	toColumn: Ucet.'Ucet ID'
+
+relationship ea27a8c6-0013-472d-9b33-5e45b4702d00
+	fromColumn: Aktivita.'Transakce ID'
+	toColumn: Transakce.'Transakce ID'
+
+relationship 30e0ad5e-a67b-4f95-9e49-66dce398f78b
+	fromColumn: Aktivita.'Prispevek ID'
+	toColumn: Prispevek.'Prispevek ID'
+
+relationship 66dbe186-2baf-46de-b52b-8e88742a7303
+	fromColumn: Aktivita.Vytvoreno
+	toColumn: _Kalendar.Datum
+

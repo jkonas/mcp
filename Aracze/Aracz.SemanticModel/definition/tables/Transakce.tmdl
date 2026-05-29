@@ -1,0 +1,72 @@
+table Transakce
+	lineageTag: ea67d31a-4c90-4186-afaf-e171ba1cde9e
+
+	column 'Transakce ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: a738c564-95af-4b79-b2ee-f7074deda345
+		summarizeBy: none
+		sourceColumn: Transakce ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kategorie
+		dataType: string
+		lineageTag: 79b4e05f-d3fd-4977-a303-fa8519b67741
+		summarizeBy: none
+		sourceColumn: Kategorie
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mena
+		dataType: string
+		lineageTag: f9c63528-144f-4384-93f1-cdbcd2194d90
+		summarizeBy: none
+		sourceColumn: Mena
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 8bb18494-a30d-415a-a2b6-1b975e30e48a
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column Url
+		dataType: string
+		lineageTag: b8ef1039-1976-46a4-9e68-0f8b444e83c0
+		summarizeBy: none
+		sourceColumn: Url
+
+		annotation SummarizationSetBy = Automatic
+
+	column Popis
+		dataType: string
+		lineageTag: 9fe3bdfe-3152-4319-8ec1-baf24b14d09f
+		summarizeBy: none
+		sourceColumn: Popis
+
+		annotation SummarizationSetBy = Automatic
+
+	column Operace
+		dataType: string
+		lineageTag: 7e521821-879d-4899-811c-1d50b9eb0664
+		summarizeBy: none
+		sourceColumn: Operace
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Transakce = m
+		mode: import
+		source =
+				let
+				    Source = Sql.Databases("arasynapse-ondemand.sql.azuresynapse.net"),
+				    Amazonie = Source{[Name="Amazonie"]}[Data],
+				    dwh_Transakce = Amazonie{[Schema="dwh",Item="Transakce"]}[Data]
+				in
+				    dwh_Transakce
+
+	annotation PBI_ResultType = Table
+
