@@ -1,0 +1,16 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "010442cd30c44e15ff2c",
+  "position": {
+    "x": 14.893617021276595,
+    "y": 74.8176291793313,
+    "z": 0,
+    "height": 626.25,
+    "width": 493.75,
+    "tabOrder": 1000
+  },
+  "visualGroup": {
+    "displayName": "TopN Uživatelé",
+    "groupMode": "ScaleMode"
+  }
+}

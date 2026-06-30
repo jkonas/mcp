@@ -1,0 +1,32 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "Bookmark4e7b791c6c63a3b6a722",
+      "displayName": "Pírka",
+      "children": [
+        "Bookmarkead76c5b96e1899aaa76",
+        "Bookmark9bd413904de01f3e518d"
+      ]
+    },
+    {
+      "name": "Bookmark1a2abd0c450dc82bf82f"
+    },
+    {
+      "name": "Bookmark9a9303402a5d67c0877e",
+      "displayName": "Menu",
+      "children": [
+        "Bookmarkf4e12221291630c7e0c2",
+        "Bookmarkc5faeee0890109039808"
+      ]
+    },
+    {
+      "name": "Bookmark00663e1c95016ed6e078",
+      "displayName": "Popup",
+      "children": [
+        "Bookmarkf9c131d3797096058e60",
+        "Bookmark870abf7cb7de712d5602"
+      ]
+    }
+  ]
+}

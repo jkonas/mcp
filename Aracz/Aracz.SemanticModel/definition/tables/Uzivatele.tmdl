@@ -1,0 +1,23 @@
+table Uzivatele
+	lineageTag: ee3f907b-1d38-4c63-b369-25b6d0017658
+
+	column Uzivatel
+		lineageTag: 67c5303a-b45c-44c5-bb09-0db4221c37f9
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: Uzivatel[Uzivatel]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Uzivatele-25bd272d-02f1-4f21-aa64-3c08dd81481a = calculated
+		mode: import
+		source = ```
+				
+				UNION (  
+				    ALLNOBLANKROW ( Uzivatel[Uzivatel] ),
+				    { "Ostatní" }
+				)
+				```
+
+	annotation PBI_Id = 5683285d8f434822a225904874459268
+

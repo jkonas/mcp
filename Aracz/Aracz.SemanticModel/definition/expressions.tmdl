@@ -1,0 +1,11 @@
+expression Miry =
+		let
+		    Zdroj = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Sloupec 1" = _t]),
+		    #"Změněný typ" = Table.TransformColumnTypes(Zdroj,{{"Sloupec 1", type text}}),
+		    #"Odebrané sloupce" = Table.RemoveColumns(#"Změněný typ",{"Sloupec 1"})
+		in
+		    #"Odebrané sloupce"
+	lineageTag: e0573810-c0d4-4410-a90b-f33a8b846ed2
+
+	annotation PBI_ResultType = Table
+
