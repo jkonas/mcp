@@ -1,0 +1,37 @@
+table DIM_TYP_ETAPY
+	lineageTag: 8d43012e-9830-42ae-a95d-9f0b27216641
+
+	column TypEtapy_Key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: fa656606-61c9-4cd8-8d65-0c84797a1880
+		summarizeBy: none
+		sourceColumn: TypEtapy_Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Etapy'
+		dataType: string
+		lineageTag: 10424433-2338-4a53-ac3b-f0b5f37b1163
+		summarizeBy: none
+		sourceColumn: Typ Etapy
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_TYP_ETAPY = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA = Source{[Schema=Schema,Item="DIM_TYP_ETAPY"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

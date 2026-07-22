@@ -1,0 +1,882 @@
+table KIA_AGG_DATES
+	lineageTag: dc207c86-503d-4d09-9bb2-47a274f30ffa
+
+	measure ZPOZDENI_COLOR_FAZE = ```
+			
+			VAR Rozdil = SELECTEDVALUE ( KIA_AGG_DATES[FAZE_ROZDIL_DNI] )
+			VAR Norma  = SELECTEDVALUE ( KIA_AGG_DATES[FAZE_NORMA_DAYS] )
+			VAR Limit50 = Norma * 1
+			RETURN
+			SWITCH (
+			    TRUE (),
+			
+			    ISBLANK ( Rozdil ) || ISBLANK ( Norma ),
+			        BLANK (),
+			
+			    Rozdil <= 0,
+			        "#4CAF50",        -- zelená (bez zpoždení)
+			
+			    Rozdil > 0 && Rozdil <= Limit50,
+			        "#FFC107",        -- oranžová (mírné zpoždení)
+			
+			        "#F44336"         -- červená (vyšší zpoždení)
+			)
+			
+			```
+		lineageTag: 894d1645-5451-40a9-854d-294e851633a8
+
+	measure ZPOZDENI_COLOR_AKCE = ```
+			
+			VAR Rozdil = SELECTEDVALUE ( KIA_AGG_DATES[KIA_ZPOZDENI_DAYS_COL] )
+			VAR Norma  = SELECTEDVALUE ( KIA_AGG_DATES[KIA_NORMA_DAYS] )
+			VAR Limit50 = Norma * 1
+			RETURN
+			SWITCH (
+			    TRUE (),
+			
+			    ISBLANK ( Rozdil ) || ISBLANK ( Norma ),
+			        BLANK (),
+			
+			    Rozdil <= 0,
+			        "#4CAF50",        -- zelená (bez zpoždení)
+			
+			    Rozdil > 0 && Rozdil <= Limit50,
+			        "#FFC107",        -- oranžová (mírné zpoždení)
+			
+			        "#F44336"         -- červená (vyšší zpoždení)
+			)
+			
+			```
+		lineageTag: 824af9c2-7e0d-4df8-8bfd-734d6fd8ca37
+
+	measure ZPOZDENI_COLOR_SUBFAZE = ```
+			
+			VAR Rozdil = SELECTEDVALUE ( KIA_AGG_DATES[SUBFAZE_ROZDIL_DNI] )
+			VAR Norma  = SELECTEDVALUE ( KIA_AGG_DATES[SUBFAZE_NORMA_DAYS] )
+			VAR Limit50 = Norma * 1
+			RETURN
+			SWITCH (
+			    TRUE (),
+			
+			    ISBLANK ( Rozdil ) || ISBLANK ( Norma ),
+			        BLANK (),
+			
+			    Rozdil <= 0,
+			        "#4CAF50",        -- zelená (bez zpoždení)
+			
+			    Rozdil > 0 && Rozdil <= Limit50,
+			        "#FFC107",        -- oranžová (mírné zpoždení)
+			
+			        "#F44336"         -- červená (vyšší zpoždení)
+			)
+			
+			```
+		lineageTag: d55ce841-9700-4779-8877-1d829c7974c0
+
+	measure FAZE_KONEC_DATE = ```
+			
+			VAR RealDate  = MAX ( KIA_AGG_DATES[FAZE_KONEC_REAL] )
+			VAR ModelDate = MAX ( KIA_AGG_DATES[FAZE_KONEC_MODEL] )
+			RETURN
+			COALESCE ( RealDate, ModelDate )
+			
+			```
+		formatString: dd.mm.yy
+		lineageTag: ffba9250-92d0-43b6-9ced-c5e8077bce48
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure FAZE_DATE_TYPE = ```
+			
+			VAR RealDate = MAX ( KIA_AGG_DATES[FAZE_KONEC_REAL] )
+			RETURN
+			IF ( NOT ISBLANK ( RealDate ), "Real", "Model" )
+			
+			```
+		lineageTag: a0b093c2-2de0-43a3-8e12-ca7a5648ea6f
+
+	measure FAZE_COLOR = ```
+			
+			SWITCH (
+			    [FAZE_DATE_TYPE],
+			    "Real",  "#81C78F",  
+			    "Model", "#BFBFBF"  
+			)
+			
+			```
+		lineageTag: a11df925-c8b3-4d81-9b0a-e5934e3fd592
+
+	measure KIA_NAZEV_COL = ```
+			SELECTEDVALUE ( DIM_KIA[Projekt] )
+			
+			
+			```
+		lineageTag: 5ea7c889-a233-43af-ad5e-0b885667616c
+
+	measure HP_V_FAZI_AKTUALNE = ```
+			
+			VAR DatumGrafu =
+			    MAX ( DIM_CALENDAR[Datum] )
+			
+			RETURN
+			SUMX (
+			    VALUES ( KIA_AGG_DATES[KIA] ),
+			    VAR StartDate =
+			        [FAZE_START_DATE]
+			
+			    VAR EndDate =
+			        [FAZE_KONEC_DATE]
+			
+			    VAR HP =
+			        MAX ( KIA_AGG_DATES[POCET_HP] )
+			
+			    RETURN
+			        IF (
+			            NOT ISBLANK ( StartDate )
+			                && NOT ISBLANK ( EndDate )
+			                && DatumGrafu >= StartDate
+			                && DatumGrafu < EndDate,
+			            HP,
+			            0
+			        )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 443511de-021d-4c6a-9383-7b4cab3e4bbf
+
+	measure Míra
+		lineageTag: e6f47e60-5837-4ce7-9049-a1ec50b94e00
+
+		annotation 43dbc3e8-3a1c-4b6f-9923-b49ff7d6691c = True
+
+	measure FAZE_START_DATE = ```
+			
+			VAR RealDate  = MAX ( KIA_AGG_DATES[FAZE_START_REAL] )
+			VAR ModelDate = MAX ( KIA_AGG_DATES[FAZE_START_MODEL] )
+			RETURN
+			COALESCE ( RealDate, ModelDate )
+			
+			```
+		formatString: dd.mm.yy
+		lineageTag: de48fb47-f9db-410b-b1e1-501c39376c0b
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure HP_FAZI_V_MESIACI =
+			
+			VAR MonthStart = MIN ( DIM_CALENDAR[Datum] )
+			VAR MonthEnd   = MAX ( DIM_CALENDAR[Datum] )
+			
+			VAR PhaseLevel =
+			    ADDCOLUMNS (
+			        SUMMARIZE (
+			            KIA_AGG_DATES,
+			            KIA_AGG_DATES[KIA],
+			            KIA_AGG_DATES[FAZE_ID]
+			        ),
+			        "StartDate",
+			            CALCULATE (
+			                MINX (
+			                    KIA_AGG_DATES,
+			                    COALESCE ( KIA_AGG_DATES[FAZE_START_REAL], KIA_AGG_DATES[FAZE_START_MODEL] )
+			                )
+			            ),
+			        "EndDate",
+			            CALCULATE (
+			                MAXX (
+			                    KIA_AGG_DATES,
+			                    COALESCE ( KIA_AGG_DATES[FAZE_KONEC_REAL], KIA_AGG_DATES[FAZE_KONEC_MODEL] )
+			                )
+			            ),
+			        "HP", CALCULATE ( MAX ( KIA_AGG_DATES[POCET_HP] ) )
+			    )
+			
+			RETURN
+			SUMX (
+			    FILTER (
+			        PhaseLevel,
+			        NOT ISBLANK ( [StartDate] )
+			            && NOT ISBLANK ( [EndDate] )
+			            && [StartDate] <= MonthEnd
+			            && [EndDate] >= MonthStart
+			    ),
+			    [HP]
+			)
+		formatString: 0
+		lineageTag: f0fc88a1-a1c6-49d6-b798-01c9077a91fc
+
+	measure KIA_DETAIL_LINK =
+			
+			VAR SelectedKIA =
+			    SELECTEDVALUE ( KIA_AGG_DATES[KIA] )
+			
+			VAR SelectedStatus =
+			    SELECTEDVALUE ( KIA_AGG_DATES[STATUS_KIA] )
+			
+			VAR BaseUrl =
+			    "https://app.powerbi.com/groups/me/apps/2ed33be5-9b42-402d-be1c-123954ed0bd6/reports/9ec301b9-7f94-4c0f-9843-d48fd7ada363/"
+			
+			VAR PageName =
+			    SWITCH (
+			        TRUE(),
+			        SelectedStatus = "Zásobník ABC",          "8ee4bcd58491b07475e0",
+			        SelectedStatus = "V Řešení U ABC",        "8ee4bcd58491b07475e0",
+			        SelectedStatus = "Zásobník Plánování",    "80ba3c21bc3113a1e508",
+			        SelectedStatus = "V Plánování",           "80ba3c21bc3113a1e508",
+			        SelectedStatus = "Zásobník Projekce",     "c03bfa881995e09abe10",
+			        SelectedStatus = "V Projekci",            "c03bfa881995e09abe10",
+			        SelectedStatus = "Zásobník Realizace",    "b164fe001602c5dc3e6e",
+			        SelectedStatus = "V Realizaci",           "b164fe001602c5dc3e6e",
+			        SelectedStatus = "V IK1",                 "85af553d806678892203",
+			        SelectedStatus = "V IK2",                 "85af553d806678892203",
+			        SelectedStatus = "Home Passed",           "a954ee5390b00c0eed4b",
+			        SelectedStatus = "Dokumentace Odevzdána", "b164fe001602c5dc3e6e",
+			        "ReportSection_KIA_Detail"
+			    )
+			
+			RETURN
+			IF (
+			    NOT ISBLANK ( SelectedKIA ),
+			    BaseUrl
+			        & PageName
+			        & "?filter=DIM_KIA/KIA eq '"
+			        & SelectedKIA
+			        & "'",
+			    BLANK()
+			)
+		lineageTag: f0fc817c-06b1-4881-bb4b-ff0ced979d44
+		dataCategory: WebUrl
+
+	measure KIA_DETAIL_BUTTON_COLOR =
+			
+			IF (
+			    HASONEVALUE(KIA_AGG_DATES[KIA]),
+			    "#300091",   -- active color
+			    "#EEF1F7"    -- disabled grey
+			)
+		lineageTag: b7e4fa04-c801-430a-a069-575fc8ee3b40
+
+	column KIA
+		dataType: string
+		lineageTag: 214f5ae4-eb52-4c56-b543-3bb57abd7d10
+		summarizeBy: none
+		sourceColumn: KIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column FAZE_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 14d06a5a-d5ef-41bd-97bc-ef3b65c8318d
+		summarizeBy: none
+		sourceColumn: FAZE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column FAZE
+		dataType: string
+		lineageTag: 83c29dee-ed0c-428b-aadb-52abd28df680
+		summarizeBy: none
+		sourceColumn: FAZE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUB_FAZE_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: fd2920e9-39cd-470b-83f0-4658374473e1
+		summarizeBy: none
+		sourceColumn: SUB_FAZE_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUB_FAZE
+		dataType: string
+		lineageTag: 56d3e470-3e2c-47a5-b324-28ab5dfcb529
+		summarizeBy: none
+		sourceColumn: SUB_FAZE
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUB_START_REAL
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 3a62ad20-36e4-4380-b2ed-820b8ac4b504
+		summarizeBy: none
+		sourceColumn: SUB_START_REAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column SUB_KONEC_REAL
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: ed78345a-c39c-457e-93dc-99f96fbb096f
+		summarizeBy: none
+		sourceColumn: SUB_KONEC_REAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column SUB_START_MODEL
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: ce4d3425-12f5-419c-aa0f-3601f60a97c2
+		summarizeBy: none
+		sourceColumn: SUB_START_MODEL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column SUB_KONEC_MODEL
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 1b449378-ca40-4485-b754-853980221095
+		summarizeBy: none
+		sourceColumn: SUB_KONEC_MODEL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column SUB_START_MODEL_BASELINE
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: eadabf4d-ed0f-472d-87ef-e0e222517ac0
+		summarizeBy: none
+		sourceColumn: SUB_START_MODEL_BASELINE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column SUB_KONEC_MODEL_BASELINE
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 56921856-2595-4ec7-89da-14065c32993c
+		summarizeBy: none
+		sourceColumn: SUB_KONEC_MODEL_BASELINE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column FAZE_START_REAL
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 466858d7-f28d-4331-9273-b5f9c1c7dd96
+		summarizeBy: none
+		sourceColumn: FAZE_START_REAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column FAZE_KONEC_REAL
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 26241810-117a-4c63-a51d-2299fff6b867
+		summarizeBy: none
+		sourceColumn: FAZE_KONEC_REAL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column FAZE_START_MODEL
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 0da76d8e-c9cb-4978-955a-98be22f09114
+		summarizeBy: none
+		sourceColumn: FAZE_START_MODEL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column FAZE_KONEC_MODEL
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 13341f3a-0242-49bf-a2c2-d0c8308c4df8
+		summarizeBy: none
+		sourceColumn: FAZE_KONEC_MODEL
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column FAZE_START_MODEL_BASELINE
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 7c0bdd28-3ad5-48ac-ac91-76e761799b6e
+		summarizeBy: none
+		sourceColumn: FAZE_START_MODEL_BASELINE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column FAZE_KONEC_MODEL_BASELINE
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 39fd28af-f773-4d8f-8bb6-a365950db2c2
+		summarizeBy: none
+		sourceColumn: FAZE_KONEC_MODEL_BASELINE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column FAZE_REAL_DURATION_DAYS_COL = ```
+			
+			VAR StartDate =
+			    KIA_AGG_DATES[FAZE_START_REAL]
+			
+			VAR RealEnd =
+			    KIA_AGG_DATES[FAZE_KONEC_REAL]
+			
+			VAR ModelEnd =
+			    KIA_AGG_DATES[FAZE_KONEC_MODEL]
+			
+			VAR TodayDate =
+			    TODAY()
+			
+			VAR EffectiveEndDate =
+			    IF (
+			        NOT ISBLANK ( RealEnd ),
+			        RealEnd,                                  -- fáza ukončená
+			        IF (
+			            NOT ISBLANK ( ModelEnd ) && TodayDate > ModelEnd,
+			            TodayDate,                            -- po modeli → meškanie rastie
+			            TodayDate                             -- pred modelom → stále beží
+			        )
+			    )
+			
+			RETURN
+			IF (
+			    ISBLANK ( StartDate ) || ISBLANK ( EffectiveEndDate ),
+			    BLANK (),
+			    DATEDIFF ( StartDate, EffectiveEndDate, DAY )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 162fca46-9fee-47ad-9674-4e7d7902d4d3
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column FAZE_NORMA_DAYS =
+			
+			IF (
+			    ISBLANK ( KIA_AGG_DATES[FAZE_START_MODEL_BASELINE] )
+			        || ISBLANK ( KIA_AGG_DATES[FAZE_KONEC_MODEL_BASELINE] ),
+			    BLANK (),
+			    DATEDIFF (
+			        KIA_AGG_DATES[FAZE_START_MODEL_BASELINE],
+			        KIA_AGG_DATES[FAZE_KONEC_MODEL_BASELINE],
+			        DAY
+			    )
+			)
+		formatString: 0
+		lineageTag: eea8721c-0114-4866-a05a-027893914781
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column FAZE_ROZDIL_DNI = ```
+			
+			VAR RealDuration = KIA_AGG_DATES[FAZE_REAL_DURATION_DAYS_COL]
+			VAR Norma        = KIA_AGG_DATES[FAZE_NORMA_DAYS]
+			RETURN
+			IF (
+			    ISBLANK(RealDuration) || ISBLANK(Norma),
+			    BLANK(),
+			    RealDuration - Norma
+			)
+			
+			
+			```
+		formatString: 0
+		lineageTag: 8cbc56dd-e07c-48eb-b16a-2dc26ffcb84c
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBFAZE_NORMA_DAYS =
+			
+			IF (
+			    ISBLANK ( KIA_AGG_DATES[SUB_START_MODEL_BASELINE] )
+			        || ISBLANK ( KIA_AGG_DATES[SUB_KONEC_MODEL_BASELINE] ),
+			    BLANK (),
+			    DATEDIFF (
+			        KIA_AGG_DATES[SUB_START_MODEL_BASELINE],
+			        KIA_AGG_DATES[SUB_KONEC_MODEL_BASELINE],
+			        DAY
+			    )
+			)
+		formatString: 0
+		lineageTag: 11d6e9f2-2c15-4916-89da-4a84a11876d8
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBFAZE_REAL_DURATION_DAYS_COL = ```
+			
+			VAR StartDate =
+			    KIA_AGG_DATES[SUB_START_REAL]
+			
+			VAR RealEnd =
+			    KIA_AGG_DATES[SUB_KONEC_REAL]
+			
+			VAR ModelEnd =
+			    KIA_AGG_DATES[SUB_KONEC_MODEL]
+			
+			VAR TodayDate =
+			    TODAY()
+			
+			VAR EffectiveEndDate =
+			    IF (
+			        NOT ISBLANK ( RealEnd ),
+			        RealEnd,                              -- subfáza ukončená
+			        IF (
+			            NOT ISBLANK ( ModelEnd ) && TodayDate > ModelEnd,
+			            TodayDate,                        -- po modeli → meškanie rastie
+			            TodayDate                         -- pred modelom → stále beží
+			        )
+			    )
+			
+			RETURN
+			IF (
+			    ISBLANK ( StartDate ) || ISBLANK ( EffectiveEndDate ),
+			    BLANK (),
+			    DATEDIFF ( StartDate, EffectiveEndDate, DAY )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: b94ef80c-c1b4-4217-8474-5e418180d0f6
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column SUBFAZE_ROZDIL_DNI =
+			
+			VAR RealDuration = KIA_AGG_DATES[SUBFAZE_REAL_DURATION_DAYS_COL]
+			VAR Norma        = KIA_AGG_DATES[SUBFAZE_NORMA_DAYS]
+			RETURN
+			IF (
+			    ISBLANK(RealDuration) || ISBLANK(Norma),
+			    BLANK(),
+			    RealDuration - Norma
+			)
+		formatString: 0
+		lineageTag: ba903777-863f-4f96-b88b-b7e0c0c4bd07
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column POCET_HP
+		dataType: int64
+		formatString: 0
+		lineageTag: e02feac6-5be2-40b8-a79e-0d42145f79ec
+		summarizeBy: sum
+		sourceColumn: POCET_HP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Zpozdeni_flag = ```
+			
+			VAR Rozdil = KIA_AGG_DATES[FAZE_ROZDIL_DNI]
+			VAR Norma  = KIA_AGG_DATES[FAZE_NORMA_DAYS]
+			VAR Limit50 = Norma * 1
+			RETURN
+			SWITCH (
+			    TRUE(),
+			    ISBLANK(Rozdil) || ISBLANK(Norma), BLANK(),
+			
+			    Rozdil <= 0,
+			        "bez zpoždení",
+			
+			    Rozdil > 0 && Rozdil <= Limit50,
+			        "mírné zpoždení",
+			
+			    "vyšší zpoždení"
+			)
+			
+			```
+		lineageTag: 521d3541-7a36-43c0-ba40-00a85e202af3
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column STATUS_KIA =
+			
+			RELATED ( DIM_KIA[Status] )
+		lineageTag: d4ac1bd6-347d-42ad-9f52-8464dba292a0
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column AKTUALNI_SUBFAZE_FLAG_COL =
+			
+			VAR _KIA      = KIA_AGG_DATES[KIA]
+			VAR _ThisFaze = KIA_AGG_DATES[FAZE]
+			VAR _ThisSub  = KIA_AGG_DATES[SUB_FAZE_ID]
+			
+			-- 1) Zisti aktuálnu fázu (status) pre danú KIA (nezávisle od riadku)
+			VAR _StatusFaze =
+			    CALCULATE (
+			        MAX ( KIA_AGG_DATES[STATUS_KIA] ),
+			        FILTER ( ALL ( KIA_AGG_DATES ), KIA_AGG_DATES[KIA] = _KIA )
+			    )
+			
+			-- Ak tento riadok nie je v aktuálnej fáze, nemá dostať 1
+			VAR _IsAktualnaFaza = _ThisFaze = _StatusFaze
+			
+			-- 2) Podmnožina: len riadky danej KIA v aktuálnej fáze, bez SUB_FAZE_ID = 20
+			VAR _AktualnaFazaSet =
+			    FILTER (
+			        ALL ( KIA_AGG_DATES ),
+			        KIA_AGG_DATES[KIA] = _KIA
+			            && KIA_AGG_DATES[FAZE] = _StatusFaze
+			            && KIA_AGG_DATES[SUB_FAZE_ID] <> 20
+			    )
+			
+			-- 3) Subfázy s aspoň jedným reálnym dátumom (start alebo konec)
+			VAR _SetSDatumom =
+			    FILTER (
+			        _AktualnaFazaSet,
+			        NOT ISBLANK ( KIA_AGG_DATES[SUB_START_REAL] )
+			            || NOT ISBLANK ( KIA_AGG_DATES[SUB_KONEC_REAL] )
+			    )
+			
+			-- 4) Výber aktuálnej subfázy v rámci aktuálnej fázy
+			VAR _AktualnaSubFazaID =
+			    IF (
+			        COUNTROWS ( _SetSDatumom ) > 0,
+			        MAXX ( _SetSDatumom, KIA_AGG_DATES[SUB_FAZE_ID] ),
+			        MINX ( _AktualnaFazaSet, KIA_AGG_DATES[SUB_FAZE_ID] )
+			    )
+			
+			RETURN
+			IF (
+			    _IsAktualnaFaza
+			        && _ThisSub = _AktualnaSubFazaID,
+			    1,
+			    0
+			)
+		formatString: 0
+		lineageTag: 7bd068d4-c71d-432b-8cda-2e28f351ee13
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column KIA_NORMA_DAYS = ```
+			
+			VAR _KIA = KIA_AGG_DATES[KIA]
+			
+			VAR _StartBaseline =
+			    CALCULATE (
+			        MIN ( KIA_AGG_DATES[SUB_START_MODEL_BASELINE] ),
+			        FILTER (
+			            KIA_AGG_DATES,
+			            KIA_AGG_DATES[KIA] = _KIA
+			                && KIA_AGG_DATES[SUB_FAZE_ID] = 1
+			        )
+			    )
+			
+			VAR _EndBaseline =
+			    CALCULATE (
+			        MAX ( KIA_AGG_DATES[SUB_KONEC_MODEL_BASELINE] ),
+			        FILTER (
+			            KIA_AGG_DATES,
+			            KIA_AGG_DATES[KIA] = _KIA
+			                && KIA_AGG_DATES[SUB_FAZE_ID] = 42
+			        )
+			    )
+			
+			RETURN
+			IF (
+			    ISBLANK ( _StartBaseline )
+			        || ISBLANK ( _EndBaseline ),
+			    BLANK (),
+			    DATEDIFF ( _StartBaseline, _EndBaseline, DAY )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: c0ff3fce-0fa2-45e5-bd76-c5ee165a7cea
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column KIA_START_REAL = ```
+			
+			VAR _KIA = KIA_AGG_DATES[KIA]
+			RETURN
+			CALCULATE (
+			    MIN ( KIA_AGG_DATES[SUB_START_REAL] ),
+			    FILTER (
+			        KIA_AGG_DATES,
+			        KIA_AGG_DATES[KIA] = _KIA
+			            && KIA_AGG_DATES[SUB_FAZE_ID] = 1
+			    )
+			)
+			
+			```
+		formatString: dd.mm.yy
+		lineageTag: 0bc0f821-4c96-4b7e-92a5-24661eb03ed5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column DODAVATEL
+		dataType: string
+		lineageTag: 05e59a46-2c0f-4ea0-a347-47cdede5c75a
+		summarizeBy: none
+		sourceColumn: DODAVATEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column KIA_REAL_DURATION_DAYS_COL = ```
+			
+			VAR _KIA =
+			    KIA_AGG_DATES[KIA]
+			
+			/* 1️⃣ Začiatok KII */
+			VAR StartDate =
+			    KIA_AGG_DATES[KIA_START_REAL]
+			
+			/* 2️⃣ Najvyššia subfáza s reálnym dátumom */
+			VAR LastSubID =
+			    CALCULATE (
+			        MAX ( KIA_AGG_DATES[SUB_FAZE_ID] ),
+			        FILTER (
+			            KIA_AGG_DATES,
+			            KIA_AGG_DATES[KIA] = _KIA
+			                && NOT ISBLANK ( KIA_AGG_DATES[SUB_START_REAL] )
+			        )
+			    )
+			
+			/* 3️⃣ Reálny dátum poslednej známej subfázy */
+			VAR LastRealDate =
+			    CALCULATE (
+			        MAX ( KIA_AGG_DATES[SUB_START_REAL] ),
+			        FILTER (
+			            KIA_AGG_DATES,
+			            KIA_AGG_DATES[KIA] = _KIA
+			                && KIA_AGG_DATES[SUB_FAZE_ID] = LastSubID
+			        )
+			    )
+			
+			/* 4️⃣ Modelový koniec KII (SUB_FAZE_ID = 42) */
+			VAR ModelEndDate =
+			    CALCULATE (
+			        MAX ( KIA_AGG_DATES[SUB_KONEC_MODEL] ),
+			        FILTER (
+			            KIA_AGG_DATES,
+			            KIA_AGG_DATES[KIA] = _KIA
+			                && KIA_AGG_DATES[SUB_FAZE_ID] = 42
+			        )
+			    )
+			
+			VAR TodayDate =
+			    TODAY()
+			
+			VAR EffectiveEndDate =
+			    SWITCH (
+			        TRUE (),
+			
+			        /* máme reálny dátum v budúcnosti alebo dnes */
+			        NOT ISBLANK ( LastRealDate ) && LastRealDate >= TodayDate,
+			            LastRealDate,
+			
+			        /* projekt stojí – dni po poslednom reálnom dátume bežia */
+			        NOT ISBLANK ( LastRealDate ) && LastRealDate < TodayDate,
+			            TodayDate,
+			
+			        /* prekročený model → meškanie */
+			        NOT ISBLANK ( LastRealDate ) && TodayDate > ModelEndDate,
+			            TodayDate,    
+			
+			        /* ešte nezačalo – ber model */
+			        ISBLANK ( LastRealDate ),
+			            ModelEndDate
+			    )
+			
+			RETURN
+			IF (
+			    ISBLANK ( StartDate ) || ISBLANK ( EffectiveEndDate ),
+			    BLANK (),
+			    DATEDIFF ( StartDate, EffectiveEndDate, DAY )
+			)
+			
+			```
+		formatString: 0
+		lineageTag: 4a1c3705-38c3-4986-b7a4-55631da94d0f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column KIA_ZPOZDENI_DAYS_COL = ```
+			
+			IF (
+			    ISBLANK ( KIA_AGG_DATES[KIA_REAL_DURATION_DAYS_COL] )
+			        || ISBLANK ( KIA_AGG_DATES[KIA_NORMA_DAYS] ),
+			    BLANK (),
+			    KIA_AGG_DATES[KIA_REAL_DURATION_DAYS_COL]
+			        - KIA_AGG_DATES[KIA_NORMA_DAYS]
+			)
+			
+			```
+		formatString: 0
+		lineageTag: b63c3c9e-52b6-442b-9497-65ec515549c0
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	partition KIA_AGG_DATES = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_VYSTAVBA_KIA_AGG_DATES = Source{[Schema=Schema,Item="VYSTAVBA_KIA_AGG_DATES"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_VYSTAVBA_KIA_AGG_DATES
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

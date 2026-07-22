@@ -1,0 +1,89 @@
+// Vítá vás zobrazení dotazu DAX! Další informace o dotazech DAX najdete na https://aka.ms/dax-queries.
+// Pokud chcete získat přístup k rychlým dotazům, klikněte pravým tlačítkem myši na tabulky, sloupce nebo míry v podokně dat, nebo požádejte Copilot o pomoc při psaní jazyka DAX.
+
+DEFINE
+    MEASURE DATA_QUALITY_BASE[_Color STATUS_CRM_OPPORTUNITY M] =
+        VAR _v = SELECTEDVALUE( DATA_QUALITY_BASE[STATUS_CRM_OPPORTUNITY] )
+        RETURN SWITCH( TRUE(),
+            _v IN { "HOTOVO", "SCHVÁLENO", "ZÁSOBNÍK", "PROBÍHÁ", "PROBÍHÁ U ABC" }, "#63BE7B",
+            _v IN { "ZRUŠENO", "POZASTAVENO", "VRÁCENO" }, "#F8696B"
+        )
+
+    MEASURE DATA_QUALITY_BASE[_Color STATUS_SVS_PROJECT M] =
+        VAR _v = SELECTEDVALUE( DATA_QUALITY_BASE[STATUS_SVS_PROJECT] )
+        RETURN SWITCH( TRUE(),
+            _v IN { "HOTOVO", "SCHVÁLENO", "ZÁSOBNÍK", "PROBÍHÁ", "PROBÍHÁ U ABC" }, "#63BE7B",
+            _v IN { "ZRUŠENO", "POZASTAVENO", "VRÁCENO" }, "#F8696B"
+        )
+
+    MEASURE DATA_QUALITY_BASE[_Color Status IK1 Calc M] =
+        VAR _orig = SELECTEDVALUE( DATA_QUALITY_BASE[STATUS_IK1_ORIG] )
+        VAR _v = SELECTEDVALUE( DATA_QUALITY_BASE[STATUS_IK1] )
+        RETURN
+            IF(
+                ISBLANK( _orig ),
+                BLANK(),
+                SWITCH( TRUE(),
+                    _v IN { "HOTOVO", "SCHVÁLENO", "ZÁSOBNÍK", "PROBÍHÁ", "PROBÍHÁ U ABC" }, "#63BE7B",
+                    _v IN { "ZRUŠENO", "POZASTAVENO", "VRÁCENO" }, "#F8696B"
+                )
+            )
+
+    MEASURE DATA_QUALITY_BASE[_Color Status Projekt Calc M] =
+        VAR _orig = SELECTEDVALUE( DATA_QUALITY_BASE[STATUS_PROJEKCE_ORIG] )
+        VAR _v = SELECTEDVALUE( DATA_QUALITY_BASE[STATUS_PROJEKCE] )
+        RETURN
+            IF(
+                ISBLANK( _orig ),
+                BLANK(),
+                SWITCH( TRUE(),
+                    _v IN { "HOTOVO", "SCHVÁLENO", "ZÁSOBNÍK", "PROBÍHÁ", "PROBÍHÁ U ABC" }, "#63BE7B",
+                    _v IN { "ZRUŠENO", "POZASTAVENO", "VRÁCENO" }, "#F8696B"
+                )
+            )
+
+    MEASURE DATA_QUALITY_BASE[_Color STATUS_IK2 M] =
+        VAR _orig = SELECTEDVALUE( DATA_QUALITY_BASE[STATUS_IK2_ORIG] )
+        VAR _v = SELECTEDVALUE( DATA_QUALITY_BASE[STATUS_IK2] )
+        RETURN
+            IF(
+                ISBLANK( _orig ),
+                BLANK(),
+                SWITCH( TRUE(),
+                    _v IN { "HOTOVO", "SCHVÁLENO", "ZÁSOBNÍK", "PROBÍHÁ", "PROBÍHÁ U ABC" }, "#63BE7B",
+                    _v IN { "ZRUŠENO", "POZASTAVENO", "VRÁCENO" }, "#F8696B"
+                )
+            )
+
+    MEASURE DATA_QUALITY_BASE[_Color STATUS_AKVIZICE M] =
+        VAR _v = SELECTEDVALUE( DATA_QUALITY_BASE[STATUS_AKVIZICE] )
+        RETURN SWITCH( TRUE(),
+            _v IN { "HOTOVO", "SCHVÁLENO", "ZÁSOBNÍK", "PROBÍHÁ", "PROBÍHÁ U ABC" }, "#63BE7B",
+            _v IN { "ZRUŠENO", "POZASTAVENO", "VRÁCENO" }, "#F8696B"
+        )
+
+    MEASURE DATA_QUALITY_BASE[_Color STATUS_REALIZACE M] =
+        VAR _v = SELECTEDVALUE( DATA_QUALITY_BASE[STATUS_REALIZACE] )
+        RETURN SWITCH( TRUE(),
+            _v IN { "HOTOVO", "SCHVÁLENO", "ZÁSOBNÍK", "PROBÍHÁ", "PROBÍHÁ U ABC" }, "#63BE7B",
+            _v IN { "ZRUŠENO", "POZASTAVENO", "VRÁCENO" }, "#F8696B"
+        )
+
+    MEASURE DATA_QUALITY_BASE[_Color STATUS_KOMERCE M] =
+        VAR _v = SELECTEDVALUE( DATA_QUALITY_BASE[STATUS_KOMERCE] )
+        RETURN SWITCH( TRUE(),
+            _v IN { "HOTOVO", "SCHVÁLENO", "ZÁSOBNÍK", "PROBÍHÁ", "PROBÍHÁ U ABC" }, "#63BE7B",
+            _v IN { "ZRUŠENO", "POZASTAVENO", "VRÁCENO" }, "#F8696B"
+        )
+
+EVALUATE
+    ROW (
+        "_Color STATUS_CRM_OPPORTUNITY M", [_Color STATUS_CRM_OPPORTUNITY M],
+        "_Color STATUS_SVS_PROJECT M",     [_Color STATUS_SVS_PROJECT M],
+        "_Color Status IK1 Calc M",        [_Color Status IK1 Calc M],
+        "_Color Status Projekt Calc M",    [_Color Status Projekt Calc M],
+        "_Color STATUS_IK2 M",             [_Color STATUS_IK2 M],
+        "_Color STATUS_AKVIZICE M",        [_Color STATUS_AKVIZICE M],
+        "_Color STATUS_REALIZACE M",       [_Color STATUS_REALIZACE M],
+        "_Color STATUS_KOMERCE M",         [_Color STATUS_KOMERCE M]
+    )

@@ -1,0 +1,509 @@
+table DIM_ROP
+	lineageTag: f05fc0e1-53b7-4cad-8ea9-7428490e6213
+
+	column ROP_Key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: c4ef8c39-60cf-4af5-8687-b5e36f061785
+		summarizeBy: none
+		sourceColumn: ROP_Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ROP ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 43d59262-bc7d-4d7a-8974-7fd821d435c2
+		summarizeBy: none
+		sourceColumn: ROP ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ROP ID Original'
+		dataType: int64
+		formatString: 0
+		lineageTag: 80299223-c161-41b7-a158-55d96cc9af2e
+		summarizeBy: sum
+		sourceColumn: ROP ID Original
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Vystavby 1'
+		dataType: string
+		lineageTag: 98bbe32e-511f-436d-b6b0-5caf98115dbf
+		summarizeBy: none
+		sourceColumn: Typ Vystavby 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Vystavby 2'
+		dataType: string
+		lineageTag: c3d526da-2a72-4925-8518-ac834733609b
+		summarizeBy: none
+		sourceColumn: Typ Vystavby 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Vystavby 3'
+		dataType: string
+		lineageTag: 86861274-0165-424d-abb2-b243105cc486
+		summarizeBy: none
+		sourceColumn: Typ Vystavby 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Vystavby 4'
+		dataType: string
+		lineageTag: e14dcbb6-9125-46b3-b673-89014419330b
+		summarizeBy: none
+		sourceColumn: Typ Vystavby 4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Vystavby 6'
+		dataType: string
+		lineageTag: 520a4074-2b7a-40a6-b7f5-bb2843b7e1d6
+		summarizeBy: none
+		sourceColumn: Typ Vystavby 6
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HP Pocet Init'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e272752-d639-419a-905c-4505a122e28e
+		summarizeBy: sum
+		sourceColumn: HP Pocet Init
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kraj
+		dataType: string
+		lineageTag: 2ebf383c-825f-4239-8876-cc49550c590f
+		summarizeBy: none
+		sourceColumn: Kraj
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Region Nova Optika'
+		dataType: string
+		lineageTag: e985a284-4d8f-438e-9afb-38244f3307fe
+		summarizeBy: none
+		sourceColumn: Region Nova Optika
+
+		annotation SummarizationSetBy = Automatic
+
+	column Okres
+		dataType: string
+		lineageTag: 5b609570-0b96-4609-9ae2-c6f2f4975cf6
+		summarizeBy: none
+		sourceColumn: Okres
+
+		annotation SummarizationSetBy = Automatic
+
+	column Obec
+		dataType: string
+		lineageTag: ba6666d4-055e-4df8-8dbf-5b18c55b09e7
+		summarizeBy: none
+		sourceColumn: Obec
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cast Obce'
+		dataType: string
+		lineageTag: 3c84d709-a285-464f-96e4-be732c8fa9c9
+		summarizeBy: none
+		sourceColumn: Cast Obce
+
+		annotation SummarizationSetBy = Automatic
+
+	column Ulice
+		dataType: string
+		lineageTag: cc3c584e-b12f-4cb9-ae55-095ecd18f34a
+		summarizeBy: none
+		sourceColumn: Ulice
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: double
+		lineageTag: 14cc55cf-c02a-427e-bda3-8c6caf322978
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Longitude
+		dataType: double
+		lineageTag: 0d02db60-9a11-48e8-b290-dd1aa50b56b7
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Waze Navigace'
+		dataType: string
+		lineageTag: 4ee4f2f3-9bc6-40e2-8c6c-3d28ba67d7fb
+		dataCategory: WebUrl
+		summarizeBy: none
+		sourceColumn: Waze Navigace
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Akvizice Stav'
+		dataType: string
+		lineageTag: a5f8e484-c33e-4f41-915b-04093774d7e1
+		summarizeBy: none
+		sourceColumn: Akvizice Stav
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Napojeni Mikrotrubicky (Plan)'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 26fb8fe6-37d2-42af-8e35-ccf93080843b
+		summarizeBy: none
+		sourceColumn: Napojeni Mikrotrubicky (Plan)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Napojeni Mikrotrubicky (Real)'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 07037baa-4082-421c-a407-ae13127c478b
+		summarizeBy: none
+		sourceColumn: Napojeni Mikrotrubicky (Real)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Napojeni Optiky (Plan)'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d763da99-b171-400e-9a59-b85f33e3af03
+		summarizeBy: none
+		sourceColumn: Napojeni Optiky (Plan)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Napojeni Optiky (Real)'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 2471f91b-6fc5-4b35-afd8-e6e1ccdaacee
+		summarizeBy: none
+		sourceColumn: Napojeni Optiky (Real)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Napojeni Vnitrnich Rozvodu (Plan)'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6097dea3-d5d4-4aab-8b81-5824905caba0
+		summarizeBy: none
+		sourceColumn: Napojeni Vnitrnich Rozvodu (Plan)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Napojeni Vnitrnich Rozvodu (Real)'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8da32182-44c8-4613-99d7-cbdb7d2b3477
+		summarizeBy: none
+		sourceColumn: Napojeni Vnitrnich Rozvodu (Real)
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Realizace Stav'
+		dataType: string
+		lineageTag: a37eba97-a3ca-49ed-8e1b-259e8b86824b
+		summarizeBy: none
+		sourceColumn: Realizace Stav
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Ciselnik ROP'
+		dataType: string
+		lineageTag: 2233251a-f706-4582-a69f-9804da729ac7
+		summarizeBy: none
+		sourceColumn: Status Ciselnik ROP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Zpusob Pripojeni Objektu'
+		dataType: string
+		lineageTag: d559fae4-cd53-4c91-9cc6-b992baca42a2
+		summarizeBy: none
+		sourceColumn: Zpusob Pripojeni Objektu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prstenec Ano/Ne'
+		dataType: string
+		lineageTag: 8aa630ba-904f-4827-8cb8-093ba2ce3a87
+		summarizeBy: none
+		sourceColumn: Prstenec Ano/Ne
+
+		annotation SummarizationSetBy = Automatic
+
+	column Substatus
+		dataType: string
+		lineageTag: 67c326c9-256e-4fdb-8c07-fa68df38e035
+		summarizeBy: none
+		sourceColumn: Substatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 10265946-c1c7-4bdc-ac1e-0f38587cd850
+		summarizeBy: none
+		sourceColumn: Status
+		sortByColumn: 'Status Poradi'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Poradi'
+		dataType: int64
+		formatString: 0
+		lineageTag: 11aea023-f2ae-4404-a678-ef1251d787ef
+		summarizeBy: sum
+		sourceColumn: Status Poradi
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Okres Urbanizace'
+		dataType: string
+		lineageTag: b2e49433-621b-4a26-b6ac-897579ce09fd
+		summarizeBy: none
+		sourceColumn: Okres Urbanizace
+
+		annotation SummarizationSetBy = Automatic
+
+	column Aktivni
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 2fe7ad1c-e2a8-478f-9767-eec2f9bff9a4
+		summarizeBy: none
+		sourceColumn: Aktivni
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Datum Aktualizace'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 4b61817c-7329-4eca-bc94-545682051c44
+		summarizeBy: none
+		sourceColumn: Datum Aktualizace
+
+		annotation SummarizationSetBy = Automatic
+
+	column ZPS
+		dataType: string
+		lineageTag: ef1f5f33-fef7-4e78-bb7c-3ab70585c665
+		summarizeBy: none
+		sourceColumn: ZPS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Původ Accessu'
+		dataType: string
+		lineageTag: 841f4a6d-4adf-49cb-bd9d-cb07bc1fc68c
+		summarizeBy: none
+		sourceColumn: Původ Accessu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Aktivity'
+		dataType: string
+		lineageTag: 81ef3e3e-7eda-470e-a828-57f483afc69f
+		summarizeBy: none
+		sourceColumn: Typ Aktivity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kategorie Výstavby'
+		dataType: string
+		lineageTag: 2c06ad17-d9d2-4453-9c7e-0c4c7fae273b
+		summarizeBy: none
+		sourceColumn: Kategorie Výstavby
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub-Kategorie Výstavby'
+		dataType: string
+		lineageTag: e8cc727b-b8c8-4188-ae61-800a9b2c7c43
+		summarizeBy: none
+		sourceColumn: Sub-Kategorie Výstavby
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Původní Síť'
+		dataType: string
+		lineageTag: 3a16b540-f12b-4f12-bd45-031aea3ee434
+		summarizeBy: none
+		sourceColumn: Původní Síť
+
+		annotation SummarizationSetBy = Automatic
+
+	column Partner
+		dataType: string
+		lineageTag: adfe240e-ffac-4d85-aa7d-449cc35cc325
+		summarizeBy: none
+		sourceColumn: Partner
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ZPS Kategorie'
+		dataType: string
+		lineageTag: d4e2b274-a162-4d33-baba-5d7dd9abd827
+		summarizeBy: none
+		sourceColumn: ZPS Kategorie
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Projektu'
+		dataType: string
+		lineageTag: 4bc0eb69-7b25-447c-b12a-783e467e0c50
+		summarizeBy: none
+		sourceColumn: Typ Projektu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Objektu'
+		dataType: string
+		lineageTag: 9845aa04-787b-4c76-803f-5962739fd127
+		summarizeBy: none
+		sourceColumn: Typ Objektu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ROP Puvod'
+		dataType: string
+		lineageTag: 0b56d83b-8552-4afc-901a-f2afbb3215b3
+		summarizeBy: none
+		sourceColumn: ROP Puvod
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HP Puvod'
+		dataType: string
+		lineageTag: dca1ed90-38e7-4f6a-a029-829a82fddd4b
+		summarizeBy: none
+		sourceColumn: HP Puvod
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KPI Trvani Dni'
+		dataType: int64
+		formatString: 0
+		lineageTag: 6e9a6e11-62f8-459b-ad55-e9cd4da70017
+		summarizeBy: sum
+		sourceColumn: KPI Trvani Dni
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KPI Status Komerce'
+		dataType: string
+		lineageTag: 5e68ee67-0c00-4868-acf4-a6ac3368f0c6
+		summarizeBy: none
+		sourceColumn: KPI Status Komerce
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reklamace Typ'
+		dataType: string
+		lineageTag: f514c536-659b-4d97-a679-da48924934ab
+		summarizeBy: none
+		sourceColumn: Reklamace Typ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reklamace Duration'
+		dataType: int64
+		formatString: 0
+		lineageTag: 766c8525-8a55-4031-ad00-f3a1a35fbab2
+		summarizeBy: sum
+		sourceColumn: Reklamace Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reklamace Resitel'
+		dataType: string
+		lineageTag: d6ce6ec1-51e6-47d6-a9d8-508929714f65
+		summarizeBy: none
+		sourceColumn: Reklamace Resitel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Zpozdeni Bez Reklamace'
+		dataType: string
+		lineageTag: 77c0ea66-8c22-47cf-9672-9f6103e2c3d8
+		summarizeBy: none
+		sourceColumn: Status Zpozdeni Bez Reklamace
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CRM ROP Upravil'
+		dataType: string
+		lineageTag: 0699621f-757f-49f6-871d-5971e2893622
+		summarizeBy: none
+		sourceColumn: CRM ROP Upravil
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'KPI Dokumentace Odevzdana'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 2ec5f91f-9926-4eb2-a44b-49cc35015b3a
+		summarizeBy: none
+		sourceColumn: KPI Dokumentace Odevzdana
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'KPI Spusteni do Komerce'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: 9a76bd02-8568-43e9-ae83-662f46116f86
+		summarizeBy: none
+		sourceColumn: KPI Spusteni do Komerce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition DIM_ROP = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP = Source{[Schema=Schema,Item="DIM_ROP_CURRENT"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

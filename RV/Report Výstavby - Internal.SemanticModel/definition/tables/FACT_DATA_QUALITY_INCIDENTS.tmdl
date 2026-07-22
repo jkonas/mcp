@@ -1,0 +1,233 @@
+table FACT_DATA_QUALITY_INCIDENTS
+	lineageTag: d7f147bb-0ac4-491f-b19d-460d767faae5
+
+	measure 'Počet itemů v kontrole' = ```
+			
+			VAR _vse = CALCULATE ( COUNTROWS ( FACT_DATA_QUALITY_INCIDENTS ) )
+			VAR _hp  = 
+			    CALCULATE (
+			        COUNTROWS ( FACT_DATA_QUALITY_INCIDENTS ),
+			        FACT_DATA_QUALITY_INCIDENTS[DQ_Group_Label] = "ROP s 0 HP"
+			    )
+			RETURN
+			    IF (
+			        _vse = _hp && _vse > 0,
+			        DISTINCTCOUNT ( FACT_DATA_QUALITY_INCIDENTS[ROP_ID] ),
+			        SUM ( FACT_DATA_QUALITY_INCIDENTS[HP] )
+			    )
+			```
+		formatString: #,0
+		lineageTag: 1e0bf4b9-15b2-48bf-ac2d-36984f074fdd
+
+	measure 'Pocet ROP Check Color' = ```
+			
+			VAR _hodnota = DISTINCTCOUNT ( FACT_DATA_QUALITY_INCIDENTS[ROP_ID] )
+			VAR _hasAny = 
+			    CALCULATE ( COUNTROWS ( FACT_DATA_QUALITY_INCIDENTS ) )
+			VAR _hasNonHP = 
+			    CALCULATE (
+			        COUNTROWS ( FACT_DATA_QUALITY_INCIDENTS ),
+			        KEEPFILTERS ( 
+			            FACT_DATA_QUALITY_INCIDENTS[DQ_Group_Label] <> "Fáze s 0 HP" 
+			        )
+			    )
+			VAR _isHP = 
+			    NOT ISBLANK ( _hasAny ) && ISBLANK ( _hasNonHP )
+			RETURN
+			    IF (
+			        ISBLANK ( _hodnota ),
+			        BLANK (),
+			        SWITCH (
+			            TRUE (),
+			            -- HP řádky: přísnější prahy
+			            _isHP && _hodnota <= 100,    "#63BE7B",   -- zelená
+			            _isHP && _hodnota <= 1000,   "#FFEB84",   -- žlutá
+			            _isHP,                       "#F8696B",   -- červená
+			            -- ostatní DQ skupiny: původní prahy
+			            _hodnota <= 5000,            "#63BE7B",
+			            _hodnota <= 10000,           "#FFEB84",
+			                                         "#F8696B"
+			        )
+			    )
+			```
+		lineageTag: f4e11fad-eddc-4740-a455-5aeac7286a0c
+
+	column INCIDENT_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: 49ee8ebf-78f2-4a41-a3e3-4b937ef11bc3
+		summarizeBy: count
+		sourceColumn: INCIDENT_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROP_ID
+		dataType: int64
+		formatString: 0
+		lineageTag: b69c3b8a-ea3a-4684-bd01-c7a996d183d8
+		summarizeBy: none
+		sourceColumn: ROP_ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_GROUP
+		dataType: string
+		lineageTag: bf275933-a320-4ad9-afca-3d5ab55a2daa
+		summarizeBy: none
+		sourceColumn: DQ_GROUP
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_GROUP_LABEL
+		dataType: string
+		lineageTag: 8a672a5b-7c95-4686-a9e2-7f081aa69a6a
+		summarizeBy: none
+		sourceColumn: DQ_GROUP_LABEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_GROUP_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 9b654a11-a87a-4024-ab67-3a4368a59fd8
+		summarizeBy: sum
+		sourceColumn: DQ_GROUP_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_CHECK
+		dataType: string
+		lineageTag: d7e77cc5-7d85-49e2-9a22-75bcb93728d9
+		summarizeBy: none
+		sourceColumn: DQ_CHECK
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_CHECK_LABEL
+		dataType: string
+		lineageTag: ac5389fe-d31a-4457-a45e-c3cac0d095a4
+		summarizeBy: none
+		sourceColumn: DQ_CHECK_LABEL
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_CHECK_ORDER
+		dataType: int64
+		formatString: 0
+		lineageTag: 5818201c-e3b2-4068-9df1-324d5913d688
+		summarizeBy: sum
+		sourceColumn: DQ_CHECK_ORDER
+
+		annotation SummarizationSetBy = Automatic
+
+	column SEVERITY
+		dataType: string
+		lineageTag: a97d7be8-4a26-4086-87e8-cfefa24a0a8b
+		summarizeBy: none
+		sourceColumn: SEVERITY
+
+		annotation SummarizationSetBy = Automatic
+
+	column AFFECTED_FAZE
+		dataType: string
+		lineageTag: bab7fc57-dd2e-4b65-ad53-23b91bf0736f
+		summarizeBy: none
+		sourceColumn: AFFECTED_FAZE
+
+		annotation SummarizationSetBy = Automatic
+
+	column AFFECTED_FAZE_2
+		dataType: string
+		lineageTag: 0d1a7b48-1930-448b-a6ee-cb22c6d34102
+		summarizeBy: none
+		sourceColumn: AFFECTED_FAZE_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column AFFECTED_STAV
+		dataType: string
+		lineageTag: 29cff1e7-6e13-4fee-9788-93533c50891f
+		summarizeBy: none
+		sourceColumn: AFFECTED_STAV
+
+		annotation SummarizationSetBy = Automatic
+
+	column AFFECTED_STAV_2
+		dataType: string
+		lineageTag: 01d76ff9-c563-4cd2-b4d2-0f0f4f39ea2e
+		summarizeBy: none
+		sourceColumn: AFFECTED_STAV_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column AFFECTED_ZDROJ
+		dataType: string
+		lineageTag: 9e7f6c83-2e95-4442-8897-c8856ab21225
+		summarizeBy: none
+		sourceColumn: AFFECTED_ZDROJ
+
+		annotation SummarizationSetBy = Automatic
+
+	column AFFECTED_ZDROJ_2
+		dataType: string
+		lineageTag: fe9dab8e-d8bf-42df-845e-c2e5b8a538af
+		summarizeBy: none
+		sourceColumn: AFFECTED_ZDROJ_2
+
+		annotation SummarizationSetBy = Automatic
+
+	column POPIS
+		dataType: string
+		lineageTag: dc901836-5b8f-436f-855b-4fb69f262bbc
+		summarizeBy: none
+		sourceColumn: POPIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column KIA
+		dataType: string
+		lineageTag: 1da0f670-ecaf-4dab-9a52-7917b88cdae6
+		summarizeBy: none
+		sourceColumn: KIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column HP
+		dataType: int64
+		formatString: 0
+		lineageTag: 98fce4fc-efcb-4424-b164-db2f8792d3dd
+		summarizeBy: sum
+		sourceColumn: HP
+
+		annotation SummarizationSetBy = Automatic
+
+	column AKTUALNI_FAZE
+		dataType: string
+		lineageTag: f362a863-0825-49db-8b15-2d74fbfb212c
+		summarizeBy: none
+		sourceColumn: AKTUALNI_FAZE
+
+		annotation SummarizationSetBy = Automatic
+
+	column AKTUALNI_STATUS
+		dataType: string
+		lineageTag: 72b8d4c3-d5eb-49e7-b867-1f6164e79da7
+		summarizeBy: none
+		sourceColumn: AKTUALNI_STATUS
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FACT_DATA_QUALITY_INCIDENTS = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Zdroj = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod"),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_VRP_FACT_DATA_QUALITY_INCIDENTS_TOP = Zdroj{[Schema=Schema,Item="VRP_FACT_DATA_QUALITY_INCIDENTS_TOP"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_VRP_FACT_DATA_QUALITY_INCIDENTS_TOP
+
+	annotation PBI_NavigationStepName = Navigace
+
+	annotation PBI_ResultType = Table
+

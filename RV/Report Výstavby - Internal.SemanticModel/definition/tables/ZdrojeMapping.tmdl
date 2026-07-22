@@ -1,0 +1,48 @@
+table ZdrojeMapping
+	lineageTag: e7676ea1-6b9a-4e29-81c4-b734a97374dc
+
+	column ZDROJ
+		lineageTag: 0c82885e-600a-4868-b695-3fc4610cef11
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [ZDROJ]
+
+		annotation SummarizationSetBy = Automatic
+
+	column NAME
+		lineageTag: 6fac1c92-0ead-42ba-abac-99e3ec5d754a
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [NAME]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition ZdrojeMapping = calculated
+		mode: import
+		source = ```
+				
+				        DATATABLE(
+				            "ZDROJ", STRING,
+				            "NAME", STRING,
+				            {
+				                { "IK_ROP_x_ROP_ID",                    "Tabulka IK ROP" },
+				                { "PORTAL_VYSTAVBY_x_ROP_ID",           "M365" },
+				                { "RIDICI_TABULKA_NGA_V",               "Excel Řídící Tabulka Realizace (NGA V)" },
+				                { "SVS_PROJECT_x_GEN",                  "SVS Plánování" },
+				                { "ZAPIS_IK",                           "Zápis Investiční Komise" },
+				                { "RIDICI_TABULKA_PROJEKCE_NGA_V",      "Excel Řídící Tabulka Projekce (NGA V)" },
+				                { "RIDICI_TABULKA_REALIZACE_GREENFIELDS","Excel Řídící Tabulka Realizace (Greenfields)" },
+				                { "REPORT_PRESALES_AKVIZIC",            "Report Pre-Sales Akvizic" },
+				                { "REPORT_AKVIZIC",                     "Report Akvizic" },
+				                { "CRM_OPPORTUNITY_x_GEN",              "CRM Obchodní Příležitosti" },
+				                { "IK_ROP",                             "Tabulka IK ROP" },
+				                { "RIDICI_TABULKA_NADZEMNI_VYSTAVBA",   "Excel Řídící Tabulka (Nadzemní Výstavba)" },
+				                { "CABLE_NET",                          "Excel Řídící Tabulka (CableNet)" },
+				                { "PORTAL_VYSTAVBY",                    "M365" }
+				            }
+				        )
+				
+				```
+
+	annotation PBI_Id = 0af42da8be124c3ca021282cd558660f
+

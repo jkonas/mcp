@@ -1,0 +1,1266 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "Týden",
+  "name": "6e56f1763a71ce00b0a7",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "ce84e0f1ec82ed329557",
+      "c85c1a549a942d00728b"
+    ],
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "a7dd701ce4ac0c378359",
+    "filters": {
+      "byExpr": [
+        {
+          "name": "52f82dcfaa0bf51c1154",
+          "type": "Categorical",
+          "filter": {
+            "Version": 2,
+            "From": [
+              {
+                "Name": "d",
+                "Entity": "DIM_ROP",
+                "Type": 0
+              }
+            ],
+            "Where": [
+              {
+                "Condition": {
+                  "Not": {
+                    "Expression": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "d"
+                                }
+                              },
+                              "Property": "Substatus"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'V Realizaci - Akvizice Neprojednána'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Zásobník ABC - Neschvalitelné HP'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "DIM_ROP"
+                }
+              },
+              "Property": "Substatus"
+            }
+          },
+          "howCreated": 1
+        },
+        {
+          "name": "5f00efa582a282d80690",
+          "type": "Categorical",
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "DIM_KIA"
+                }
+              },
+              "Property": "ABC Manager"
+            }
+          },
+          "howCreated": 1
+        },
+        {
+          "name": "e486c036b80e3626106d",
+          "type": "Categorical",
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "DIM_KIA"
+                }
+              },
+              "Property": "ABC Team"
+            }
+          },
+          "howCreated": 1
+        },
+        {
+          "name": "eb62b74b2a3a3dd052db",
+          "type": "Categorical",
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "DIM_KVA"
+                }
+              },
+              "Property": "Projekce PC"
+            }
+          },
+          "howCreated": 1
+        }
+      ]
+    },
+    "sections": {
+      "a7dd701ce4ac0c378359": {
+        "filters": {
+          "byName": {
+            "665c6d061dc3e1d67b00": {
+              "name": "665c6d061dc3e1d67b00",
+              "type": "Categorical",
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "DIM_IK_ZAPIS",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "d"
+                                }
+                              },
+                              "Property": "Prvni Schvaleny Zaznam Pro KIU a IK Level bez Pripoloze a IK0 a IK3"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "1L"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "null"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_IK_ZAPIS"
+                    }
+                  },
+                  "Property": "Prvni Schvaleny Zaznam Pro KIU a IK Level bez Pripoloze a IK0 a IK3"
+                }
+              },
+              "howCreated": 1
+            },
+            "d94f5e5e272b2e000785": {
+              "name": "d94f5e5e272b2e000785",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "Status"
+                }
+              },
+              "howCreated": 1
+            },
+            "17d04fdfb341810351c9": {
+              "name": "17d04fdfb341810351c9",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_MILESTONE"
+                    }
+                  },
+                  "Property": "Milnik"
+                }
+              },
+              "howCreated": 1
+            }
+          },
+          "byExpr": [
+            {
+              "name": "4e7e92117bae809b09e7",
+              "type": "Advanced",
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "DIM_CALENDAR",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "And": {
+                        "Left": {
+                          "Comparison": {
+                            "ComparisonKind": 2,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
+                                  }
+                                },
+                                "Property": "Datum"
+                              }
+                            },
+                            "Right": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "Literal": {
+                                    "Value": "datetime'2024-01-01T00:00:00'"
+                                  }
+                                },
+                                "TimeUnit": 5
+                              }
+                            }
+                          }
+                        },
+                        "Right": {
+                          "Comparison": {
+                            "ComparisonKind": 4,
+                            "Left": {
+                              "Column": {
+                                "Expression": {
+                                  "SourceRef": {
+                                    "Source": "d"
+                                  }
+                                },
+                                "Property": "Datum"
+                              }
+                            },
+                            "Right": {
+                              "DateSpan": {
+                                "Expression": {
+                                  "Literal": {
+                                    "Value": "datetime'2026-12-31T00:00:00'"
+                                  }
+                                },
+                                "TimeUnit": 5
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                ]
+              },
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_CALENDAR"
+                    }
+                  },
+                  "Property": "Datum"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "023e9008346210019dee",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_MILESTONE"
+                    }
+                  },
+                  "Property": "Milnik"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "282b947282e0b487a023",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_KIA"
+                    }
+                  },
+                  "Property": "KIA"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "7fe01452b14ccae84ec8",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "Status"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "00ad7ae5de60936949a1",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "Kraj"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "abf2d85975ad451e8680",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "Ulice"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "10197077c726940ed7a8",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP_PRIZNAK"
+                    }
+                  },
+                  "Property": "Typ Vystavby 5"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "fd763252714993e27c4b",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_DODAVATEL"
+                    }
+                  },
+                  "Property": "Dodavatel"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "6fd7a2f8a8ae384b5011",
+              "type": "Categorical",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_DODAVATEL_SUBTYPE"
+                    }
+                  },
+                  "Property": "Podtyp"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "89bd7db77c0d8eb0e78f",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "Prstenec Ano/Ne"
+                }
+              },
+              "howCreated": 1
+            },
+            {
+              "name": "5afa1ba6bd752bf9c4c1",
+              "type": "Advanced",
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FACT_VYSTAVBA_MILNIK"
+                    }
+                  },
+                  "Property": "Pocet HP"
+                }
+              },
+              "howCreated": 1
+            }
+          ]
+        },
+        "visualContainers": {
+          "c85c1a549a942d00728b": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d0dd3148aa76eb3cd783",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_MILESTONE"
+                        }
+                      },
+                      "Property": "Milnik"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "659b6bc1e50699b90213",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "Mesic Cislo Lomeno Rok Kratky"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "b1ea72b057ee17204c73",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "YEAR_NUM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ec74665874910190375a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "Mesic Kratky Nazev"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "74fd578d4739da47aee3",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FACT_VYSTAVBA"
+                            }
+                          },
+                          "Property": "Pocet HP"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "7dab49248d053339b67e",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Počet HP Subjekt Milnik"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "orderBy": [
+                {
+                  "Direction": 1,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_MILESTONE"
+                        }
+                      },
+                      "Property": "Milnik"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_MILESTONE"
+                        }
+                      },
+                      "Property": "Milnik"
+                    }
+                  }
+                ],
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "YEAR_NUM"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "Mesic Kratky Nazev"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Rows"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "DIM_MILESTONE.Milnik"
+                      ],
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null
+                  }
+                }
+              ],
+              "display": {
+                "mode": "hidden"
+              }
+            }
+          },
+          "ce84e0f1ec82ed329557": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "d0dd3148aa76eb3cd783",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_MILESTONE"
+                        }
+                      },
+                      "Property": "Milnik"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "659b6bc1e50699b90213",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "Mesic Cislo Lomeno Rok Kratky"
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "eb6909e216ebc610ed01",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "YEAR_NUM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "6eb136e046eb043a3515",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "Tyden v Roce Nazev"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e9d358712e45acb92180",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FACT_VYSTAVBA_MILNIK"
+                            }
+                          },
+                          "Property": "Pocet HP"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "pivotTable",
+              "objects": {},
+              "activeProjections": {
+                "Rows": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_MILESTONE"
+                        }
+                      },
+                      "Property": "Milnik"
+                    }
+                  }
+                ],
+                "Columns": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "YEAR_NUM"
+                    }
+                  },
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "Tyden v Roce Nazev"
+                    }
+                  }
+                ]
+              },
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Rows"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "DIM_MILESTONE.Milnik"
+                      ],
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null
+                  }
+                }
+              ]
+            }
+          },
+          "c591bb839a4849ac7b2a": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "18825d8a002e14eb7120",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_KIA"
+                        }
+                      },
+                      "Property": "KIA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "918101034190de096333",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_KIA"
+                        }
+                      },
+                      "Property": "Projekt"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "11fb8e0908be4f6079ba",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_KIA"
+                        }
+                      },
+                      "Property": "Status"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "e10fe75857af8d08f550",
+                  "type": "Advanced",
+                  "expression": {
+                    "Aggregation": {
+                      "Expression": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Entity": "FACT_VYSTAVBA"
+                            }
+                          },
+                          "Property": "Pocet HP"
+                        }
+                      },
+                      "Function": 0
+                    }
+                  },
+                  "howCreated": 1
+                },
+                {
+                  "name": "ee3b64294943a9e01639",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Celkem HP za IA"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "4c41b0997cd2b7134301",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Dodavatel Projekce"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "99807a1cdc7b3c12367b",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Dodavatel Realizace"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "69c0c6dabc562ee93792",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_KIA"
+                        }
+                      },
+                      "Property": "Region Nova Optika"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "c751aa6c1803c7e818e0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "Průběžné Plnění HP za IA"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "tableEx",
+              "objects": {}
+            }
+          },
+          "913fb6244a0cacb7b29d": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "af08fbb0a937823a0708",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_MILESTONE"
+                        }
+                      },
+                      "Property": "Milnik"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "ceac7ccaaeb446c18c7a",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "Datum"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "0fa2b601a852860446b0",
+                  "type": "Advanced",
+                  "expression": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "_Measures"
+                        }
+                      },
+                      "Property": "HP Kumulativní Součet"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "lineChart",
+              "objects": {},
+              "activeProjections": {
+                "Category": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "Datum"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "f48eb70d040e55643394": {
+            "singleVisual": {
+              "visualType": "bookmarkNavigator",
+              "objects": {}
+            }
+          },
+          "9d3feedadeb7a000e9d1": {
+            "filters": {
+              "byExpr": [
+                {
+                  "name": "3707d11123589b1e0921",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "Tyden v Roce Nazev"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "f4c383426e3c977cc286",
+                  "type": "Advanced",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "YEAR_NUM"
+                    }
+                  },
+                  "howCreated": 0
+                },
+                {
+                  "name": "34f28acf2358b80070db",
+                  "type": "Categorical",
+                  "expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "MONTH_NAME"
+                    }
+                  },
+                  "howCreated": 0
+                }
+              ]
+            },
+            "singleVisual": {
+              "visualType": "slicer",
+              "objects": {
+                "merge": {
+                  "general": [
+                    {
+                      "properties": {
+                        "filter": {
+                          "filter": {
+                            "Version": 2,
+                            "From": [
+                              {
+                                "Name": "d",
+                                "Entity": "DIM_CALENDAR",
+                                "Type": 0
+                              }
+                            ],
+                            "Where": [
+                              {
+                                "Condition": {
+                                  "In": {
+                                    "Expressions": [
+                                      {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Source": "d"
+                                            }
+                                          },
+                                          "Property": "YEAR_NUM"
+                                        }
+                                      }
+                                    ],
+                                    "Values": [
+                                      [
+                                        {
+                                          "Literal": {
+                                            "Value": "2026L"
+                                          }
+                                        }
+                                      ]
+                                    ]
+                                  }
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      }
+                    }
+                  ],
+                  "data": [
+                    {
+                      "properties": {
+                        "mode": {
+                          "expr": {
+                            "Literal": {
+                              "Value": "'Basic'"
+                            }
+                          }
+                        }
+                      }
+                    }
+                  ]
+                }
+              },
+              "orderBy": [
+                {
+                  "Direction": 2,
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "YEAR_NUM"
+                    }
+                  }
+                }
+              ],
+              "activeProjections": {
+                "Values": [
+                  {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_CALENDAR"
+                        }
+                      },
+                      "Property": "YEAR_NUM"
+                    }
+                  }
+                ]
+              },
+              "cachedFilterDisplayItems": [
+                {
+                  "id": {
+                    "scopeId": {
+                      "Comparison": {
+                        "ComparisonKind": 0,
+                        "Left": {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "DIM_CALENDAR"
+                              }
+                            },
+                            "Property": "YEAR_NUM"
+                          }
+                        },
+                        "Right": {
+                          "Literal": {
+                            "Value": "2026L"
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "displayName": "2026"
+                }
+              ],
+              "expansionStates": [
+                {
+                  "roles": [
+                    "Values"
+                  ],
+                  "levels": [
+                    {
+                      "queryRefs": [
+                        "DIM_CALENDAR.YEAR_NUM"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "DIM_CALENDAR"
+                              }
+                            },
+                            "Property": "YEAR_NUM"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "DIM_CALENDAR.MONTH_NAME"
+                      ],
+                      "isCollapsed": true,
+                      "identityKeys": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Entity": "DIM_CALENDAR"
+                              }
+                            },
+                            "Property": "MONTH_NAME"
+                          }
+                        }
+                      ],
+                      "isPinned": true
+                    },
+                    {
+                      "queryRefs": [
+                        "DIM_CALENDAR.Tyden v Roce Nazev"
+                      ],
+                      "isCollapsed": true,
+                      "isPinned": true
+                    }
+                  ],
+                  "root": {
+                    "identityValues": null
+                  }
+                }
+              ]
+            }
+          }
+        },
+        "visualContainerGroups": {
+          "ab19837f27d09ea040c0": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

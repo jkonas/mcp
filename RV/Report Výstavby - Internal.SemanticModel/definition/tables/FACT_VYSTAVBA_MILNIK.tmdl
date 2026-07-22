@@ -1,0 +1,134 @@
+table FACT_VYSTAVBA_MILNIK
+	lineageTag: 4840818a-dc68-4a26-9b7f-9753851556ad
+
+	column ROP_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4dba4d17-9f08-4641-8c50-9b0ea01e7fc6
+		summarizeBy: none
+		sourceColumn: ROP_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column KIA_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: b11f316a-739b-4b7a-aba1-1f3dd81bb342
+		summarizeBy: none
+		sourceColumn: KIA_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column KVA_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 384f183f-5819-49ba-b383-8117b9841d6e
+		summarizeBy: count
+		sourceColumn: KVA_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Faze_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: c83801fe-a424-442d-bf37-3740833b9aab
+		summarizeBy: none
+		sourceColumn: Faze_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stav_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 20d2f75f-ddac-45bd-bea7-82e1d26bc4c3
+		summarizeBy: none
+		sourceColumn: Stav_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dodavatel_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: edf746ae-b0ef-43c1-8fd7-79b18a33e73c
+		summarizeBy: none
+		sourceColumn: Dodavatel_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column IK_Zapis_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: b014f870-78d8-40c5-89ae-909f14f9864a
+		summarizeBy: none
+		sourceColumn: IK_Zapis_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Milnik_Key
+		dataType: string
+		lineageTag: 30243640-b3c9-4ffa-ba68-dd3d63b00ddb
+		summarizeBy: none
+		sourceColumn: Milnik_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pocet HP'
+		dataType: int64
+		formatString: 0
+		lineageTag: ca597aa0-1f96-4193-b612-7c598a259f13
+		summarizeBy: sum
+		sourceColumn: Pocet HP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pocet HP Stav'
+		dataType: int64
+		formatString: 0
+		lineageTag: b650f3e9-5037-4817-9c14-d1caafc79989
+		summarizeBy: sum
+		sourceColumn: Pocet HP Stav
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aktualni Stav'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 0a137367-9f9d-4429-a7c5-a04f1eabf2ea
+		summarizeBy: none
+		sourceColumn: Aktualni Stav
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Datumu'
+		dataType: string
+		lineageTag: 613fda53-36c5-4880-97ca-0c94e4ccd60e
+		summarizeBy: none
+		sourceColumn: Typ Datumu
+
+		annotation SummarizationSetBy = Automatic
+
+	column Datum
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 6a4d7cf3-35df-4830-ae5a-d2ca8f4baf5a
+		summarizeBy: none
+		sourceColumn: Datum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition FACT_VYSTAVBA_MILNIK = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_FACT_VYSTAVBA = Source{[Schema=Schema,Item="VRP_VYSTAVBA_FAZE_MILNIKY"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_FACT_VYSTAVBA
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Exception
+

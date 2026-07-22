@@ -1,0 +1,151 @@
+table DIM_CALENDAR
+	lineageTag: 074bcfe0-72b0-4eab-9f94-891ad362f338
+	dataCategory: Time
+
+	column Datum
+		dataType: dateTime
+		isKey
+		formatString: dd/mm/yyyy
+		lineageTag: 029559ce-bb4c-4a65-b1ff-025b60205738
+		summarizeBy: none
+		sourceColumn: Datum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column DAY_NUM
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e331356-9f2f-4c6b-9ae8-7ffb744ca930
+		summarizeBy: sum
+		sourceColumn: DAY_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH_NUM
+		dataType: int64
+		formatString: 0
+		lineageTag: 96f01ebe-ee77-4139-a5a7-3bdad1565532
+		summarizeBy: sum
+		sourceColumn: MONTH_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tyden v Roce Cislo'
+		dataType: int64
+		formatString: 0
+		lineageTag: 648241c3-1fff-414c-8d42-fa109b1baca4
+		summarizeBy: sum
+		sourceColumn: Tyden v Roce Cislo
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH_NAME
+		dataType: string
+		lineageTag: 5ba4d4a6-9a82-48d2-b3e5-84d21090c077
+		summarizeBy: none
+		sourceColumn: MONTH_NAME
+		sortByColumn: MONTH_NUM
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mesic Kratky Nazev'
+		dataType: string
+		lineageTag: fcc04061-5147-497f-935c-250322ff1bc0
+		summarizeBy: none
+		sourceColumn: Mesic Kratky Nazev
+		sortByColumn: MONTH_NUM
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Tyden v Roce Nazev'
+		dataType: string
+		lineageTag: 5bccc229-cd2a-4611-98c0-476d17e1c80e
+		summarizeBy: none
+		sourceColumn: Tyden v Roce Nazev
+		sortByColumn: 'Tyden v Roce Cislo'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column YEAR_NUM
+		dataType: int64
+		formatString: 0
+		lineageTag: 40bc0ba7-8dc8-4059-9c8e-2818f790f62e
+		summarizeBy: sum
+		sourceColumn: YEAR_NUM
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mesic Cislo Lomeno Rok Kratky'
+		dataType: string
+		lineageTag: 0177dda4-718a-441d-a179-b70e666f9223
+		summarizeBy: none
+		sourceColumn: Mesic Cislo Lomeno Rok Kratky
+		sortByColumn: 'Mesic Rok Razeni'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mesic Rok Razeni'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4ab65f50-2b24-4141-9ad3-43b2f7f063b8
+		summarizeBy: none
+		sourceColumn: Mesic Rok Razeni
+
+		annotation SummarizationSetBy = Automatic
+
+	column MONTH_FIRST_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d45b9176-8409-4cb7-adc5-5061df71a473
+		summarizeBy: none
+		sourceColumn: MONTH_FIRST_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column MONTH_LAST_DATE
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cfa48539-ab30-4ec2-8592-75d26f239ce3
+		summarizeBy: none
+		sourceColumn: MONTH_LAST_DATE
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	partition DIM_CALENDAR = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source = ```
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP = Source{[Schema="L1_CORE",Item="CALENDAR_CURRENT"]}[Data],
+				    #"Filtered Rows" = Table.SelectRows(SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP, each [CALENDAR_ID] > #date(2022, 1, 1)),
+				    #"Removed Other Columns" = Table.SelectColumns(#"Filtered Rows",{"CALENDAR_ID", "DAY_NUM", "MONTH_NUM", "YEAR_NUM", "WEEK_OF_YEAR_NUM", "MONTH_NAME", "MONTH_SHORT_NAME", "WEEK_REPORT_NAME", "MONTH_FIRST_DATE", "MONTH_LAST_DATE"}),
+				    #"Měsíc Číslo Lomeno Rok Krátký" = Table.AddColumn(#"Removed Other Columns", "Mesic Cislo Lomeno Rok Kratky", each Number.ToText([MONTH_NUM]) & "/" & Text.End(Text.From([YEAR_NUM]), 2), type text ),
+				    #"Měsíc Rok Řazení" = Table.AddColumn(#"Měsíc Číslo Lomeno Rok Krátký", "Mesic Rok Razeni", each Number.ToText([YEAR_NUM])&Text.PadStart(Number.ToText([MONTH_NUM]),2,"0"), Int64.Type),
+				    #"Changed Type" = Table.TransformColumnTypes(#"Měsíc Rok Řazení",{{"Mesic Rok Razeni", Int64.Type}}),
+				    #"Renamed Columns" = Table.RenameColumns(#"Changed Type",{{"CALENDAR_ID", "Datum"}, {"MONTH_SHORT_NAME", "Mesic Kratky Nazev"}, {"WEEK_OF_YEAR_NUM", "Tyden v Roce Cislo"}, {"WEEK_REPORT_NAME", "Tyden v Roce Nazev"}})
+				   
+				in
+				    #"Renamed Columns"
+				```
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,60 @@
+table DIM_MILESTONE
+	lineageTag: c5db308d-a043-45e7-81b7-993e06dddf22
+
+	column 'Milnik ID'
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: f1e7a65f-a04e-462d-b1cc-0144ff6a6586
+		summarizeBy: none
+		sourceColumn: Milnik ID
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Milnik_Key
+		dataType: string
+		isHidden
+		lineageTag: fd2d5d5d-777a-45cc-975a-1f49b77e7045
+		summarizeBy: none
+		sourceColumn: Milnik_Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Milnik
+		dataType: string
+		lineageTag: 922f5d37-8e10-4512-85f6-ea15b2e6ca22
+		summarizeBy: none
+		sourceColumn: Milnik
+		sortByColumn: 'Milnik Poradi'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Milnik Poradi'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9f58d421-9856-4d42-afad-0506fec8c67c
+		summarizeBy: none
+		sourceColumn: Milnik Poradi
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_MILESTONE = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA = Source{[Schema=Schema,Item="DIM_MILESTONE"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

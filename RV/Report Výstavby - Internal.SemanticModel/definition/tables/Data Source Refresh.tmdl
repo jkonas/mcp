@@ -1,0 +1,26 @@
+table 'Data Source Refresh'
+	lineageTag: e2604f40-702c-4f22-9595-1bee364d59dc
+
+	column 'Last Data Refresh'
+		dataType: dateTime
+		formatString: "       dd/MM hh:mm"
+		lineageTag: 21cd2855-fd7d-43fe-8fad-3a82cbeecd2f
+		summarizeBy: none
+		sourceColumn: Last Data Refresh
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	partition 'Data Source Refresh' = m
+		mode: import
+		source =
+				let
+				    Source = #table(type table[Last Data Refresh=datetime], {{DateTime.LocalNow()}})
+				in
+				    Source
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,31 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "b3b5d88e6861104ec954",
+  "position": {
+    "x": 591.72802404207357,
+    "y": 80,
+    "z": 3000,
+    "height": 40.211446486189629,
+    "width": 680,
+    "tabOrder": 1000
+  },
+  "visualGroup": {
+    "displayName": "Statistika HP (Milnik)",
+    "groupMode": "ScaleMode",
+    "objects": {
+      "lockAspect": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,95 @@
+table MILESTONES_KOMERCE_ROP
+	lineageTag: cc46f71b-2f4b-4b43-85db-9235f21f2bf6
+
+	column EventDate
+		formatString: General Date
+		lineageTag: 0e4bbe94-e5a0-493a-be0c-e04100891050
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [EventDate]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventType
+		lineageTag: 018ebc10-b5a8-4637-9e90-3d84ba0da95f
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [EventType]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Počet HP'
+		formatString: 0
+		lineageTag: 3806844f-84bf-47a8-a898-e3ea5ae4e8f3
+		summarizeBy: sum
+		isNameInferred
+		sourceColumn: [Počet HP]
+
+		annotation SummarizationSetBy = Automatic
+
+	column ROP_Key
+		formatString: 0
+		lineageTag: 349fd024-75ee-40b1-b1c6-940a9f43c9da
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: MILESTONES_KOMERCE[ROP_Key]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventColor
+		lineageTag: 2f8aea95-2e28-417d-9cbf-51985a4dd0d4
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [EventColor]
+
+		annotation SummarizationSetBy = Automatic
+
+	column EventDateShort
+		lineageTag: 60262734-55ff-4783-8753-49430f7b294e
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [EventDateShort]
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MILESTONES_KOMERCE_ROP = calculated
+		mode: import
+		source = ```
+				
+				VAR Forecasts =
+				    SUMMARIZE(
+				        FILTER(MILESTONES_KOMERCE, MILESTONES_KOMERCE[Milnik ID] = 75),
+				        MILESTONES_KOMERCE[ROP_Key],
+				        "EventType",  "Dokumentace Odevzdána (Forecast)",
+				        "EventColor", "#D4EBF2",
+				        "EventDateShort",  FORMAT(MIN(MILESTONES_KOMERCE[Milnik Datum]), "YY\/MM"),
+				        "EventDate",  MIN(MILESTONES_KOMERCE[Milnik Datum]),
+				        "Počet HP",   MAX(MILESTONES_KOMERCE[Pocet HP])
+				    )
+				VAR Starts =
+				    SUMMARIZE(
+				        FILTER(MILESTONES_KOMERCE, NOT ISBLANK(MILESTONES_KOMERCE[ROP KPI Start])),
+				        MILESTONES_KOMERCE[ROP_Key],
+				        "EventType",  "Dokumentace Odevzdána (Real)",
+				        "EventColor", "#41B6E6",
+				        "EventDateShort",  FORMAT(MIN(MILESTONES_KOMERCE[ROP KPI Start]), "YY\/MM"),
+				        "EventDate",  MIN(MILESTONES_KOMERCE[ROP KPI Start]),        
+				        "Počet HP",   MAX(MILESTONES_KOMERCE[Pocet HP])
+				    )
+				VAR Ends =
+				    SUMMARIZE(
+				        FILTER(MILESTONES_KOMERCE, NOT ISBLANK(MILESTONES_KOMERCE[ROP KPI End])),
+				        MILESTONES_KOMERCE[ROP_Key],
+				        "EventType",  "Home Passed (Real)",
+				        "EventColor", "#3E7C4A",
+				        "EventDateShort",  FORMAT(MIN(MILESTONES_KOMERCE[ROP KPI End]), "YY\/MM"),
+				        "EventDate",  MAX(MILESTONES_KOMERCE[ROP KPI End]),        
+				        "Počet HP",   MAX(MILESTONES_KOMERCE[Pocet HP])
+				    )
+				RETURN
+				UNION(Forecasts, Starts, Ends)
+				
+				```
+
+	annotation PBI_Id = 6486aa4f19dc4378ab24ddc19e3985df
+

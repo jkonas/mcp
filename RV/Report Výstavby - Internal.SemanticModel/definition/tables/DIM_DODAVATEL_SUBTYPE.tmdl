@@ -1,0 +1,37 @@
+table DIM_DODAVATEL_SUBTYPE
+	lineageTag: 10f496a5-9d54-41d1-b99e-27c87fdf075f
+
+	column Dodavatel_Key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: fade0d52-612a-400f-8e0b-8e8c917f2c1a
+		summarizeBy: none
+		sourceColumn: Dodavatel_Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Podtyp
+		dataType: string
+		lineageTag: 22ca2b92-6bea-4f4a-83e7-c7b291fd437b
+		summarizeBy: none
+		sourceColumn: Podtyp
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_DODAVATEL_SUBTYPE = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP = Source{[Schema=Schema,Item="DIM_DODAVATEL_SUBTYPE"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

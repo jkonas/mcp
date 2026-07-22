@@ -1,0 +1,142 @@
+table DATA_FRESHNESS_ALERTS
+	lineageTag: ba4a9c10-80da-4706-aa2e-00a184d431a8
+
+	measure DATA_FRESHNESS_ALERTS_Ikona = ```
+			
+			VAR _alertCount = 
+			    CALCULATE(
+			        COUNTROWS( 'DATA_FRESHNESS_ALERTS' ),
+			        ALL( 'DATA_FRESHNESS_ALERTS' ),
+			        'DATA_FRESHNESS_ALERTS'[Alert] = 1
+			    )
+			VAR _topN = 15
+			VAR _fallback = DATE( YEAR(TODAY())-1, MONTH(TODAY()), DAY(TODAY()) )
+			VAR _alertsWithRefresh = 
+			    ADDCOLUMNS(
+			        FILTER( ALL('DATA_FRESHNESS_ALERTS'), 'DATA_FRESHNESS_ALERTS'[Alert] = 1 ),
+			        "@Refresh", COALESCE('DATA_FRESHNESS_ALERTS'[Data Source Refresh DateTime], _fallback)
+			    )
+			VAR _topAlerts = TOPN( _topN, _alertsWithRefresh, [@Refresh], ASC )
+			VAR _alertList = 
+			    CONCATENATEX(
+			        _topAlerts,
+			        VAR _d = DATEDIFF( [@Refresh], TODAY(), DAY )
+			        VAR _icon = SWITCH( TRUE(), _d <= 1, "🟢", _d <= 7, "🟡", "🔴" )
+			        RETURN
+			            _icon & "  " & SUBSTITUTE( 'DATA_FRESHNESS_ALERTS'[Data Source name], "'", "´" ) & UNICHAR(10)
+			            & "    📅 " & FORMAT( [@Refresh], "yyyy-MM-dd" )
+			            & "   ⏱ " & _d & " dní",
+			        UNICHAR(10) & UNICHAR(10),
+			        [@Refresh], ASC
+			    )
+			VAR _remaining = _alertCount - _topN
+			VAR _line = "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+			VAR _tooltip = 
+			    "⚠  NEAKTUÁLNÍ ZDROJE  (" & _alertCount & ")" & UNICHAR(10)
+			    & _line & UNICHAR(10) & UNICHAR(10)
+			    & _alertList
+			    & IF( _remaining > 0, 
+			        UNICHAR(10) & UNICHAR(10) & _line & UNICHAR(10) & "…a další " & _remaining & " zdrojů", 
+			        "" )
+			RETURN
+			    IF(
+			        _alertCount > 0,
+			        "<span title='" & _tooltip & "' style='font-size:14px;cursor:help;animation:blink 4s infinite;'>⚠️</span>
+			         <style>@keyframes blink {50% {opacity:0.2;}}</style>",
+			        ""
+			    )
+			```
+		lineageTag: 6f0edcca-e843-44b7-8e24-099fa143b592
+
+	column 'Data Source name'
+		dataType: string
+		lineageTag: c77c5402-2edf-41c6-acae-bfcc05095e19
+		summarizeBy: none
+		sourceColumn: Data Source name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Table Schema'
+		dataType: string
+		lineageTag: 942b3ccc-6487-418c-b36e-f40760f9d177
+		summarizeBy: none
+		sourceColumn: Table Schema
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Table Name'
+		dataType: string
+		lineageTag: d889ffa0-2142-43c0-beee-a3a675548a36
+		summarizeBy: none
+		sourceColumn: Table Name
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Record Count'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5a6e1bc9-3ac7-46ad-8606-b04852e51462
+		summarizeBy: sum
+		sourceColumn: Record Count
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Source Refresh DateTime'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: d924e4ba-5e2d-4a26-a1e0-ca7cbaf43560
+		summarizeBy: none
+		sourceColumn: Data Source Refresh DateTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Data Refresh DateTime'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6d66d8a9-81a0-4387-86f3-993257a80a57
+		summarizeBy: none
+		sourceColumn: Data Refresh DateTime
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Refresh Frequency'
+		dataType: int64
+		formatString: 0
+		lineageTag: a69ab067-ed82-421c-9fcd-4277e138657b
+		summarizeBy: sum
+		sourceColumn: Refresh Frequency
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Critical Data Source'
+		dataType: int64
+		formatString: 0
+		lineageTag: 43c86c4b-93ee-422f-a44b-b5d82ce34fc2
+		summarizeBy: sum
+		sourceColumn: Critical Data Source
+
+		annotation SummarizationSetBy = Automatic
+
+	column Alert
+		dataType: int64
+		formatString: 0
+		lineageTag: cf2279fc-420a-4d77-8578-6feb275c1548
+		summarizeBy: sum
+		sourceColumn: Alert
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DATA_FRESHNESS_ALERTS = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Zdroj = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod"),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DATA_FRESHNESS_ALERTS = Zdroj{[Schema=Schema,Item="DATA_FRESHNESS_ALERTS"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DATA_FRESHNESS_ALERTS
+
+	annotation PBI_NavigationStepName = Navigace
+
+	annotation PBI_ResultType = Table
+

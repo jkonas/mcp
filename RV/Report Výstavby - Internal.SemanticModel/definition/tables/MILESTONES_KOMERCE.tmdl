@@ -1,0 +1,243 @@
+table MILESTONES_KOMERCE
+	lineageTag: 28835e28-4902-4aa7-bd4b-07ea62f00c7d
+
+	column ROP_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 46faf8d1-618d-40af-afcd-02d933254ec0
+		summarizeBy: none
+		sourceColumn: ROP_Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column KIA_Key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 83848b44-8873-4815-9242-c2b57243c559
+		summarizeBy: count
+		sourceColumn: KIA_Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Milnik ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: acae60f4-d421-475c-bd4f-e4c2c0132785
+		summarizeBy: count
+		sourceColumn: Milnik ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column Milnik
+		dataType: string
+		lineageTag: 9a62101a-0c28-4c54-81e4-a67262d454c4
+		summarizeBy: none
+		sourceColumn: Milnik
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Milnik Datum'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3674204e-3a6f-460a-a829-bfc1e195e2f8
+		summarizeBy: none
+		sourceColumn: Milnik Datum
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Pocet HP'
+		dataType: int64
+		formatString: 0
+		lineageTag: df0de1bf-4b3f-487f-b35d-c71750eef856
+		summarizeBy: sum
+		sourceColumn: Pocet HP
+
+		annotation SummarizationSetBy = Automatic
+
+	column KIA = ```
+			
+			LOOKUPVALUE(
+			    DIM_KIA[KIA],
+			    DIM_KIA[KIA_Key],
+			    MILESTONES_KOMERCE[KIA_Key]
+			)
+			
+			```
+		lineageTag: cd9ef239-3ee6-4e33-8c13-54fbf3b0b068
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ROP KPI Start'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: d5765c1f-2300-48a4-9b20-658685894e8e
+		summarizeBy: none
+		sourceColumn: ROP KPI Start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'ROP KPI End'
+		dataType: dateTime
+		formatString: Short Date
+		lineageTag: aedc2289-6051-44ad-a7fb-51bd6794c144
+		summarizeBy: none
+		sourceColumn: ROP KPI End
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Projekt = ```
+			
+			LOOKUPVALUE(
+			    DIM_KIA[Projekt],
+			    DIM_KIA[KIA_Key],
+			    MILESTONES_KOMERCE[KIA_Key]
+			)
+			
+			```
+		lineageTag: bfd01fe2-b1c7-4ab3-a413-b33f4d44956e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ROP KPI Duration'
+		dataType: int64
+		formatString: 0
+		lineageTag: 327db3cc-9986-4302-b4e8-a71e647ddd66
+		summarizeBy: sum
+		sourceColumn: ROP KPI Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ROP KPI Status'
+		dataType: string
+		lineageTag: 92782979-4f0f-4c33-a86f-40e0075f5d49
+		summarizeBy: none
+		sourceColumn: ROP KPI Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Milnik KPI Status'
+		dataType: string
+		lineageTag: 3b6b383b-2bf8-4149-989f-1b5476d09811
+		summarizeBy: none
+		sourceColumn: Milnik KPI Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ROP ID' =
+			
+			LOOKUPVALUE(
+			    DIM_ROP[ROP ID],
+			    DIM_ROP[ROP_Key],
+			    MILESTONES_KOMERCE[ROP_Key]
+			)
+		formatString: 0
+		lineageTag: 31551173-3aa8-4bf1-9c0e-144e9bb00b09
+		summarizeBy: count
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Region Nova Optika' =
+			
+			LOOKUPVALUE(
+			    DIM_ROP[Region Nova Optika],
+			    DIM_ROP[ROP_Key],
+			    MILESTONES_KOMERCE[ROP_Key]
+			)
+		lineageTag: 1f7d5c12-322f-4774-b58e-7d9de1db6db5
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ROP KPI Start Short' = FORMAT(MILESTONES_KOMERCE[ROP KPI Start], "YY\/MM")
+		lineageTag: c763601d-68f5-4c3f-ac5d-e88361ed131e
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ROP KPI End Short' = FORMAT(MILESTONES_KOMERCE[ROP KPI End], "YY\/MM")
+		lineageTag: b4a5c981-7c98-44c2-832f-ae83b996ede7
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ROP KPI Status Order' = ```
+			
+			SWITCH (
+			    TRUE(),
+			    MILESTONES_KOMERCE[ROP KPI Status] = "V zpoždění", 1,
+			    MILESTONES_KOMERCE[ROP KPI Status] = "Možné zpoždění", 2,
+			    MILESTONES_KOMERCE[ROP KPI Status] = "Čeká na Přívod/VR", 3,
+			    MILESTONES_KOMERCE[ROP KPI Status] = "Beze spoždění", 4,
+			    MILESTONES_KOMERCE[ROP KPI Status] = "Home Passed", 5,
+			    99
+			)
+			
+			```
+		formatString: 0
+		lineageTag: e7534432-e401-4797-b256-e97d00f865c3
+		summarizeBy: max
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = User
+
+	column 'Reklamace Typ'
+		dataType: string
+		lineageTag: 25330dae-8451-480a-9253-d0f17512aad7
+		summarizeBy: none
+		sourceColumn: Reklamace Typ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reklamace Duration'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4db8d3fb-3a7a-4101-abfa-f70313e2c768
+		summarizeBy: sum
+		sourceColumn: Reklamace Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Reklamace Resitel'
+		dataType: string
+		lineageTag: 5788f344-3e76-46b6-9b00-fdec51f1d059
+		summarizeBy: none
+		sourceColumn: Reklamace Resitel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posledni Aktualizace'
+		dataType: string
+		lineageTag: 92d59cc4-f484-4b42-9ea2-50526c14f51b
+		summarizeBy: none
+		sourceColumn: Posledni Aktualizace
+
+		annotation SummarizationSetBy = Automatic
+
+	partition MILESTONES_KOMERCE = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA = Source{[Schema=Schema,Item="MILESTONES_KOMERCE"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

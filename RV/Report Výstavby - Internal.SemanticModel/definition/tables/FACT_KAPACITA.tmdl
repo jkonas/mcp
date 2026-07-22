@@ -1,0 +1,60 @@
+table FACT_KAPACITA
+	lineageTag: d6280c88-4cc7-4f0a-a10c-46ba182f46e6
+
+	column Dodavatel
+		dataType: string
+		lineageTag: 53024350-88b1-4bfa-a35d-2bc91bba4ff3
+		summarizeBy: none
+		sourceColumn: Dodavatel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Mesic
+		dataType: int64
+		formatString: 0
+		lineageTag: 13107cdf-c34f-4195-a41f-7b58be25dde2
+		summarizeBy: none
+		sourceColumn: Mesic
+
+		annotation SummarizationSetBy = Automatic
+
+	column Typ
+		dataType: string
+		lineageTag: 60b52d51-2a42-44aa-9207-dda57f44e2d2
+		summarizeBy: none
+		sourceColumn: Typ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kapacita rocni - projekty'
+		dataType: int64
+		formatString: 0
+		lineageTag: 5cf70bda-c5f8-493b-be4e-768cd5d95fe7
+		summarizeBy: sum
+		sourceColumn: Kapacita rocni - projekty
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kapacita rocni - rozpocet'
+		dataType: int64
+		formatString: 0
+		lineageTag: cdcc2700-aa57-4811-833c-61be7fb56bf1
+		summarizeBy: sum
+		sourceColumn: Kapacita rocni - rozpocet
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FACT_KAPACITA = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA = Source{[Schema=Schema,Item="FACT_KAPACITA"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

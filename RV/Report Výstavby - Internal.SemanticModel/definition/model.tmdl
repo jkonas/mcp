@@ -1,0 +1,57 @@
+model Model
+	culture: cs-CZ
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: cs-CZ
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+queryGroup 'Dim Model'
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup Environment
+
+	annotation PBI_QueryGroupOrder = 0
+
+annotation PBI_QueryOrder = ["Schema","Data Source Refresh","DIM_ROP","DIM_KIA","_Measures","DIM_FAZE","DIM_STAV","DIM_IK_ZAPIS","DIM_DODAVATEL","DIM_CALENDAR","DIM_MILESTONE","DIM_ROP_PRIZNAK","DIM_KIA_PRIZNAK","DIM_SUBSTATUS","FACT_VYSTAVBA","FACT_VYSTAVBA_FAZE","FACT_VYSTAVBA_MILNIK","FACT_VYSTAVBA_SUBJEKT","FACT_REGIONALITA","FACT_KAPACITA","DIM_DODAVATEL_SUBTYPE","MILESTONES_KOMERCE","FACT_REALIZACE","DIM_TYP_ETAPY","DIM_SUBFAZE","DATA_QUALITY_BASE","FACT_DATA_QUALITY_INCIDENTS","DATA_FRESHNESS_ALERTS","KIA_AGG_DATES","DIM_SUBJEKT"]
+
+annotation __PBI_TimeIntelligenceEnabled = 0
+
+annotation __LastRPTime = 134289111755253915
+
+annotation PBI_ProTooling = ["DaxQueryView_Desktop","DevMode"]
+
+ref table DIM_ROP
+ref table DIM_KIA
+ref table FACT_VYSTAVBA
+ref table _Measures
+ref table 'Data Source Refresh'
+ref table DIM_FAZE
+ref table DIM_STAV
+ref table DIM_IK_ZAPIS
+ref table DIM_DODAVATEL
+ref table DIM_CALENDAR
+ref table DIM_MILESTONE
+ref table DIM_SUBSTATUS
+ref table DIM_ROP_PRIZNAK
+ref table DIM_KIA_PRIZNAK
+ref table FACT_REGIONALITA
+ref table FACT_KAPACITA
+ref table DIM_DODAVATEL_SUBTYPE
+ref table MILESTONES_KOMERCE
+ref table FACT_REALIZACE
+ref table DIM_TYP_ETAPY
+ref table MILESTONES_KOMERCE_ROP
+ref table DIM_SUBFAZE
+ref table KIA_AGG_DATES
+ref table DIM_SUBJEKT
+ref table FACT_VYSTAVBA_SUBJEKT
+ref table FACT_VYSTAVBA_MILNIK
+ref table DATA_QUALITY_BASE
+ref table FACT_DATA_QUALITY_INCIDENTS
+ref table ZdrojeMapping
+ref table DATA_FRESHNESS_ALERTS
+
+ref cultureInfo cs-CZ
+

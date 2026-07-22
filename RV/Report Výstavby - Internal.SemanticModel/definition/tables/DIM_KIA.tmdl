@@ -1,0 +1,1468 @@
+table DIM_KIA
+	lineageTag: c40f84cb-11dd-4b27-8d90-b6ab393c6fa8
+
+	column KIA
+		dataType: string
+		lineageTag: 91fd2517-1089-4f7d-93d0-db6eb3622ae1
+		summarizeBy: none
+		sourceColumn: KIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status Poradi'
+		dataType: int64
+		formatString: 0
+		lineageTag: 63657803-f87b-4d13-8e60-65a04847df3f
+		summarizeBy: sum
+		sourceColumn: Status Poradi
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: 284868e6-0163-4897-af91-3084b440fb85
+		summarizeBy: none
+		sourceColumn: Status
+		sortByColumn: 'Status Poradi'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column KIA_Key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 4ff7c4cd-773e-43de-9c26-1f96f3f3830d
+		summarizeBy: none
+		sourceColumn: KIA_Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Polygon Typ'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2a94cd4e-6a67-4ca9-94f2-82a361010dfe
+		summarizeBy: sum
+		sourceColumn: Polygon Typ
+
+		annotation SummarizationSetBy = Automatic
+
+	column Projekt
+		dataType: string
+		lineageTag: abbabaaa-d6e5-48d4-9f7f-7456577014a0
+		summarizeBy: none
+		sourceColumn: Projekt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Vystavby 1'
+		dataType: string
+		lineageTag: 06e0559e-fb15-4f3e-a7eb-3d032ac84b70
+		summarizeBy: none
+		sourceColumn: Typ Vystavby 1
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Vystavby 2'
+		dataType: string
+		lineageTag: ee4efd5a-65e0-44f3-864f-40ceb43e3a8e
+		summarizeBy: none
+		sourceColumn: Typ Vystavby 2
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Vystavby 3'
+		dataType: string
+		lineageTag: 921cd0bb-b4b4-4b82-9a12-8de6538902be
+		summarizeBy: none
+		sourceColumn: Typ Vystavby 3
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Vystavby 4'
+		dataType: string
+		lineageTag: 05bc4cee-9683-47ba-b534-ad461167464e
+		summarizeBy: none
+		sourceColumn: Typ Vystavby 4
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Vystavby 6'
+		dataType: string
+		lineageTag: 00bc539e-c795-48f8-9b54-410e63138b5b
+		summarizeBy: none
+		sourceColumn: Typ Vystavby 6
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prilezitost Nazev'
+		dataType: string
+		lineageTag: 04a14688-c4f7-4219-a1bc-37ffc3df5525
+		summarizeBy: none
+		sourceColumn: Prilezitost Nazev
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Polygonu'
+		dataType: string
+		lineageTag: 993c2f4a-4e84-44b3-84b6-b90979a7ae14
+		summarizeBy: none
+		sourceColumn: Typ Polygonu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC Manager'
+		dataType: string
+		lineageTag: 24f9f474-88da-4251-b331-287d762b6f0d
+		summarizeBy: none
+		sourceColumn: ABC Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ISP Nazev'
+		dataType: string
+		lineageTag: b934d418-f029-4a8f-862a-2b69d9f5629d
+		summarizeBy: none
+		sourceColumn: ISP Nazev
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Akvizice Typ'
+		dataType: string
+		lineageTag: f66c702f-f5bd-427f-a51b-32118db6b9b0
+		summarizeBy: none
+		sourceColumn: Akvizice Typ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Akvizice Status'
+		dataType: string
+		lineageTag: d75dd800-0059-4ffb-950b-52ababb19cf6
+		summarizeBy: none
+		sourceColumn: Akvizice Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Regionalni Rozvoj Status'
+		dataType: string
+		lineageTag: 60bb453d-12bc-416a-9ca3-919e8ba9e5e7
+		summarizeBy: none
+		sourceColumn: Regionalni Rozvoj Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Obec Podpora'
+		dataType: string
+		lineageTag: 9a1f9fdc-3e3c-4fd2-8c5a-ea7fad46e8f6
+		summarizeBy: none
+		sourceColumn: Obec Podpora
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Obec Stav Jednani'
+		dataType: string
+		lineageTag: 76f6d215-178c-406d-80cf-994f56902d3e
+		summarizeBy: none
+		sourceColumn: Obec Stav Jednani
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Obec Vysledek Jednani'
+		dataType: string
+		lineageTag: 4dec5c90-cf7c-47d7-9c5f-9f514ba66640
+		summarizeBy: none
+		sourceColumn: Obec Vysledek Jednani
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HP Pocet - Bytove'
+		dataType: int64
+		formatString: 0
+		lineageTag: bf2bbed7-6ee3-4ac1-b7e8-cc6bd4a3d298
+		summarizeBy: sum
+		sourceColumn: HP Pocet - Bytove
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HP Pocet - Rodinne'
+		dataType: int64
+		formatString: 0
+		lineageTag: d28af843-70ce-470e-adb6-111ebf997f1f
+		summarizeBy: sum
+		sourceColumn: HP Pocet - Rodinne
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HP Pocet - FIS'
+		dataType: int64
+		formatString: 0
+		lineageTag: baf8f9ab-2c99-4772-85e0-6b7745c09c72
+		summarizeBy: sum
+		sourceColumn: HP Pocet - FIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HP Pocet - Ostatni'
+		dataType: int64
+		formatString: 0
+		lineageTag: 99924c4e-ba8b-4604-8054-347d8d15995a
+		summarizeBy: sum
+		sourceColumn: HP Pocet - Ostatni
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Region Nova Optika'
+		dataType: string
+		lineageTag: 706de987-3dbf-4ab7-bdfb-47da06bcd91d
+		summarizeBy: none
+		sourceColumn: Region Nova Optika
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kraj
+		dataType: string
+		lineageTag: e67e6f4a-3367-4843-bd65-8ff41cbdeb61
+		summarizeBy: none
+		sourceColumn: Kraj
+
+		annotation SummarizationSetBy = Automatic
+
+	column Okres
+		dataType: string
+		lineageTag: b68c82a7-d4bd-4f08-b966-a9ab2f2518e2
+		summarizeBy: none
+		sourceColumn: Okres
+
+		annotation SummarizationSetBy = Automatic
+
+	column Faze
+		dataType: string
+		lineageTag: cd33139d-b8fb-4bad-bb58-4278088a57a8
+		summarizeBy: none
+		sourceColumn: Faze
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stav
+		dataType: string
+		lineageTag: 0bbed360-df28-4a49-82a3-bb8f5f917b65
+		summarizeBy: none
+		sourceColumn: Stav
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC Team'
+		dataType: string
+		lineageTag: a782f1e7-76f9-4a1f-9abe-935957a9daf0
+		summarizeBy: none
+		sourceColumn: ABC Team
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realizace Start'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 53950ad9-2612-4fb1-960e-a239bb4b5411
+		summarizeBy: none
+		sourceColumn: Realizace Start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Typ Objektu'
+		dataType: string
+		lineageTag: 40853042-1434-4c5c-8e6c-d9e0d3b23132
+		summarizeBy: none
+		sourceColumn: Typ Objektu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Polygon ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: 542bd6e1-8f61-4f8c-89f6-ab8e84874e11
+		summarizeBy: count
+		sourceColumn: Polygon ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Portal Vystavby Projekt ID'
+		dataType: string
+		lineageTag: d59d7f6f-b010-4a1c-854d-c69748214477
+		summarizeBy: none
+		sourceColumn: Portal Vystavby Projekt ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - ID Obchodni Prilezitosti'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4fbe3328-c646-4a19-b49f-39dae6abfc50
+		summarizeBy: sum
+		sourceColumn: ABC - ID Obchodni Prilezitosti
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Status'
+		dataType: string
+		lineageTag: 070ca464-c3c7-4e0d-8e92-07271f0acfde
+		summarizeBy: none
+		sourceColumn: ABC - Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Prilezitost Vytvoril'
+		dataType: string
+		lineageTag: 2c77c028-4761-4d71-b5b7-185026a2b9c8
+		summarizeBy: none
+		sourceColumn: ABC - Prilezitost Vytvoril
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Prilezitost Naposled Upravil'
+		dataType: string
+		lineageTag: d0ac5c1a-13a5-4ba9-a4ec-5df9489048f8
+		summarizeBy: none
+		sourceColumn: ABC - Prilezitost Naposled Upravil
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Team'
+		dataType: string
+		lineageTag: d55be60f-e6f3-49ff-96e6-70d692f5f21e
+		summarizeBy: none
+		sourceColumn: ABC - Team
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Manager'
+		dataType: string
+		lineageTag: 4dc43c92-0031-4be2-b8f6-300c96ee33c2
+		summarizeBy: none
+		sourceColumn: ABC - Manager
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Posledni Komentar'
+		dataType: string
+		lineageTag: 27d7e189-5cf4-48e7-984a-596089af8953
+		summarizeBy: none
+		sourceColumn: ABC - Posledni Komentar
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Duvod Zruseni'
+		dataType: string
+		lineageTag: 48c03a2e-dead-4f32-976a-388896e2f275
+		summarizeBy: none
+		sourceColumn: ABC - Duvod Zruseni
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - CETIN Puvodce'
+		dataType: string
+		lineageTag: 6b30bfe7-b9aa-43bd-9938-6a81dad49949
+		summarizeBy: none
+		sourceColumn: ABC - CETIN Puvodce
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Typ Prilezitosti'
+		dataType: string
+		lineageTag: b7b55873-5180-4e0c-8cf4-c6c164127fc3
+		summarizeBy: none
+		sourceColumn: ABC - Typ Prilezitosti
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Typ Polygonu'
+		dataType: string
+		lineageTag: 61a1d041-d0b1-41ef-adb1-c732ff13bd71
+		summarizeBy: none
+		sourceColumn: ABC - Typ Polygonu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Obec Podpora'
+		dataType: string
+		lineageTag: c5720b7a-0c77-4228-845f-83232e8411ea
+		summarizeBy: none
+		sourceColumn: ABC - Obec Podpora
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Obec Stav Jednani'
+		dataType: string
+		lineageTag: e568af2c-b79d-4be9-a8ee-77dd2507090f
+		summarizeBy: none
+		sourceColumn: ABC - Obec Stav Jednani
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Obec Vysledek Jednani'
+		dataType: string
+		lineageTag: 25647596-f244-4423-9f1d-1290c0703afd
+		summarizeBy: none
+		sourceColumn: ABC - Obec Vysledek Jednani
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Microtrenching Povolen'
+		dataType: string
+		lineageTag: 704689b4-e1ae-47e1-ad1d-cf8f60ad100d
+		summarizeBy: none
+		sourceColumn: ABC - Microtrenching Povolen
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Akvizice Status'
+		dataType: string
+		lineageTag: e1607eaf-ee14-4f01-bad8-067b1965dd63
+		summarizeBy: none
+		sourceColumn: ABC - Akvizice Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Akvizice Typ'
+		dataType: string
+		lineageTag: 5b122102-1768-4a0a-8369-ea14fd3be530
+		summarizeBy: none
+		sourceColumn: ABC - Akvizice Typ
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - HP Pocet Bytove'
+		dataType: int64
+		formatString: 0
+		lineageTag: afa0e8e6-bc12-4f81-8ea3-13260ffb0873
+		summarizeBy: sum
+		sourceColumn: ABC - HP Pocet Bytove
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - HP Pocet Rodinne'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9a6da538-51bc-4204-beec-b6c53e41c0b9
+		summarizeBy: sum
+		sourceColumn: ABC - HP Pocet Rodinne
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - HP Pocet FIS'
+		dataType: int64
+		formatString: 0
+		lineageTag: c815805a-e281-42e7-bf45-5fb87ed171d1
+		summarizeBy: sum
+		sourceColumn: ABC - HP Pocet FIS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - HP Pocet Ostatni'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2811fd2a-eec1-46d8-b81a-d7bd790fa1bc
+		summarizeBy: sum
+		sourceColumn: ABC - HP Pocet Ostatni
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - HP Pocet Celkove'
+		dataType: int64
+		formatString: 0
+		lineageTag: ff27ded8-4175-467c-b7e6-5585a60230be
+		summarizeBy: sum
+		sourceColumn: ABC - HP Pocet Celkove
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planovani - ID Projektu'
+		dataType: string
+		lineageTag: 10c96bdc-910f-4ecf-86bf-0ccd75ff39b4
+		summarizeBy: none
+		sourceColumn: Planovani - ID Projektu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planovani - Status'
+		dataType: string
+		lineageTag: 99a7c527-14d7-46c1-9e3b-51ecb78c0bfa
+		summarizeBy: none
+		sourceColumn: Planovani - Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planovani - Hlavni Planovac'
+		dataType: string
+		lineageTag: 593f7958-2503-4c96-92fd-325eb1dd4584
+		summarizeBy: none
+		sourceColumn: Planovani - Hlavni Planovac
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planovani - Odpovedny Planovac'
+		dataType: string
+		lineageTag: cc7d1f31-cc7e-44de-a752-9c7b6bec78fb
+		summarizeBy: none
+		sourceColumn: Planovani - Odpovedny Planovac
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planovani - Microtrenching Planovan'
+		dataType: string
+		lineageTag: d7eabf12-34c6-42bc-9f68-5a1acae71913
+		summarizeBy: none
+		sourceColumn: Planovani - Microtrenching Planovan
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planovani - Microtrenching Povolen'
+		dataType: string
+		lineageTag: b9c878cf-86b2-423a-a693-d7c31eb0b3de
+		summarizeBy: none
+		sourceColumn: Planovani - Microtrenching Povolen
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planovani - Dopocet Akvizice'
+		dataType: int64
+		formatString: 0
+		lineageTag: 478b74d3-6b5c-4228-99fd-0f0242b8fca0
+		summarizeBy: sum
+		sourceColumn: Planovani - Dopocet Akvizice
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planovani - Dopocet Projekt a Uzemni Rozhodnuti'
+		dataType: int64
+		formatString: 0
+		lineageTag: 48568d97-c90f-49d4-8903-b5c13dff35b2
+		summarizeBy: sum
+		sourceColumn: Planovani - Dopocet Projekt a Uzemni Rozhodnuti
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planovani - Dopocet Linie'
+		dataType: int64
+		formatString: 0
+		lineageTag: f258227b-0087-41f4-912f-e903b9aa20f4
+		summarizeBy: sum
+		sourceColumn: Planovani - Dopocet Linie
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planovani - Dopocet Vnitrni Rozvod'
+		dataType: int64
+		formatString: 0
+		lineageTag: cadb0f60-93da-4881-a578-1df1c31da846
+		summarizeBy: sum
+		sourceColumn: Planovani - Dopocet Vnitrni Rozvod
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planovani - Capex Per Hp'
+		dataType: int64
+		formatString: 0
+		lineageTag: d7eac6f4-41f8-4635-b8be-cbf11cd19ac3
+		summarizeBy: sum
+		sourceColumn: Planovani - Capex Per Hp
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Planovani - Celkovy Capex Ke Schvaleni'
+		dataType: int64
+		formatString: 0
+		lineageTag: 9e0582b5-ca6a-45f9-8898-cacb1e3388c6
+		summarizeBy: sum
+		sourceColumn: Planovani - Celkovy Capex Ke Schvaleni
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Projektovy Koordinator'
+		dataType: string
+		lineageTag: d2a739cb-6c53-469d-9770-0a8602b740a5
+		summarizeBy: none
+		sourceColumn: Projekce - Projektovy Koordinator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realizace - Projektovy Koordinator'
+		dataType: string
+		lineageTag: 420ab3cf-8c3b-4641-8070-c33f6b63a5c8
+		summarizeBy: none
+		sourceColumn: Realizace - Projektovy Koordinator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realizace - Start'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 8e045b52-b43e-4872-835a-11bdb674e180
+		summarizeBy: none
+		sourceColumn: Realizace - Start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Puvod Accessu'
+		dataType: string
+		lineageTag: 1880e5a6-a229-4ac0-8a32-40f07742bbdd
+		summarizeBy: none
+		sourceColumn: Puvod Accessu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Aktivity'
+		dataType: string
+		lineageTag: e59b0ebb-d067-491d-8df9-c46e5878acea
+		summarizeBy: none
+		sourceColumn: Typ Aktivity
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Kategorie Vystavby'
+		dataType: string
+		lineageTag: f4770357-d9a6-47b8-96da-2352927aff02
+		summarizeBy: none
+		sourceColumn: Kategorie Vystavby
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Sub-Kategorie Vystavby'
+		dataType: string
+		lineageTag: 57b3c9d4-2ceb-474a-8294-d583814e0015
+		summarizeBy: none
+		sourceColumn: Sub-Kategorie Vystavby
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Puvodni Sit'
+		dataType: string
+		lineageTag: 910eb0e1-9766-426a-8ce2-0af0679b13d5
+		summarizeBy: none
+		sourceColumn: Puvodni Sit
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Projektu'
+		dataType: string
+		lineageTag: 124dc7fa-ccc8-4653-844d-6cad2bf4619d
+		summarizeBy: none
+		sourceColumn: Typ Projektu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Velikost Projektu'
+		dataType: string
+		lineageTag: 55728012-fe8e-4a7f-b2d4-ce6d5e44356a
+		summarizeBy: none
+		sourceColumn: Velikost Projektu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Okres Urbanizace'
+		dataType: string
+		lineageTag: f5102363-0695-4d59-86ba-66ea0d45f460
+		summarizeBy: none
+		sourceColumn: Okres Urbanizace
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hyperlink SVS - Projekt'
+		dataType: string
+		lineageTag: d23ee2fe-fc13-46c1-8348-1e22e16d1189
+		summarizeBy: none
+		sourceColumn: Hyperlink SVS - Projekt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hyperlink M365 - Projekt'
+		dataType: string
+		lineageTag: 1d285dae-65f3-41b2-81ac-826007e654c1
+		summarizeBy: none
+		sourceColumn: Hyperlink M365 - Projekt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hyperlink M365 - Akvizice Slozka'
+		dataType: string
+		lineageTag: 38c31f0e-6954-419e-b566-2b1a96a6d830
+		summarizeBy: none
+		sourceColumn: Hyperlink M365 - Akvizice Slozka
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hyperlink CRM - Obchodni Prilezitost'
+		dataType: string
+		lineageTag: 3855dc66-ffe6-4d77-86c1-52f2e5e947a6
+		summarizeBy: none
+		sourceColumn: Hyperlink CRM - Obchodni Prilezitost
+
+		annotation SummarizationSetBy = Automatic
+
+	column Aktivni
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 80d6c778-281f-4704-817d-4a14264299f3
+		summarizeBy: none
+		sourceColumn: Aktivni
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Datum Aktualizace'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 94362081-8d73-4034-894f-5c2a26c2196c
+		summarizeBy: none
+		sourceColumn: Datum Aktualizace
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subjekt
+		dataType: string
+		lineageTag: c26d3332-8187-4d30-82f2-b6cf4259e46b
+		summarizeBy: none
+		sourceColumn: Subjekt
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ZPS Kategorie'
+		dataType: string
+		lineageTag: 2273f537-69df-47cc-a239-7a0623c0621b
+		summarizeBy: none
+		sourceColumn: ZPS Kategorie
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'V Realizaci - Start Plan'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 1d7b8036-6058-4a0a-b903-a2e37190cc3b
+		summarizeBy: none
+		sourceColumn: V Realizaci - Start Plan
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'V Realizaci - Start Real'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: b7ad0b7a-83b4-4985-ad76-12db7907be3e
+		summarizeBy: none
+		sourceColumn: V Realizaci - Start Real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'V Realizaci - Konec Plan'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: f0dcc657-3113-473c-b59c-5faca91c747b
+		summarizeBy: none
+		sourceColumn: V Realizaci - Konec Plan
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'V Realizaci - Konec Real'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 0614ddb0-69c2-4ccd-8789-e0a1ad1600d3
+		summarizeBy: none
+		sourceColumn: V Realizaci - Konec Real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Zdroj Projektu'
+		dataType: string
+		lineageTag: 4e1a9653-ed2f-4361-b33e-ea73563503d8
+		summarizeBy: none
+		sourceColumn: Zdroj Projektu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Status'
+		dataType: string
+		lineageTag: af54c288-e020-4fd0-af53-7e0b7c0e8412
+		summarizeBy: none
+		sourceColumn: Projekce - Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Duvod Zpozdeni'
+		dataType: string
+		lineageTag: cbf68ece-b6d4-4f63-890a-e301cd466174
+		summarizeBy: none
+		sourceColumn: Projekce - Duvod Zpozdeni
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Naposled Upravil'
+		dataType: string
+		lineageTag: 79981ada-d1e3-43f0-a776-b86da0371224
+		summarizeBy: none
+		sourceColumn: Projekce - Naposled Upravil
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Naposledy Upraveno'
+		dataType: string
+		lineageTag: 0508e1d8-e06c-461e-b02a-aee8b6330968
+		summarizeBy: none
+		sourceColumn: Projekce - Naposledy Upraveno
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Forma Legislativy'
+		dataType: string
+		lineageTag: b3ec2120-9950-475d-b1ba-e1af7b6ca735
+		summarizeBy: none
+		sourceColumn: Projekce - Forma Legislativy
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Microtrenching Povolen'
+		dataType: string
+		lineageTag: 23f0a334-d6eb-41f5-96fe-c5a5ecb77c24
+		summarizeBy: none
+		sourceColumn: Projekce - Microtrenching Povolen
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Poptavajici'
+		dataType: string
+		lineageTag: fb1f5eac-04e5-45ae-8f60-53d6a5945c2e
+		summarizeBy: none
+		sourceColumn: Projekce - Poptavajici
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Objednavajici'
+		dataType: string
+		lineageTag: 40ca1ce5-fbbf-40b4-9e73-4d9c5ffa53c2
+		summarizeBy: none
+		sourceColumn: Projekce - Objednavajici
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Dodavatel DPS'
+		dataType: string
+		lineageTag: 5b49c95c-608f-41d8-8aaf-e577e104282e
+		summarizeBy: none
+		sourceColumn: Projekce - Dodavatel DPS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Dodavatel UR'
+		dataType: string
+		lineageTag: 423c16f1-7d5a-417b-8819-5d6267e5953f
+		summarizeBy: none
+		sourceColumn: Projekce - Dodavatel UR
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Zhotovitel UR'
+		dataType: string
+		lineageTag: 87e23365-214e-4674-b4b1-6acbdd591b92
+		summarizeBy: none
+		sourceColumn: Projekce - Zhotovitel UR
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Poznamka DPS'
+		dataType: string
+		lineageTag: b97b2cf7-a938-446c-a3a2-111a0fd26d05
+		summarizeBy: none
+		sourceColumn: Projekce - Poznamka DPS
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Poznamka Dodavatel'
+		dataType: string
+		lineageTag: c9f4cb54-382f-43bd-ab5d-eff777419716
+		summarizeBy: none
+		sourceColumn: Projekce - Poznamka Dodavatel
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Poznamka Projektovy Koordinator'
+		dataType: string
+		lineageTag: 6357eedc-8ee0-4c1e-968e-b2e4828882ce
+		summarizeBy: none
+		sourceColumn: Projekce - Poznamka Projektovy Koordinator
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Poznamka Pro Zhotovitele'
+		dataType: string
+		lineageTag: 26e6b3b9-b8ea-4c11-aed7-a37c59b68db4
+		summarizeBy: none
+		sourceColumn: Projekce - Poznamka Pro Zhotovitele
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Poznamka Viz'
+		dataType: string
+		lineageTag: d908d8c5-9a0f-45d3-bfda-3857978f9c4b
+		summarizeBy: none
+		sourceColumn: Projekce - Poznamka Viz
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - HP Pocet Zadani'
+		dataType: int64
+		formatString: 0
+		lineageTag: 139b595f-bad2-48aa-a439-8cfd7d74a4e3
+		summarizeBy: sum
+		sourceColumn: Projekce - HP Pocet Zadani
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - HP Pocet Rodinne'
+		dataType: int64
+		formatString: 0
+		lineageTag: 472f8c24-aff4-4cde-b193-2e3b6696725e
+		summarizeBy: sum
+		sourceColumn: Projekce - HP Pocet Rodinne
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - HP Pocet Bytove'
+		dataType: int64
+		formatString: 0
+		lineageTag: 89926ccc-eb01-4c05-a728-99b6b105d711
+		summarizeBy: sum
+		sourceColumn: Projekce - HP Pocet Bytove
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - HP Pocet Business'
+		dataType: int64
+		formatString: 0
+		lineageTag: 8c226cf8-3379-4660-b2ca-27f13b7b3ab7
+		summarizeBy: sum
+		sourceColumn: Projekce - HP Pocet Business
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - HP Pocet Celkove'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1cda30c7-16cc-4efe-b588-1f8cd04e79ed
+		summarizeBy: sum
+		sourceColumn: Projekce - HP Pocet Celkove
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Hyperlink WGIS - Polygon'
+		dataType: string
+		lineageTag: 2f7ad463-c797-466c-903c-95f5257b00ae
+		summarizeBy: none
+		sourceColumn: Hyperlink WGIS - Polygon
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Naposled Upravil'
+		dataType: string
+		lineageTag: 87246398-5239-4646-8497-e0a214838a20
+		summarizeBy: none
+		sourceColumn: ABC - Naposled Upravil
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Naposled Upraveno'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: c34671ba-36ce-4c37-90ba-f3d75ca5591b
+		summarizeBy: none
+		sourceColumn: ABC - Naposled Upraveno
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Objednani Legislativy'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: c54afa9e-5cbd-4d90-86e8-dcf157ee552c
+		summarizeBy: none
+		sourceColumn: Projekce - Objednani Legislativy
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Projekce - Podani Zadosti UR'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 44de0ea7-7b1a-4523-932f-602282c98ee0
+		summarizeBy: none
+		sourceColumn: Projekce - Podani Zadosti UR
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Projekce - Nabiti Pravni Moci'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 9e49bf81-0f91-4169-98f9-52e90d45501d
+		summarizeBy: none
+		sourceColumn: Projekce - Nabiti Pravni Moci
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Projekce - Dodani DPS'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 20582c78-3157-47f0-9851-6d03025f2004
+		summarizeBy: none
+		sourceColumn: Projekce - Dodani DPS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Projekce - Ukonceni Pripravy'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 67c01d9c-8a78-4e48-81a4-ec05d98a278d
+		summarizeBy: none
+		sourceColumn: Projekce - Ukonceni Pripravy
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Realizace - Zahajeni'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 98314fdc-8f82-46c6-83ea-8c97b656b51b
+		summarizeBy: none
+		sourceColumn: Realizace - Zahajeni
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Realizace - Pripravenost Pro Zakaznika'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 2b062f4f-7b61-4054-954e-4ac37a35dc9f
+		summarizeBy: none
+		sourceColumn: Realizace - Pripravenost Pro Zakaznika
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Realizace - Ukonceni'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: b0be9c7c-f06c-4f1e-935b-41b54a2cc155
+		summarizeBy: none
+		sourceColumn: Realizace - Ukonceni
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Kvalita Vyplnenosti (%)' =
+			
+			VAR _totalCols = 10
+			
+			VAR _filled =
+			    INT( NOT ISBLANK( DIM_KIA[Projekce - Projektovy Koordinator] ) ) +
+			    INT( NOT ISBLANK( DIM_KIA[Projekce - Objednani Legislativy] ) ) +
+			    INT( NOT ISBLANK( DIM_KIA[Projekce - Podani Zadosti UR] ) ) +
+			    INT( NOT ISBLANK( DIM_KIA[Projekce - Nabiti Pravni Moci] ) ) +
+			    INT( NOT ISBLANK( DIM_KIA[Projekce - Dodani DPS] ) ) +
+			    INT( NOT ISBLANK( DIM_KIA[Projekce - Ukonceni Pripravy] ) ) +
+			    INT( NOT ISBLANK( DIM_KIA[Realizace - Projektovy Koordinator] ) ) +
+			    INT( NOT ISBLANK( DIM_KIA[Realizace - Zahajeni] ) ) +
+			    INT( NOT ISBLANK( DIM_KIA[Realizace - Pripravenost Pro Zakaznika] ) ) +
+			    INT( NOT ISBLANK( DIM_KIA[Realizace - Ukonceni] ) )
+			
+			RETURN
+			DIVIDE(_filled, _totalCols)
+		formatString: 0%;-0%;0%
+		lineageTag: be1fa365-89a1-4445-b0e6-8f2f5604a56f
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Poznamka - Subjekt'
+		dataType: string
+		lineageTag: 018c24f8-414e-4cfd-8f7c-cd18bba750da
+		summarizeBy: none
+		sourceColumn: Poznamka - Subjekt
+
+		annotation SummarizationSetBy = Automatic
+
+	column Poznamka
+		dataType: string
+		lineageTag: 565afe86-b9a4-4ffd-9ad7-abd690b8a8dc
+		summarizeBy: none
+		sourceColumn: Poznamka
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Poznamka - Naposled Upraveno'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 0f3fe361-66c6-421d-94d7-47b10dde406c
+		summarizeBy: none
+		sourceColumn: Poznamka - Naposled Upraveno
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Projekce - Poznamka Projektovy Koordinator Naposled Upraveno'
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a87d6e07-3534-42c5-8461-d35ebb3563e4
+		summarizeBy: none
+		sourceColumn: Projekce - Poznamka Projektovy Koordinator Naposled Upraveno
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Akvizice ISP'
+		dataType: string
+		lineageTag: 369ae9e4-bacf-4552-be64-582a05f88bd5
+		summarizeBy: none
+		sourceColumn: ABC - Akvizice ISP
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC - Akvizice Start'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: e913b78e-4892-4225-afa2-949cb3acd8b7
+		summarizeBy: none
+		sourceColumn: ABC - Akvizice Start
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'ABC - Akvizice Konec'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 9bbf72dd-e042-4213-9641-39a6ab3a7b42
+		summarizeBy: none
+		sourceColumn: ABC - Akvizice Konec
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Projekce - Zahajeni Plan'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: ccaf0e41-9c49-45a6-a871-775d2f4854ef
+		summarizeBy: none
+		sourceColumn: Projekce - Zahajeni Plan
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Projekce - Zahajeni Real'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: c92aa71a-dd81-4fb5-80b3-a705af0d3a3b
+		summarizeBy: none
+		sourceColumn: Projekce - Zahajeni Real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Projekce - Ukonceni Plan'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: af1e9edf-60b1-4418-9007-e255c1cefebd
+		summarizeBy: none
+		sourceColumn: Projekce - Ukonceni Plan
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Projekce - Ukonceni Real'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 75059588-de9d-4e6c-8cc0-f754cb210977
+		summarizeBy: none
+		sourceColumn: Projekce - Ukonceni Real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Realizace - Zahajeni Plan'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 1bb2a28c-7bea-435c-8d94-742ac93e0f82
+		summarizeBy: none
+		sourceColumn: Realizace - Zahajeni Plan
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Realizace - Zahajeni Real'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 3dad0678-9a82-4079-8ccc-8605005809bc
+		summarizeBy: none
+		sourceColumn: Realizace - Zahajeni Real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Realizace - Pripravenost Pro Zakaznika Plan'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 3860b45e-8cc3-40d8-a581-60bc019ab078
+		summarizeBy: none
+		sourceColumn: Realizace - Pripravenost Pro Zakaznika Plan
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Realizace - Pripravenost Pro Zakaznika Real'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 61b8a053-1854-4a8f-b00b-e7cd2a01effc
+		summarizeBy: none
+		sourceColumn: Realizace - Pripravenost Pro Zakaznika Real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Realizace - Ukonceni Plan'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 20207ad3-3ec9-4e5d-941a-c51e016bc78a
+		summarizeBy: none
+		sourceColumn: Realizace - Ukonceni Plan
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Realizace - Ukonceni Real'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: ac260b04-b002-4b05-81e7-d878cb9ebf12
+		summarizeBy: none
+		sourceColumn: Realizace - Ukonceni Real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Pocet Dnu Od Akvizice Ke Komerci' =
+			
+			VAR DatumAkvizice = DIM_KIA[ABC - Akvizice Start]
+			VAR DatumKomerce = DIM_KIA[Komerce - RFS Real First]
+			VAR DatumKmerci = IF(ISBLANK(DatumKomerce), TODAY(), DatumKomerce)
+			VAR PocetDni = DATEDIFF(DatumAkvizice, DatumKmerci, DAY)
+			RETURN
+			IF(NOT ISBLANK(DatumAkvizice), PocetDni, BLANK())
+		formatString: 0
+		lineageTag: 1c93f5c7-84f6-4ac6-be2f-a3787c1c778d
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column Obec
+		dataType: string
+		lineageTag: 7bc296ad-6a0f-4896-892a-11f6cdaca8ec
+		summarizeBy: none
+		sourceColumn: Obec
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realizace - Pripravenost Pro Zakaznika Opozdeni' =
+			
+			IF (
+			    ISBLANK ( [Realizace - Pripravenost Pro Zakaznika Plan] )
+			        || NOT ISBLANK ( [Realizace - Pripravenost Pro Zakaznika Real] ),
+			    BLANK (),
+			    IF (
+			        DATEDIFF ( [Realizace - Pripravenost Pro Zakaznika Plan], TODAY (), DAY ) >= 10,
+			        1,
+			        BLANK ()
+			    )
+			)
+		formatString: 0
+		lineageTag: 808b5101-0bb7-42b9-b878-1a8f02d683ec
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realizace - Ukonceni Opozdeni' =
+			
+			IF (
+			    ISBLANK ( [Realizace - Ukonceni Plan] )
+			        || NOT ISBLANK ( [Realizace - Ukonceni Real] ),
+			    BLANK (),
+			    IF (
+			        DATEDIFF ( [Realizace - Ukonceni Plan], TODAY (), DAY ) >= 10,
+			        1,
+			        BLANK ()
+			    )
+			)
+		formatString: 0
+		lineageTag: e44e5aae-4b9e-4ddb-93ae-0be7808bb9ee
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realizace - Zahajeni Opozdeni' =
+			
+			IF (
+			    ISBLANK ( [Realizace - Zahajeni Plan] )
+			        || NOT ISBLANK ( [Realizace - Zahajeni Real] ),
+			    BLANK (),
+			    IF (
+			        DATEDIFF ( [Realizace - Zahajeni Plan], TODAY (), DAY ) >= 10,
+			        1,
+			        BLANK ()
+			    )
+			)
+		formatString: 0
+		lineageTag: 205c9d26-bc4a-43b3-9938-7cac8731b744
+		summarizeBy: sum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Komerce - RFS Real First'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: 9aaaea5b-d8ce-4eee-a1b9-590c91e6a329
+		summarizeBy: none
+		sourceColumn: Komerce - RFS Real First
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'Komerce - Dokumentace Odevzdana Real First'
+		dataType: dateTime
+		formatString: dd.mm.yy
+		lineageTag: e65fe144-2234-4040-99c2-92e3adf65161
+		summarizeBy: none
+		sourceColumn: Komerce - Dokumentace Odevzdana Real First
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	column 'ABC - Akvizice Konec Short' =
+			
+			FORMAT(DIM_KIA[ABC - Akvizice Konec], "MM") & "/" &
+			FORMAT(DIM_KIA[ABC - Akvizice Konec], "yy")
+		lineageTag: 077004a6-e7ab-4dd3-9837-34d963e15665
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realizace - Zahajeni Real Short' =
+			
+			FORMAT(DIM_KIA[Realizace - Zahajeni Real], "MM") & "/" &
+			FORMAT(DIM_KIA[Realizace - Zahajeni Real], "yy")
+		lineageTag: a5ee8de9-b5a1-449d-a8d0-d95aef40dc24
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Realizace - Pripravenost Pro Zakaznika Real Short' =
+			
+			FORMAT(DIM_KIA[Realizace - Pripravenost Pro Zakaznika Real], "MM") & "/" &
+			FORMAT(DIM_KIA[Realizace - Pripravenost Pro Zakaznika Real], "yy")
+		lineageTag: 2034c0cd-c56a-42d2-9f3a-460b62d56fb6
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_KIA = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA = Source{[Schema=Schema,Item="DIM_KIA_CURRENT"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

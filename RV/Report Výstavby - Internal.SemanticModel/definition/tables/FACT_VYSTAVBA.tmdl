@@ -1,0 +1,230 @@
+table FACT_VYSTAVBA
+	lineageTag: afe5de89-0733-410f-901c-958671e83618
+
+	column ROP_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f83065d-840d-4bca-8c93-8ee8b1c5ac01
+		summarizeBy: none
+		sourceColumn: ROP_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column KIA_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: ae70ddde-5f7a-4340-beac-6541a9c6e342
+		summarizeBy: none
+		sourceColumn: KIA_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column KVA_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 1a56e476-336a-4db3-8439-21f129c334ea
+		summarizeBy: count
+		sourceColumn: KVA_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stav_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 7054dd5e-d061-4ee3-8e78-953651d40879
+		summarizeBy: none
+		sourceColumn: Stav_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dodavatel_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 8af2f283-a322-4d27-954a-a7d31f1f34ea
+		summarizeBy: none
+		sourceColumn: Dodavatel_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column IK_Zapis_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4c928dae-827f-4974-8d29-1366dadd6d25
+		summarizeBy: none
+		sourceColumn: IK_Zapis_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start Model'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 87d92148-7945-4783-a094-a434906c14d0
+		summarizeBy: none
+		sourceColumn: Start Model
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Konec Model'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 6a89f752-183f-4cab-bb0a-42e88456fb0f
+		summarizeBy: none
+		sourceColumn: Konec Model
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Pocet HP'
+		dataType: int64
+		formatString: #,0
+		lineageTag: 2f0ce8e0-9895-4ea6-b05b-d761b80ea9c5
+		summarizeBy: sum
+		sourceColumn: Pocet HP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Faze_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 14183b73-7dae-42bd-ac99-6f756f6fe071
+		summarizeBy: none
+		sourceColumn: Faze_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pocet HP Stav'
+		dataType: int64
+		formatString: 0
+		lineageTag: df642ef1-0e20-4fd2-aba2-9cad7a5135e2
+		summarizeBy: sum
+		sourceColumn: Pocet HP Stav
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Aktualni Stav'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4dfcb6f1-2138-43cb-b097-f07b332548c9
+		summarizeBy: none
+		sourceColumn: Aktualni Stav
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subfaze_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 5b9bea43-0cec-4386-9078-2af92f24c021
+		summarizeBy: none
+		sourceColumn: Subfaze_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start Model Baseline'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: b7d71a47-5f75-4efd-b6ba-b12c5197ab57
+		summarizeBy: none
+		sourceColumn: Start Model Baseline
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Konec Model Baseline'
+		dataType: dateTime
+		formatString: dd/mm/yyyy
+		lineageTag: 2aef58d4-120e-4550-9a10-0eb5ba2413f5
+		summarizeBy: none
+		sourceColumn: Konec Model Baseline
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation PBI_FormatHint = {"isDateTimeCustom":true}
+
+	column 'Posledni real datum'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: bf3be375-7888-46b8-9851-53cd8ac09f10
+		summarizeBy: none
+		sourceColumn: Posledni real datum
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Start Real'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9e44a121-d3be-401d-93a8-6e85b73ae33e
+		summarizeBy: none
+		sourceColumn: Start Real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Konec Real'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 15da0ead-e374-40c6-b2f3-8726f22c821f
+		summarizeBy: none
+		sourceColumn: Konec Real
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Start Forecast'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7219ba1a-35a0-42f8-a777-8fa40d57fdb8
+		summarizeBy: none
+		sourceColumn: Start Forecast
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Konec Forecast'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: fe84bb8f-a60d-45bf-9536-dcbbdac94702
+		summarizeBy: none
+		sourceColumn: Konec Forecast
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Subfaze Duration'
+		dataType: int64
+		formatString: 0
+		lineageTag: 96b66e72-ede3-43df-a384-036e26005832
+		summarizeBy: sum
+		sourceColumn: Subfaze Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FACT_VYSTAVBA = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_FACT_VYSTAVBA = Source{[Schema=Schema,Item="FACT_VYSTAVBA"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_FACT_VYSTAVBA
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

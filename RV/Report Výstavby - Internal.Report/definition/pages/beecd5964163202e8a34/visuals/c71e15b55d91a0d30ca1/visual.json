@@ -1,0 +1,477 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "c71e15b55d91a0d30ca1",
+  "position": {
+    "x": 10,
+    "y": 85,
+    "z": 0,
+    "height": 625,
+    "width": 1260,
+    "tabOrder": 3
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "O Reportu Výstavba",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "16px"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Stránka Průběžné plnění je postavená na unpivotnuté faktové tabulce. Je zde potřeba brát celou historii (ne pouze aktuální status). V rámci celé historie nelze používat "
+                  },
+                  {
+                    "value": "stav",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  },
+                  {
+                    "value": ", jelikož se nedopočítává za všechny fáze. Stav je důležitý pouze pro aktuální status."
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Rozdíl mezi Internal a public verzí",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt",
+                      "color": "#000000"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Public verze má:",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Skrytou stránku "
+                  },
+                  {
+                    "value": "Kontrola Datové Kvality",
+                    "textStyle": {
+                      "fontWeight": "bold"
+                    }
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 1
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Internal verze má:",
+                    "textStyle": {
+                      "fontSize": "11pt"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 1
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Defaultní filtry",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Defaultně jsou vybrané filtry"
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Nová Výstavba"
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 1
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "CETIN Výstavba"
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 1
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Filtr panel:"
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": " Počet HP - přidáno pro Daniela Benetku - časem nahradit velikostí KIA (udělat kategorii pro 1 HP - Greenfields)"
+                  }
+                ],
+                "listType": "ordered"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Stránky",
+                    "textStyle": {
+                      "fontWeight": "bold",
+                      "fontSize": "12pt"
+                    }
+                  }
+                ]
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Status Investiční Akce",
+                    "textStyle": {
+                      "color": "#000000"
+                    },
+                    "url": "https://app.powerbi.com/groups/me/apps/2ed33be5-9b42-402d-be1c-123954ed0bd6/reports/f0977b2b-f6f3-4cac-bed2-d920ad229a0a/3b5f597938a2ef98ff12?experience=power-bi"
+                  },
+                  {
+                    "value": ":",
+                    "textStyle": {
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Komplexní agregovaný pohled na investiční akce s možností bohatého filtrování a náhledu na jednotlivé akce skrze mapu České republiky"
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 1
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Možnost prokliku na detail investiční akce skrze tlačítko \"Vyberte IA pro analýzu\", kde je vidět detail akce pro každou fázi",
+                    "textStyle": {
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 1
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Status Home Passed",
+                    "textStyle": {
+                      "color": "#000000"
+                    },
+                    "url": "https://app.powerbi.com/groups/me/apps/2ed33be5-9b42-402d-be1c-123954ed0bd6/reports/f0977b2b-f6f3-4cac-bed2-d920ad229a0a/e46faf30d7601dc1f744?experience=power-bi"
+                  },
+                  {
+                    "value": ":",
+                    "textStyle": {
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Komplexní pohled na jednotlivé adresy (ROPky) na úrovni Home Passed s možností bohatého filtrování"
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 1
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Možnost prokliku na detail investiční akce pod kterou adresa spadá skrze tlačítko \"Vyberte IA pro analýzu\", kde je vidět detail akce pro každou fázi",
+                    "textStyle": {
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 1
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Matice Statusů Home Passed",
+                    "textStyle": {
+                      "color": "#000000"
+                    },
+                    "url": "https://app.powerbi.com/groups/me/apps/2ed33be5-9b42-402d-be1c-123954ed0bd6/reports/f0977b2b-f6f3-4cac-bed2-d920ad229a0a/7642018cae60571ab6c9?ctid=5d1297a0-4793-467b-b782-9ddf79faa41f&experience=power-bi"
+                  },
+                  {
+                    "value": ":",
+                    "textStyle": {
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Maticový pohled na jednotlivé adresy (ROPky) na úrovni Home Passed, funkčně totožný s pohledem \"Status Home Passed\""
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 1
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Průběžné Plnění",
+                    "textStyle": {
+                      "color": "#000000"
+                    },
+                    "url": "https://app.powerbi.com/groups/me/apps/2ed33be5-9b42-402d-be1c-123954ed0bd6/reports/f0977b2b-f6f3-4cac-bed2-d920ad229a0a/2c062d1d83860e7d018d?experience=power-bi"
+                  },
+                  {
+                    "value": ":",
+                    "textStyle": {
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Komplexní měsíční a týdenní pohled na průběžné plnění jednotlivých fází výstavby z pohledu startu a konce za dané fáze v následující granularitě:"
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 1
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Real: Reální Start/Konec zaznamenán v systémech CETINu"
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 2
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Forecast: Odhad Startu/Konce ze strany projektových koordinátorů nebo jiných zodpovědných osob",
+                    "textStyle": {
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 2
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Utilizace Dodavatelů",
+                    "textStyle": {
+                      "color": "#000000"
+                    },
+                    "url": "https://app.powerbi.com/groups/me/apps/2ed33be5-9b42-402d-be1c-123954ed0bd6/reports/f0977b2b-f6f3-4cac-bed2-d920ad229a0a/d7ccd80057718900703d?ctid=5d1297a0-4793-467b-b782-9ddf79faa41f&experience=power-bi"
+                  },
+                  {
+                    "value": ":",
+                    "textStyle": {
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "bullet"
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Pohled na aktuální dostupnou kapacity, utilizaci a regionalitu dodavatelů ve fázi projekce"
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 1
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": "Pohled obsahuje také forecast dostupné kapacity a utilizace dodavatelů ve fázi projekce",
+                    "textStyle": {
+                      "color": "#000000"
+                    }
+                  }
+                ],
+                "listType": "ordered",
+                "indent": 1
+              },
+              {
+                "textRuns": [
+                  {
+                    "value": ""
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "titleWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "general": [
+        {
+          "properties": {
+            "keepLayerOrder": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

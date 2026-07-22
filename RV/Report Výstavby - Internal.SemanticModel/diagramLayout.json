@@ -1,0 +1,1025 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 1261.425968109339,
+            "y": 811.24867122247531
+          },
+          "nodeIndex": "DIM_KIA",
+          "nodeLineageTag": "c40f84cb-11dd-4b27-8d90-b6ab393c6fa8",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 29,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 776.05163249810175,
+            "y": 0
+          },
+          "nodeIndex": "DIM_ROP",
+          "nodeLineageTag": "f05fc0e1-53b7-4cad-8ea9-7428490e6213",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 22
+        },
+        {
+          "location": {
+            "x": 386.27486712224749,
+            "y": 279.4350797266514
+          },
+          "nodeIndex": "FACT_VYSTAVBA",
+          "nodeLineageTag": "afe5de89-0733-410f-901c-958671e83618",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 25
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 94.514806378132079
+          },
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "d108ec7d-09fe-46b7-a0ab-e70f675e16d5",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 23,
+          "expandedHeight": 104
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 0
+          },
+          "nodeIndex": "Data Source Refresh",
+          "nodeLineageTag": "e2604f40-702c-4f22-9595-1bee364d59dc",
+          "size": {
+            "height": 72,
+            "width": 234
+          },
+          "zIndex": 24,
+          "expandedHeight": 104
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 620.73974943052383
+          },
+          "nodeIndex": "DIM_IK_ZAPIS",
+          "nodeLineageTag": "43c1a0de-4a99-48d7-a944-ed5a74f4092d",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 28,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 499.93166287016004,
+            "y": 0
+          },
+          "nodeIndex": "DIM_DODAVATEL",
+          "nodeLineageTag": "f349d512-298c-4fdd-a0f1-47fc6a622dbd",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 26,
+          "expandedHeight": 296
+        },
+        {
+          "location": {
+            "x": 98.879988569695115,
+            "y": 988.11256643887612
+          },
+          "nodeIndex": "DIM_CALENDAR",
+          "nodeLineageTag": "074bcfe0-72b0-4eab-9f94-891ad362f338",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 20,
+          "expandedHeight": 248
+        },
+        {
+          "location": {
+            "x": 1348.171602126044,
+            "y": 0
+          },
+          "nodeIndex": "DIM_MILESTONE",
+          "nodeLineageTag": "c5db308d-a043-45e7-81b7-993e06dddf22",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 19,
+          "expandedHeight": 176
+        },
+        {
+          "location": {
+            "x": 1059.7023538344724,
+            "y": 246.48291571753984
+          },
+          "nodeIndex": "FACT_VYSTAVBA_MILNIK",
+          "nodeLineageTag": "f458097d-8994-4c1c-a26e-c86bbe19a09c",
+          "size": {
+            "height": 296,
+            "width": 301.11921032649957
+          },
+          "zIndex": 27
+        },
+        {
+          "location": {
+            "x": 2098,
+            "y": 344.62433561123771
+          },
+          "nodeIndex": "FACT_KAPACITA",
+          "nodeLineageTag": "d6280c88-4cc7-4f0a-a10c-46ba182f46e6",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 6
+        },
+        {
+          "location": {
+            "x": 1750,
+            "y": 360.62433561123771
+          },
+          "nodeIndex": "FACT_REGIONALITA",
+          "nodeLineageTag": "b49bc805-5533-4909-b6a5-cf172fce18b3",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 7
+        },
+        {
+          "location": {
+            "x": 248,
+            "y": 0
+          },
+          "nodeIndex": "DIM_DODAVATEL_SUBTYPE",
+          "nodeLineageTag": "10f496a5-9d54-41d1-b99e-27c87fdf075f",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 8
+        },
+        {
+          "location": {
+            "x": 967.51404707668985,
+            "y": 631.46848899012889
+          },
+          "nodeIndex": "DIM_STAV",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 9,
+          "expandedHeight": 176
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 440.32203872437367
+          },
+          "nodeIndex": "DIM_SUBSTATUS",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 10,
+          "expandedHeight": 200
+        },
+        {
+          "location": {
+            "x": 630.59225512528462,
+            "y": 634.16438876233906
+          },
+          "nodeIndex": "DIM_FAZE",
+          "nodeLineageTag": "6e9cab0f-30ed-4105-815b-be5956d772b0",
+          "size": {
+            "height": 199.28625664388755,
+            "width": 234
+          },
+          "zIndex": 11
+        },
+        {
+          "location": {
+            "x": 2734.3333333333335,
+            "y": 359.29100227790434
+          },
+          "nodeIndex": "MILESTONES_KOMERCE",
+          "nodeLineageTag": "28835e28-4902-4aa7-bd4b-07ea62f00c7d",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 12
+        },
+        {
+          "location": {
+            "x": 3018.3333333333335,
+            "y": 357.62433561123765
+          },
+          "nodeIndex": "FACT_REALIZACE",
+          "nodeLineageTag": "0e2e2bdc-fc1d-4586-ad54-1edc5fd97586",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 13
+        },
+        {
+          "location": {
+            "x": 3302.3333333333335,
+            "y": 417.62433561123765
+          },
+          "nodeIndex": "DIM_TYP_ETAPY",
+          "nodeLineageTag": "8d43012e-9830-42ae-a95d-9f0b27216641",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 14
+        },
+        {
+          "location": {
+            "x": 3586.3333333333335,
+            "y": 381.62433561123765
+          },
+          "nodeIndex": "MILESTONES_KOMERCE_ROP",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 15
+        },
+        {
+          "location": {
+            "x": 360.33333333333348,
+            "y": 782.6243356112376
+          },
+          "nodeIndex": "DIM_SUBFAZE",
+          "nodeLineageTag": "ba46fcf5-a40a-4ad1-8457-f57791fe3553",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 16
+        },
+        {
+          "location": {
+            "x": 1054.2222391764319,
+            "y": 1031.3896165527715
+          },
+          "nodeIndex": "KIA_AGG_DATES",
+          "nodeLineageTag": "dc207c86-503d-4d09-9bb2-47a274f30ffa",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 17
+        },
+        {
+          "location": {
+            "x": 322.00000000000011,
+            "y": 1381.6666666666667
+          },
+          "nodeIndex": "DIM_SUBJEKT",
+          "nodeLineageTag": "1981ed85-760b-465e-9cbb-16ec44900d5a",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 30
+        },
+        {
+          "location": {
+            "x": 787.82289132156939,
+            "y": 1250.3333333333333
+          },
+          "nodeIndex": "FACT_VYSTAVBA_SUBJEKT",
+          "nodeLineageTag": "d0bcb0fa-4254-4703-a1d2-fad55dd4df81",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 3870.3333333333335,
+            "y": 640.83333333333337
+          },
+          "nodeIndex": "DATA_QUALITY_BASE",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4154.3333333333339,
+            "y": 640.83333333333337
+          },
+          "nodeIndex": "FACT_DATA_QUALITY_INCIDENTS",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4438.3333333333339,
+            "y": 690.83333333333337
+          },
+          "nodeIndex": "ZdrojeMapping",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 4722.3333333333339,
+            "y": 642.83333333333337
+          },
+          "nodeIndex": "DATA_FRESHNESS_ALERTS",
+          "size": {
+            "height": 296,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1077.2452543659831,
+            "y": 0
+          },
+          "nodeIndex": "DIM_ROP_PRIZNAK",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1756,
+            "y": 807
+          },
+          "nodeIndex": "DIM_KIA_PRIZNAK",
+          "size": {
+            "height": 145,
+            "width": 275
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Všechny tabulky",
+      "zoomValue": 80,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 672.08333206176758,
+            "y": 291.25
+          },
+          "nodeIndex": "FACT_VYSTAVBA",
+          "nodeLineageTag": "afe5de89-0733-410f-901c-958671e83618",
+          "size": {
+            "height": 293.75,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 148.33333206176758,
+            "y": 49
+          },
+          "nodeIndex": "DIM_CALENDAR",
+          "nodeLineageTag": "074bcfe0-72b0-4eab-9f94-891ad362f338",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 486.33333206176758,
+            "y": 33
+          },
+          "nodeIndex": "DIM_DODAVATEL",
+          "nodeLineageTag": "f349d512-298c-4fdd-a0f1-47fc6a622dbd",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 3,
+          "expandedHeight": 296
+        },
+        {
+          "location": {
+            "x": 845.33333206176758,
+            "y": 35
+          },
+          "nodeIndex": "DIM_IK_ZAPIS",
+          "nodeLineageTag": "43c1a0de-4a99-48d7-a944-ed5a74f4092d",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 4,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 1146.8333320617676,
+            "y": 234.25
+          },
+          "nodeIndex": "DIM_KIA",
+          "nodeLineageTag": "c40f84cb-11dd-4b27-8d90-b6ab393c6fa8",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 5,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 65.333332061767578,
+            "y": 550.75
+          },
+          "nodeIndex": "DIM_ROP",
+          "nodeLineageTag": "f05fc0e1-53b7-4cad-8ea9-7428490e6213",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 10,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 727.08333206176758,
+            "y": 751.5
+          },
+          "nodeIndex": "DIM_STAV",
+          "nodeLineageTag": "57459fcd-5e74-4c72-b16f-cafd2a95dfb7",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 176
+        },
+        {
+          "location": {
+            "x": 1022.5833320617676,
+            "y": 731.25
+          },
+          "nodeIndex": "DIM_FAZE",
+          "nodeLineageTag": "6e9cab0f-30ed-4105-815b-be5956d772b0",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 331.25,
+            "y": 726.25
+          },
+          "nodeIndex": "DIM_SUBFAZE",
+          "nodeLineageTag": "ba46fcf5-a40a-4ad1-8457-f57791fe3553",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Výstavba",
+      "zoomValue": 80,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 2,
+      "scrollPosition": {
+        "x": 0,
+        "y": 51
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 469,
+            "y": 144
+          },
+          "nodeIndex": "FACT_VYSTAVBA_MILNIK",
+          "nodeLineageTag": "f458097d-8994-4c1c-a26e-c86bbe19a09c",
+          "size": {
+            "height": 402,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 847,
+            "y": 155
+          },
+          "nodeIndex": "DIM_ROP",
+          "nodeLineageTag": "f05fc0e1-53b7-4cad-8ea9-7428490e6213",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 15,
+            "y": 290
+          },
+          "nodeIndex": "DIM_MILESTONE",
+          "nodeLineageTag": "c5db308d-a043-45e7-81b7-993e06dddf22",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 152
+        },
+        {
+          "location": {
+            "x": 130,
+            "y": 482
+          },
+          "nodeIndex": "DIM_KIA",
+          "nodeLineageTag": "c40f84cb-11dd-4b27-8d90-b6ab393c6fa8",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 818,
+            "y": 420
+          },
+          "nodeIndex": "DIM_CALENDAR",
+          "nodeLineageTag": "074bcfe0-72b0-4eab-9f94-891ad362f338",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 697,
+            "y": 588
+          },
+          "nodeIndex": "DIM_IK_ZAPIS",
+          "nodeLineageTag": "43c1a0de-4a99-48d7-a944-ed5a74f4092d",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 428,
+            "y": 655
+          },
+          "nodeIndex": "DIM_DODAVATEL",
+          "nodeLineageTag": "f349d512-298c-4fdd-a0f1-47fc6a622dbd",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 176
+        },
+        {
+          "location": {
+            "x": 263,
+            "y": 0
+          },
+          "nodeIndex": "DIM_STAV",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 176
+        },
+        {
+          "location": {
+            "x": 689,
+            "y": 0
+          },
+          "nodeIndex": "DIM_FAZE",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 176
+        }
+      ],
+      "name": "Výstavba Milník",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 3,
+      "scrollPosition": {
+        "x": 56.877421225270922,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 905.35483870967744,
+            "y": 207.03225806451618
+          },
+          "nodeIndex": "DIM_CALENDAR",
+          "nodeLineageTag": "074bcfe0-72b0-4eab-9f94-891ad362f338",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 75.967741935483872,
+            "y": 279.48387096774195
+          },
+          "nodeIndex": "DIM_DODAVATEL",
+          "nodeLineageTag": "f349d512-298c-4fdd-a0f1-47fc6a622dbd",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 423.35483870967744,
+            "y": 0
+          },
+          "nodeIndex": "FACT_VYSTAVBA",
+          "nodeLineageTag": "afe5de89-0733-410f-901c-958671e83618",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 469.35483870967738,
+            "y": 523.16129032258061
+          },
+          "nodeIndex": "FACT_KAPACITA",
+          "nodeLineageTag": "1c2165a3-6219-42f2-8af1-74dfa13a126d",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Utilizace",
+      "zoomValue": 81.578947368421055,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 4,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 618.38305001469371,
+            "y": -50
+          },
+          "nodeIndex": "DIM_KIA",
+          "nodeLineageTag": "c40f84cb-11dd-4b27-8d90-b6ab393c6fa8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 50,
+            "y": 41.9851107795983
+          },
+          "nodeIndex": "DIM_DODAVATEL",
+          "nodeLineageTag": "f349d512-298c-4fdd-a0f1-47fc6a622dbd",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 334.20156119318528,
+            "y": 44.844697959845078
+          },
+          "nodeIndex": "FACT_REGIONALITA",
+          "nodeLineageTag": "b49bc805-5533-4909-b6a5-cf172fce18b3",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Regionalita",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 5,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 427,
+            "y": 206
+          },
+          "nodeIndex": "FACT_REALIZACE",
+          "nodeLineageTag": "0e2e2bdc-fc1d-4586-ad54-1edc5fd97586",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 74,
+            "y": 86
+          },
+          "nodeIndex": "DIM_KIA",
+          "nodeLineageTag": "c40f84cb-11dd-4b27-8d90-b6ab393c6fa8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 841,
+            "y": 93
+          },
+          "nodeIndex": "DIM_DODAVATEL",
+          "nodeLineageTag": "f349d512-298c-4fdd-a0f1-47fc6a622dbd",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 764,
+            "y": 455
+          },
+          "nodeIndex": "DIM_TYP_ETAPY",
+          "nodeLineageTag": "8d43012e-9830-42ae-a95d-9f0b27216641",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Realizace",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 6,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 429,
+            "y": 198
+          },
+          "nodeIndex": "FACT_VYSTAVBA_SUBJEKT",
+          "nodeLineageTag": "d0bcb0fa-4254-4703-a1d2-fad55dd4df81",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 756,
+            "y": 343
+          },
+          "nodeIndex": "DIM_KIA",
+          "nodeLineageTag": "c40f84cb-11dd-4b27-8d90-b6ab393c6fa8",
+          "size": {
+            "height": 152,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 753,
+            "y": 34
+          },
+          "nodeIndex": "DIM_ROP",
+          "nodeLineageTag": "f05fc0e1-53b7-4cad-8ea9-7428490e6213",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 300
+        },
+        {
+          "location": {
+            "x": 62,
+            "y": 50
+          },
+          "nodeIndex": "DIM_SUBJEKT",
+          "nodeLineageTag": "1981ed85-760b-465e-9cbb-16ec44900d5a",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0,
+          "expandedHeight": 200
+        }
+      ],
+      "name": "Výstavba Subjekt HP",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 7,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 816,
+            "y": 315
+          },
+          "nodeIndex": "DATA_QUALITY_BASE",
+          "nodeLineageTag": "f298a554-eab6-412e-833e-1a26768409a8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 1
+        },
+        {
+          "location": {
+            "x": 280,
+            "y": 311
+          },
+          "nodeIndex": "FACT_DATA_QUALITY_INCIDENTS",
+          "nodeLineageTag": "d7f147bb-0ac4-491f-b19d-460d767faae5",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 161
+          },
+          "nodeIndex": "DIM_FAZE",
+          "nodeLineageTag": "6e9cab0f-30ed-4105-815b-be5956d772b0",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 549,
+            "y": 0
+          },
+          "nodeIndex": "DIM_KIA",
+          "nodeLineageTag": "c40f84cb-11dd-4b27-8d90-b6ab393c6fa8",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": -79,
+            "y": 545
+          },
+          "nodeIndex": "DIM_ROP",
+          "nodeLineageTag": "f05fc0e1-53b7-4cad-8ea9-7428490e6213",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Kvalita Dat",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Výstavba",
+  "defaultDiagram": "Všechny tabulky"
+}

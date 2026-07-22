@@ -1,0 +1,46 @@
+table DIM_SUBFAZE
+	lineageTag: ba46fcf5-a40a-4ad1-8457-f57791fe3553
+
+	column Subfaze_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 4cc86723-9089-45b6-9d39-b4c649ecfa23
+		summarizeBy: none
+		sourceColumn: Subfaze_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subfaze
+		dataType: string
+		lineageTag: c615c21e-1aae-499d-96f0-ca4d3f4ce635
+		summarizeBy: none
+		sourceColumn: Subfaze
+		sortByColumn: Subfaze_Key
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subfaze_Norma
+		dataType: int64
+		formatString: 0
+		lineageTag: 91e46668-4a04-4c9c-b5cf-86ff926f6658
+		summarizeBy: sum
+		sourceColumn: Subfaze_Norma
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_SUBFAZE = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA = Source{[Schema=Schema,Item="DIM_SUBFAZE"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

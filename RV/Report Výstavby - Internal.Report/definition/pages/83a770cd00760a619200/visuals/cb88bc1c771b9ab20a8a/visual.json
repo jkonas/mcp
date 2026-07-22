@@ -1,0 +1,1074 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "cb88bc1c771b9ab20a8a",
+  "position": {
+    "x": 9.931034482758621,
+    "y": 401.65517241379308,
+    "z": 4000,
+    "height": 310.06896551724139,
+    "width": 1260.1379310344828,
+    "tabOrder": 7000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KIA_AGG_DATES"
+                    }
+                  },
+                  "Property": "KIA"
+                }
+              },
+              "queryRef": "KIA_AGG_DATES.KIA",
+              "nativeQueryRef": "KIA"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_KIA"
+                    }
+                  },
+                  "Property": "Projekt"
+                }
+              },
+              "queryRef": "DIM_KIA.Projekt",
+              "nativeQueryRef": "Projekt"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_KIA"
+                    }
+                  },
+                  "Property": "Region Nova Optika"
+                }
+              },
+              "queryRef": "DIM_KIA.Region Nova Optika",
+              "nativeQueryRef": "Region NO",
+              "displayName": "Region NO"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KIA_AGG_DATES"
+                    }
+                  },
+                  "Property": "POCET_HP"
+                }
+              },
+              "queryRef": "Sum(KIA_AGG_DATES.POCET_HP)",
+              "nativeQueryRef": "Počet HP",
+              "displayName": "Počet HP"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KIA_AGG_DATES"
+                    }
+                  },
+                  "Property": "DODAVATEL"
+                }
+              },
+              "queryRef": "KIA_AGG_DATES.DODAVATEL",
+              "nativeQueryRef": "Dodavatel",
+              "displayName": "Dodavatel"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_KIA"
+                    }
+                  },
+                  "Property": "Realizace - Projektovy Koordinator"
+                }
+              },
+              "queryRef": "DIM_KIA.Realizace - Projektovy Koordinator",
+              "nativeQueryRef": "Projektový Koordinátor",
+              "displayName": "Projektový Koordinátor"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KIA_AGG_DATES"
+                    }
+                  },
+                  "Property": "FAZE"
+                }
+              },
+              "queryRef": "KIA_AGG_DATES.FAZE",
+              "nativeQueryRef": "Fáze",
+              "displayName": "Fáze"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KIA_AGG_DATES"
+                    }
+                  },
+                  "Property": "FAZE_START_REAL"
+                }
+              },
+              "queryRef": "KIA_AGG_DATES.FAZE_START_REAL",
+              "nativeQueryRef": "Faze Start",
+              "displayName": "Faze Start"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KIA_AGG_DATES"
+                    }
+                  },
+                  "Property": "FAZE_NORMA_DAYS"
+                }
+              },
+              "queryRef": "KIA_AGG_DATES.FAZE_NORMA",
+              "nativeQueryRef": "Faze Norma",
+              "displayName": "Faze Norma"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KIA_AGG_DATES"
+                    }
+                  },
+                  "Property": "FAZE_ROZDIL_DNI"
+                }
+              },
+              "queryRef": "Sum(KIA_AGG_DATES.FAZE_DELAY_DAYS)",
+              "nativeQueryRef": "Zpoždení Fáze",
+              "displayName": "Zpoždení Fáze"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KIA_AGG_DATES"
+                    }
+                  },
+                  "Property": "SUB_FAZE"
+                }
+              },
+              "queryRef": "KIA_AGG_DATES.SUB_FAZE",
+              "nativeQueryRef": "SubFaze",
+              "displayName": "SubFaze"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KIA_AGG_DATES"
+                    }
+                  },
+                  "Property": "SUB_START_REAL"
+                }
+              },
+              "queryRef": "KIA_AGG_DATES.SUB_START_REAL",
+              "nativeQueryRef": "SubFaze Start",
+              "displayName": "SubFaze Start"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KIA_AGG_DATES"
+                    }
+                  },
+                  "Property": "SUBFAZE_NORMA_DAYS"
+                }
+              },
+              "queryRef": "Sum(KIA_AGG_DATES.SUBFAZE_NORMA)",
+              "nativeQueryRef": "SubFaze Norma",
+              "displayName": "SubFaze Norma"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KIA_AGG_DATES"
+                    }
+                  },
+                  "Property": "SUBFAZE_ROZDIL_DNI"
+                }
+              },
+              "queryRef": "Sum(KIA_AGG_DATES.SUBFAZE_ROZDIL_DNI)",
+              "nativeQueryRef": "Zpoždení SubFaze",
+              "displayName": "Zpoždení SubFaze"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "KIA_AGG_DATES"
+                    }
+                  },
+                  "Property": "KIA_DETAIL_LINK"
+                }
+              },
+              "queryRef": "KIA_AGG_DATES.KIA_DETAIL_LINK",
+              "nativeQueryRef": "Detail Projektu",
+              "displayName": "Detail Projektu"
+            }
+          ],
+          "showAll": true
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "KIA_AGG_DATES"
+                  }
+                },
+                "Property": "FAZE_ROZDIL_DNI"
+              }
+            },
+            "direction": "Descending"
+          },
+          {
+            "field": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "KIA_AGG_DATES"
+                  }
+                },
+                "Property": "SUBFAZE_ROZDIL_DNI"
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "67D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KIA_AGG_DATES.FAZE"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "200.21884628260543D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_KIA.Projekt"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "53.86593744401446D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_KIA.Region Nova Optika"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "66.5364877235702D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(KIA_AGG_DATES.FAZE_DELAY_DAYS)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "44.80468792034331D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(KIA_AGG_DATES.POCET_HP)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "170.9066288767726D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KIA_AGG_DATES.SUB_FAZE"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "53.76233144511536D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KIA_AGG_DATES.FAZE_NORMA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "54.48365806781274D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KIA_AGG_DATES.FAZE_START_REAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "60.562436987953035D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KIA_AGG_DATES.SUB_START_REAL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "60.687876047996D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(KIA_AGG_DATES.SUBFAZE_NORMA)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "66.48694289920427D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(KIA_AGG_DATES.SUBFAZE_ROZDIL_DNI)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "115.25331283702495D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KIA_AGG_DATES.DODAVATEL"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "90.32200175478789D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_KIA.Realizace - Projektovy Koordinator"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "67D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KIA_AGG_DATES.KIA"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "62.01549233879237D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KIA_AGG_DATES.KIA_DETAIL_LINK"
+          }
+        }
+      ],
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KIA_AGG_DATES"
+                        }
+                      },
+                      "Property": "ZPOZDENI_COLOR_FAZE"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Sum(KIA_AGG_DATES.FAZE_DELAY_DAYS)"
+          }
+        },
+        {
+          "properties": {
+            "backColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Measure": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "KIA_AGG_DATES"
+                        }
+                      },
+                      "Property": "ZPOZDENI_COLOR_SUBFAZE"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Sum(KIA_AGG_DATES.SUBFAZE_ROZDIL_DNI)"
+          }
+        },
+        {
+          "properties": {
+            "urlIcon": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "backColorSecondary": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#F6F8FC'"
+                    }
+                  }
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "grid": [
+        {
+          "properties": {
+            "gridHorizontalColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "outlineWeight": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            },
+            "rowPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "2D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(KIA_AGG_DATES.POCET_HP)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KIA_AGG_DATES.FAZE_NORMA"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(KIA_AGG_DATES.FAZE_DELAY_DAYS)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Left'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(KIA_AGG_DATES.SUBFAZE_NORMA)"
+          }
+        },
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(KIA_AGG_DATES.SUBFAZE_ROZDIL_DNI)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Center'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "KIA_AGG_DATES.KIA_DETAIL_LINK"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Tabulka - projekce'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "f5696fc0b55d62ceaab8",
+        "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KIA_AGG_DATES"
+              }
+            },
+            "Property": "FAZE"
+          }
+        },
+        "type": "Categorical",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "4b6332205d9114cc2b57",
+        "ordinal": 1,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KIA_AGG_DATES"
+              }
+            },
+            "Property": "FAZE_NORMA_DAYS"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "053d1ed2785e42031600",
+        "ordinal": 2,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KIA_AGG_DATES"
+              }
+            },
+            "Property": "FAZE_START_REAL"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "94e05cb2cc3bbdd16531",
+        "ordinal": 3,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KIA_AGG_DATES"
+              }
+            },
+            "Property": "KIA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "633cfd569399ddd21023",
+        "ordinal": 4,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_KIA"
+              }
+            },
+            "Property": "Projekt"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a5db9f020c85e9e869ba",
+        "ordinal": 5,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_KIA"
+              }
+            },
+            "Property": "Region Nova Optika"
+          }
+        },
+        "type": "Categorical",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      },
+      {
+        "name": "a9fc3d8f0c7eca22c5d1",
+        "ordinal": 6,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KIA_AGG_DATES"
+              }
+            },
+            "Property": "SUB_START_REAL"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d768512319ea3674003a",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KIA_AGG_DATES"
+              }
+            },
+            "Property": "SUB_FAZE"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "1fa815c60e2ba8403025",
+        "ordinal": 8,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KIA_AGG_DATES"
+              }
+            },
+            "Property": "SUBFAZE_NORMA_DAYS"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "7054062e5053d5699b61",
+        "ordinal": 9,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KIA_AGG_DATES"
+              }
+            },
+            "Property": "SUBFAZE_ROZDIL_DNI"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "559ab46c80eb08809b67",
+        "ordinal": 10,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KIA_AGG_DATES"
+              }
+            },
+            "Property": "FAZE_ROZDIL_DNI"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "bf2aaf9a099717b3cea7",
+        "ordinal": 11,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KIA_AGG_DATES"
+              }
+            },
+            "Property": "POCET_HP"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "9238e10fb1d708574467",
+        "ordinal": 12,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KIA_AGG_DATES"
+              }
+            },
+            "Property": "DODAVATEL"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "a1804c31826055b002b6",
+        "ordinal": 13,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_KIA"
+              }
+            },
+            "Property": "Realizace - Projektovy Koordinator"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "798ee7b9e4546a9a01ee",
+        "ordinal": 14,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "KIA_AGG_DATES"
+              }
+            },
+            "Property": "KIA_DETAIL_LINK"
+          }
+        },
+        "type": "Advanced"
+      }
+    ],
+    "filterSortOrder": "Custom"
+  }
+}

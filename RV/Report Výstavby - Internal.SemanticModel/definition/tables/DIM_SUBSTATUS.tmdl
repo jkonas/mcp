@@ -1,0 +1,55 @@
+table DIM_SUBSTATUS
+	lineageTag: c73aadf8-baa8-430b-b923-11db13a4f836
+
+	column Substatus_Key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: e2edfb4e-ee22-45c8-b90f-2a5f54e91007
+		summarizeBy: count
+		sourceColumn: Substatus_Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 22998559-7ed4-4ebe-b6d8-7a49dd2f9ba5
+		summarizeBy: count
+		sourceColumn: Status_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Substatus
+		dataType: string
+		lineageTag: d3be1caf-445a-43a8-8c3d-bc13ee243fe7
+		summarizeBy: none
+		sourceColumn: Substatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Substatus Poradi'
+		dataType: int64
+		formatString: 0
+		lineageTag: e8dc8861-d4f9-40c2-ac65-f199b22c4eb6
+		summarizeBy: sum
+		sourceColumn: Substatus Poradi
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_SUBSTATUS = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA = Source{[Schema=Schema,Item="DIM_SUBSTATUS"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

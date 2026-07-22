@@ -1,0 +1,42 @@
+table DIM_KIA_PRIZNAK
+	lineageTag: dab4329d-e07e-4874-baf3-c3ad57dcac98
+
+	column KIA
+		dataType: string
+		lineageTag: f37fd725-6547-4efa-9e9f-293cca49b753
+		summarizeBy: none
+		sourceColumn: KIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'WiFi Prekryv'
+		dataType: string
+		lineageTag: e41018c5-3d4a-4022-b45f-b36a00386c1b
+		summarizeBy: none
+		sourceColumn: WiFi Prekryv
+
+		annotation SummarizationSetBy = Automatic
+
+	column Priznak
+		dataType: string
+		lineageTag: 05ff8835-ee41-48b9-bb76-8c4c3261bcd3
+		summarizeBy: none
+		sourceColumn: Priznak
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_KIA_PRIZNAK = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Zdroj = DIM_ROP_PRIZNAK,
+				    #"Odebrané ostatní sloupce" = Table.SelectColumns(Zdroj,{"KIA", "Priznak", "WiFi Prekryv"}),
+				    #"Odebrané duplicitní položky" = Table.Distinct(#"Odebrané ostatní sloupce")
+				in
+				    #"Odebrané duplicitní položky"
+
+	annotation PBI_NavigationStepName = Navigace
+
+	annotation PBI_ResultType = Table
+

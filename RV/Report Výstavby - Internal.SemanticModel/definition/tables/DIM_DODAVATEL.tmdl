@@ -1,0 +1,53 @@
+table DIM_DODAVATEL
+	lineageTag: f349d512-298c-4fdd-a0f1-47fc6a622dbd
+
+	column Dodavatel_Key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: 113d3297-b4e1-469f-9042-701ca6a00f08
+		summarizeBy: none
+		sourceColumn: Dodavatel_Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dodavatel
+		dataType: string
+		lineageTag: a1080104-d009-45ba-a7e7-2fd2b2694584
+		summarizeBy: none
+		sourceColumn: Dodavatel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Typ
+		dataType: string
+		lineageTag: cbb86d88-c934-498d-8715-c1c3d57f2c58
+		summarizeBy: none
+		sourceColumn: Typ
+
+		annotation SummarizationSetBy = Automatic
+
+	column Stav
+		dataType: string
+		lineageTag: 1db1854c-228d-4e3a-bc92-412b60396708
+		summarizeBy: none
+		sourceColumn: Stav
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_DODAVATEL = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP = Source{[Schema=Schema,Item="DIM_DODAVATEL"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

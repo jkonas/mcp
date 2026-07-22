@@ -1,0 +1,1035 @@
+table _Measures
+	lineageTag: d108ec7d-09fe-46b7-a0ab-e70f675e16d5
+
+	measure 'KIA Počet' = DISTINCTCOUNT ( FACT_VYSTAVBA[KIA_Key] )
+		formatString: #,0
+		displayFolder: Aktuální Status
+		lineageTag: 50cbd341-4f22-4f7e-bcf4-cab547b1aaed
+
+	measure 'KIA Počet Karta' = CONCATENATE ( FORMAT ( DISTINCTCOUNT ( FACT_VYSTAVBA[KIA_Key] ), "#,0" ), " Projektů")
+		displayFolder: Aktuální Status
+		lineageTag: bf51f85d-caef-4f2f-a7a2-68545c3613c3
+
+	measure 'HP Počet Karta' = ```
+			
+			IF ( 
+			    ISBLANK ( [Počet HP Subjekt] ), 
+			    "0 HP", 
+			    CONCATENATE ( FORMAT ( [Počet HP Subjekt], "#,0" ), " HP" ) 
+			)
+			```
+		displayFolder: Aktuální Status
+		lineageTag: 17200395-c534-4159-aa5a-6e84a0b56f89
+
+	measure 'HP Kumulativní Součet' =
+			
+			VAR CurrentDate = MAX ( DIM_CALENDAR[Datum] )
+			VAR MaxDateWithData =
+			    CALCULATE (
+			        MAX ( FACT_VYSTAVBA_MILNIK[Datum] ),
+			        REMOVEFILTERS ( DIM_CALENDAR )
+			    )
+			RETURN
+			IF (
+			    CurrentDate <= MaxDateWithData,
+			    CALCULATE (
+			        SUM ( FACT_VYSTAVBA_MILNIK[Pocet HP] ),
+			        FILTER (
+			            ALL ( DIM_CALENDAR ),
+			            DIM_CALENDAR[Datum] <= CurrentDate
+			        )
+			    )
+			)
+		formatString: #,0
+		displayFolder: Průběžné Plnění
+		lineageTag: e4256849-62a8-4f45-b008-c4f253b96748
+
+	measure 'Obousměrné filtrování Výstavba' =
+			
+			INT ( NOT ISEMPTY ( FACT_VYSTAVBA ) )
+		formatString: 0
+		lineageTag: 173a7d51-2a10-4a96-8707-d333dee00df1
+
+	measure 'Status Full' = ```
+			
+			VAR substatus =
+			CALCULATE ( 
+			    MAX ( DIM_ROP[Substatus] ),
+			    FACT_VYSTAVBA[Aktualni Stav] = TRUE(),
+			    CROSSFILTER ( DIM_ROP[ROP_Key], FACT_VYSTAVBA[ROP_Key], BOTH )  
+			)
+			VAR hlavniStatus = 
+			CALCULATE ( 
+			    MAX ( DIM_FAZE[Faze] ),
+			    FACT_VYSTAVBA[Aktualni Stav] = TRUE(),
+			    CROSSFILTER ( DIM_FAZE[Faze_Key], FACT_VYSTAVBA[Faze_Key], BOTH )  
+			)
+			RETURN
+			COALESCE ( substatus, hlavniStatus )
+			```
+		lineageTag: 2bdd8438-102c-4b28-9afb-a4ade44977a0
+
+	measure 'Avg Latitute' =
+			
+			CALCULATE (
+			    AVERAGE ( DIM_ROP[Latitude] ),
+			    CROSSFILTER ( DIM_ROP[ROP_Key], FACT_VYSTAVBA[ROP_Key], Both )
+			)
+		displayFolder: Aktuální Status
+		lineageTag: ff860449-2f2b-4414-80f0-5ee3f8ce8184
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Avg Longitude' =
+			
+			CALCULATE (
+			    AVERAGE ( DIM_ROP[Longitude] ),
+			    CROSSFILTER ( DIM_ROP[ROP_Key], FACT_VYSTAVBA[ROP_Key], Both )
+			)
+		displayFolder: Aktuální Status
+		lineageTag: 311a0515-8d1a-4a7f-bb12-7be635c6f685
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Status Full Milnik' = ```
+			
+			VAR substatus =
+			CALCULATE ( 
+			    MAX ( DIM_ROP[Substatus] ),
+			    CROSSFILTER ( DIM_ROP[ROP_Key], FACT_VYSTAVBA_MILNIK[ROP_Key], BOTH )  
+			)
+			VAR hlavniStatus = 
+			CALCULATE ( 
+			    MAX ( DIM_FAZE[Faze] ),
+			    CROSSFILTER ( DIM_FAZE[Faze_Key], FACT_VYSTAVBA_MILNIK[Faze_Key], BOTH )  
+			)
+			RETURN
+			COALESCE ( substatus, hlavniStatus )
+			```
+		lineageTag: bb52f46a-173d-4124-bc94-95bc37f5d711
+
+	measure 'Počet IA' = ```
+			
+			VAR VybranyMesicZacatek = MIN ( DIM_CALENDAR[MONTH_FIRST_DATE] )
+			VAR VybranyMesicKonec = MAX ( DIM_CALENDAR[MONTH_LAST_DATE] )
+			RETURN
+			CALCULATE ( 
+			    DISTINCTCOUNT ( FACT_VYSTAVBA[KIA_Key] ),
+			    DIM_FAZE[Faze] = "V Projekci",
+			    NOT DIM_ROP[Status] IN { "Zrušeno", "Pozastaveno" }, -- Bere se status místo stavu, jelikož ROP může být aktivní v projekci, ačkoliv je již zrušená jinde
+			    FACT_VYSTAVBA[Start Real] <= VybranyMesicKonec &&
+			    COALESCE ( FACT_VYSTAVBA[Konec Real], FACT_VYSTAVBA[Konec Forecast] ) >= VybranyMesicZacatek
+			)
+			```
+		formatString: 0
+		displayFolder: Utilizace\Projekce
+		lineageTag: e85469df-0749-4423-8113-ae4f510df3b6
+
+	measure 'Měsíční Kapacita' = ```
+			
+			CALCULATE ( 
+			    SUM ( 'FACT_KAPACITA'[Kapacita rocni - projekty] )
+			)
+			```
+		formatString: 0
+		displayFolder: Utilizace\Projekce
+		lineageTag: 84a8e1f8-817e-41bc-b15b-f5990a398788
+
+	measure Utilizace = [Měsíční Kapacita] - [Počet IA]
+		formatString: 0
+		displayFolder: Utilizace\Projekce
+		lineageTag: 0ff5619b-bb70-49f7-9039-99bb1accf555
+
+	measure 'Aktuální Kapacita' = ```
+			
+			VAR AktualniMesic = VALUE ( FORMAT ( TODAY(), "YYYYMM" ) )
+			RETURN
+			CALCULATE ( 
+			    SUM ( 'FACT_KAPACITA'[Kapacita rocni - projekty] ),
+			    'FACT_KAPACITA'[Mesic] = AktualniMesic
+			)
+			```
+		formatString: 0
+		displayFolder: Utilizace\Projekce
+		lineageTag: 30e8f857-3157-4c2a-92d4-1d99302251ad
+
+	measure 'Aktuální Počet IA Region' =
+			
+			VAR Dodavatel = SELECTEDVALUE ( DIM_DODAVATEL[Dodavatel] )
+			VAR Kraj = SELECTEDVALUE ( DIM_KIA[Kraj] )
+			VAR ExistujeRegionalita =
+			    CALCULATE (
+			        COUNTROWS ( FACT_REGIONALITA ),
+			        FACT_REGIONALITA[Dodavatel] = Dodavatel,
+			        DIM_KIA[Kraj] = Kraj,
+			        FACT_REGIONALITA[Typ] = "Projekce"
+			    )
+			VAR PocetIA =
+			    CALCULATE (
+			        DISTINCTCOUNT ( FACT_VYSTAVBA[KIA_Key] ),
+			        FACT_VYSTAVBA[Aktualni Stav] = TRUE(),
+			        DIM_FAZE[Faze] = "V Projekci"
+			    )
+			RETURN
+			IF (
+			    ExistujeRegionalita > 0,
+			    COALESCE ( PocetIA, 0 ),
+			    BLANK()
+			)
+		formatString: 0
+		displayFolder: Utilizace\Projekce
+		lineageTag: 7a11a70c-b215-4a6f-a7b3-667b0cbbb806
+
+	measure 'Celkový Počet IA Region' =
+			
+			VAR Dodavatel = SELECTEDVALUE ( DIM_DODAVATEL[Dodavatel] )
+			VAR Kraj = SELECTEDVALUE ( DIM_KIA[Kraj] )
+			VAR ExistujeRegionalita =
+			    CALCULATE (
+			        COUNTROWS ( FACT_REGIONALITA ),
+			        FACT_REGIONALITA[Dodavatel] = Dodavatel,
+			        DIM_KIA[Kraj] = Kraj,
+			        FACT_REGIONALITA[Typ] = "Projekce"
+			    )
+			RETURN
+			IF (
+			    ExistujeRegionalita > 0,
+			    COALESCE(
+			        CALCULATE(
+			            DISTINCTCOUNT(FACT_VYSTAVBA[KIA_Key]),
+			            DIM_FAZE[Faze] = "V Projekci",
+			            FACT_VYSTAVBA[Aktualni Stav] = TRUE(),
+			            REMOVEFILTERS ( DIM_KIA[Kraj] )
+			        ),
+			        0
+			    ),
+			    BLANK()
+			)
+		formatString: 0
+		displayFolder: Utilizace\Projekce
+		lineageTag: d5b4696e-ce20-455c-b9b2-7e3993989116
+
+	measure 'Aktuální Kapacita Region' = ```
+			
+			VAR AktualniMesic = VALUE ( FORMAT ( TODAY(), "YYYYMM" ) )
+			VAR Dodavatel = SELECTEDVALUE ( DIM_DODAVATEL[Dodavatel] )
+			VAR Kraj = SELECTEDVALUE ( DIM_KIA[Kraj] )
+			VAR ExistujeRegionalita =
+			    CALCULATE (
+			        COUNTROWS ( FACT_REGIONALITA ),
+			        FACT_REGIONALITA[Dodavatel] = Dodavatel,
+			        DIM_KIA[Kraj] = Kraj,
+			        FACT_REGIONALITA[Typ] = "Projekce"
+			    )
+			VAR Kapacita =
+			    CALCULATE ( 
+			        SUM ( 'FACT_KAPACITA'[Kapacita rocni - projekty] ),
+			        'FACT_KAPACITA'[Mesic] = AktualniMesic
+			    )
+			RETURN
+			IF (
+			    ExistujeRegionalita > 0,
+			    COALESCE ( Kapacita, 0 ),
+			    BLANK()
+			)
+			```
+		formatString: 0
+		displayFolder: Utilizace\Projekce
+		lineageTag: 5f7c0d14-9d2b-4a6c-ab8f-f0a075c3f7b3
+
+	measure 'Aktivní Region' =
+			
+			SUM ( FACT_REGIONALITA[Preference] )
+		formatString: 0
+		displayFolder: Utilizace\Projekce
+		lineageTag: fab1ee74-0e86-4fcf-8584-bdf86a5ab194
+
+	measure 'Aktuální Počet IA' = ```
+			
+			CALCULATE ( 
+			    DISTINCTCOUNT ( FACT_VYSTAVBA[KIA_Key] ),
+			    DIM_FAZE[Faze] = "V Projekci",
+			    FACT_VYSTAVBA[Aktualni Stav] = TRUE()
+			)
+			```
+		formatString: 0
+		displayFolder: Utilizace\Projekce
+		lineageTag: 9b3c4cd4-f82e-4e98-ba66-23067d4de599
+
+	measure 'Celkem HP za IA' = ```
+			
+			VAR PocetHP = [Počet HP Subjekt Milnik]
+			RETURN
+			IF ( 
+			    NOT ISBLANK ( PocetHP ),
+			    CALCULATE ( 
+			        SUM ( FACT_VYSTAVBA_SUBJEKT[Pocet HP] ),
+			        -- Pokud je to možné, vyhněte se BOTH a použijte standardní relaci
+			        CROSSFILTER ( FACT_VYSTAVBA_MILNIK[KIA_Key], DIM_KIA[KIA_Key], BOTH )
+			    )
+			)
+			```
+		formatString: 0
+		displayFolder: Průběžné Plnění
+		lineageTag: cadc1a31-7a19-42e9-afa5-98d103218f82
+
+	measure 'Aktuální Rozpočet' =
+			
+			VAR AktualniKIAvRealizaci =
+			SELECTCOLUMNS (
+			    FILTER (
+			        FACT_VYSTAVBA,
+			        FACT_VYSTAVBA[Aktualni Stav] = TRUE()
+			            && RELATED ( DIM_KIA[Status] ) = "V Realizaci"
+			    ),
+			    "KIA", RELATED ( DIM_KIA[KIA] )
+			)
+			RETURN
+			CALCULATE (
+			    SUM ( FACT_REALIZACE[CAPEX] ),
+			    TREATAS ( AktualniKIAvRealizaci, DIM_KIA[KIA] )
+			)
+		formatString: #,0
+		displayFolder: Utilizace\Realizace
+		lineageTag: e47704f3-a116-42dc-8056-b56d70144ae6
+
+	measure 'Aktuální Rozpočet Kapacita' = ```
+			
+			VAR AktualniMesic = VALUE ( FORMAT ( TODAY(), "YYYYMM" ) )
+			RETURN
+			CALCULATE ( 
+			    SUM ( 'FACT_KAPACITA'[Kapacita rocni - rozpocet] ),
+			    'FACT_KAPACITA'[Mesic] = AktualniMesic
+			)
+			```
+		formatString: #,0
+		displayFolder: Utilizace\Realizace
+		lineageTag: 23b0a149-c317-433a-9430-71ecd1324221
+
+	measure 'Utilizace Realizace' = [Měsíční Rozpočet Kapacita] - [Rozpočet IA]
+		formatString: # ##0
+		displayFolder: Utilizace\Realizace
+		lineageTag: 6e204051-1489-48ec-b351-be430b19b720
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'Rozpočet IA' = ```
+			
+			// Pokud ROP je již dále než v realizaci (aktuální stav) a není vyplněný konec za ROP v realizaci, tato ROP se stále počítá jako v realizaci. V rámci historie nelze brát ohled na aktuální stav. 
+			VAR VybranyMesicZacatek = MIN ( DIM_CALENDAR[MONTH_FIRST_DATE] )
+			VAR VybranyMesicKonec = MAX ( DIM_CALENDAR[MONTH_LAST_DATE] )
+			VAR KIAvRealizaci =
+			SELECTCOLUMNS (
+			    FILTER (
+			        FACT_VYSTAVBA,
+			        RELATED ( DIM_FAZE[Faze] ) = "V Realizaci" && NOT RELATED( DIM_ROP[Status] ) IN { "Zrušeno", "Pozastaveno" } && FACT_VYSTAVBA[Start Real] <= VybranyMesicKonec &&
+			    COALESCE ( FACT_VYSTAVBA[Konec Real], FACT_VYSTAVBA[Konec Forecast], DATE(9999, 12, 31) ) >= VybranyMesicZacatek
+			    ),  -- Bere se status místo stavu, jelikož ROP může být aktivní v projekci, ačkoliv je již zrušená jinde. Prázdný konec realizace zároveň značí, že ještě se neví, kdy se ROP ukončí - proto napevno datum.
+			    "KIA", RELATED ( DIM_KIA[KIA] )
+			)
+			RETURN
+			CALCULATE (
+			    SUM ( FACT_REALIZACE[CAPEX] ),
+			    TREATAS ( KIAvRealizaci, DIM_KIA[KIA] )
+			)
+			```
+		displayFolder: Utilizace\Realizace
+		lineageTag: da6968d6-7561-4c36-92af-a1ae450d64a7
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Měsíční Rozpočet Kapacita' = ```
+			
+			CALCULATE ( 
+			    SUM ( 'FACT_KAPACITA'[Kapacita rocni - rozpocet] )
+			)
+			```
+		formatString: 0
+		displayFolder: Utilizace\Realizace
+		lineageTag: 03cbaacb-a18d-42fc-956d-304e51cb9991
+
+	measure 'Celkový Rozpočet Kraj' =
+			
+			VAR Dodavatel = SELECTEDVALUE ( DIM_DODAVATEL[Dodavatel] )
+			VAR Kraj = SELECTEDVALUE ( DIM_KIA[Kraj] )
+			VAR ExistujeRegionalita =
+			    CALCULATE (
+			        COUNTROWS ( FACT_REGIONALITA ),
+			        FACT_REGIONALITA[Dodavatel] = Dodavatel,
+			        DIM_KIA[Kraj] = Kraj,
+			        FACT_REGIONALITA[Typ] = "Realizace"
+			    )
+			VAR AktualniKIAvRealizaci =
+			CALCULATETABLE (
+			    VALUES(DIM_KIA[KIA]),
+			    FACT_VYSTAVBA[Aktualni Stav] = TRUE(),
+			    DIM_KIA[Status] = "V Realizaci",
+			    REMOVEFILTERS ( DIM_KIA[Kraj] ),
+			    CROSSFILTER ( DIM_KIA[KIA_Key], FACT_VYSTAVBA[KIA_Key], BOTH )
+			)
+			VAR Result =
+			IF (
+			    ExistujeRegionalita > 0,
+			    COALESCE(
+			        CALCULATE (
+			            SUM ( FACT_REALIZACE[CAPEX] ),
+			            TREATAS ( AktualniKIAvRealizaci, DIM_KIA[KIA] ),
+			            REMOVEFILTERS ( DIM_KIA[Kraj] )
+			        ),
+			        0
+			    ),
+			    BLANK()
+			)
+			RETURN
+			Result
+		formatString: #,0
+		displayFolder: Utilizace\Realizace
+		lineageTag: 47437b7e-accb-4d8c-9f23-d698f041990e
+
+		annotation PBI_FormatHint = {"isDecimal":true}
+
+	measure 'Aktuální Rozpočet Kapacita Region' = ```
+			
+			VAR AktualniMesic = VALUE ( FORMAT ( TODAY(), "YYYYMM" ) )
+			VAR Dodavatel = SELECTEDVALUE ( DIM_DODAVATEL[Dodavatel] )
+			VAR Kraj = SELECTEDVALUE ( DIM_KIA[Kraj] )
+			VAR ExistujeRegionalita =
+			    CALCULATE (
+			        COUNTROWS ( FACT_REGIONALITA ),
+			        FACT_REGIONALITA[Dodavatel] = Dodavatel,
+			        DIM_KIA[Kraj] = Kraj,
+			        FACT_REGIONALITA[Typ] = "Realizace"
+			    )
+			VAR Kapacita =
+			    CALCULATE ( 
+			        SUM ( 'FACT_KAPACITA'[Kapacita rocni - rozpocet] ),
+			        'FACT_KAPACITA'[Mesic] = AktualniMesic
+			    )
+			RETURN
+			IF (
+			    ExistujeRegionalita > 0,
+			    COALESCE ( Kapacita, 0 ),
+			    BLANK()
+			)
+			```
+		formatString: #,0
+		displayFolder: Utilizace\Realizace
+		lineageTag: 00612db7-c2ee-4cc1-a1a3-889ffdd93b74
+
+	measure 'Počet HP' =
+			
+			SUMX(
+			        VALUES(MILESTONES_KOMERCE[ROP_Key]),
+			        CALCULATE(
+			            MAX(MILESTONES_KOMERCE[Pocet HP]),
+			            ALLEXCEPT(MILESTONES_KOMERCE, MILESTONES_KOMERCE[ROP_Key], MILESTONES_KOMERCE[Milnik])
+			        )
+			    )
+		formatString: 0
+		displayFolder: Průběžné Plnění - Komerce
+		lineageTag: b7d0ff9e-94d1-47a5-921d-159a98694d46
+
+	measure 'HP V Nejakém Zpoždění' = ```
+			
+			SUMX(
+			    VALUES ( MILESTONES_KOMERCE[ROP_Key] ),
+			    VAR ROP_KPI_Status = CALCULATE ( MAX ( MILESTONES_KOMERCE[ROP KPI Status] ) )
+			    VAR SUM_HP = [Počet HP]
+			    RETURN
+			        IF (
+			            ROP_KPI_Status IN { "Reklamace", "Možné Zpoždění", "V Zpoždění" },
+			            SUM_HP,
+			            0
+			        )
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Průběžné Plnění - Komerce
+		lineageTag: 0abdab07-5868-4df0-a47f-87bcbfd625dd
+
+	measure 'Nepřidělené Projekty' =
+			
+			CALCULATE (
+			    DISTINCTCOUNT ( FACT_VYSTAVBA[KIA_Key] ),
+			    DIM_KIA[Status] = "V Projekci",
+			    DIM_DODAVATEL[Dodavatel] = "N/A",
+			    DIM_FAZE[Faze] = "V Projekci",
+			    DIM_ROP[ROP ID] > 0
+			)
+		formatString: 0
+		displayFolder: Utilizace\Projekce
+		lineageTag: 4203af63-7b6a-4b74-a47b-aa90aa688aaf
+
+	measure 'ROP Milestone Duration (KPS4)' = ```
+			
+			MAXX(
+			    VALUES(MILESTONES_KOMERCE[ROP_Key]),
+			    VAR milestoneStart =
+			        CALCULATE(
+			            MIN(MILESTONES_KOMERCE[Milnik Datum]),
+			            KEEPFILTERS(MILESTONES_KOMERCE[Milnik ID] = 73)
+			        )
+			    VAR milestoneEnd =
+			        CALCULATE(
+			            MAX(MILESTONES_KOMERCE[Milnik Datum]),
+			            KEEPFILTERS(MILESTONES_KOMERCE[Milnik ID] = 74)
+			        )
+			    VAR HasStart = NOT ISBLANK(milestoneStart)
+			    VAR HasEnd   = NOT ISBLANK(milestoneEnd)
+			    VAR EndOrNow = COALESCE(milestoneEnd, NOW())
+			    VAR Diff     = IF(HasStart, DATEDIFF(milestoneStart, EndOrNow, DAY))
+			    RETURN
+			        SWITCH(
+			            TRUE(),
+			            HasEnd && NOT HasStart,                              1,        -- end only
+			            NOT HasEnd && NOT HasStart,                          BLANK(),  -- neither
+			            HasStart && HasEnd && milestoneEnd < milestoneStart, 1,        -- end before start
+			            HasStart && Diff = 0,                                1,        -- same day
+			            HasStart,                                            Diff      -- both or start-only
+			        )
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Průběžné Plnění - Komerce
+		lineageTag: 88187908-d2ef-430c-bc19-eeb98c39897a
+
+	measure 'ROP Milestone Duration (KPS1)' = ```
+			
+			MAXX(
+			    VALUES(MILESTONES_KOMERCE[ROP_Key]),
+			    VAR milestoneStart =
+			        CALCULATE(
+			            MIN(MILESTONES_KOMERCE[Milnik Datum]),
+			            KEEPFILTERS(MILESTONES_KOMERCE[Milnik ID] = 91)
+			        )
+			    VAR milestoneEnd =
+			        CALCULATE(
+			            MAX(MILESTONES_KOMERCE[Milnik Datum]),
+			            KEEPFILTERS(MILESTONES_KOMERCE[Milnik ID] = 92)
+			        )
+			    VAR HasStart = NOT ISBLANK(milestoneStart)
+			    VAR HasEnd   = NOT ISBLANK(milestoneEnd)
+			    VAR EndOrNow = COALESCE(milestoneEnd, NOW())
+			    VAR Diff     = IF(HasStart, DATEDIFF(milestoneStart, EndOrNow, DAY))
+			    RETURN
+			        SWITCH(
+			            TRUE(),
+			            HasEnd && NOT HasStart,                              1,        -- end only
+			            NOT HasEnd && NOT HasStart,                          BLANK(),  -- neither
+			            HasStart && HasEnd && milestoneEnd < milestoneStart, 1,        -- end before start
+			            HasStart && Diff = 0,                                1,        -- same day
+			            HasStart,                                            Diff      -- both or start-only
+			        )
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Průběžné Plnění - Komerce
+		lineageTag: 4d8ec3ea-c2aa-4393-96e1-a9a5f5372de2
+
+	measure 'ROP Milestone Duration (Dispečer)' = ```
+			
+			MAXX(
+			    VALUES(MILESTONES_KOMERCE[ROP_Key]),
+			    VAR milestoneStart =
+			        CALCULATE(
+			            MIN(MILESTONES_KOMERCE[Milnik Datum]),
+			            KEEPFILTERS(MILESTONES_KOMERCE[Milnik ID] = 97)
+			        )
+			    VAR milestoneEnd =
+			        CALCULATE(
+			            MAX(MILESTONES_KOMERCE[Milnik Datum]),
+			            KEEPFILTERS(MILESTONES_KOMERCE[Milnik ID] = 98)
+			        )
+			    VAR HasStart = NOT ISBLANK(milestoneStart)
+			    VAR HasEnd   = NOT ISBLANK(milestoneEnd)
+			    VAR EndOrNow = COALESCE(milestoneEnd, NOW())
+			    VAR Diff     = IF(HasStart, DATEDIFF(milestoneStart, EndOrNow, DAY))
+			    RETURN
+			        SWITCH(
+			            TRUE(),
+			            HasEnd && NOT HasStart,                              1,        -- end only
+			            NOT HasEnd && NOT HasStart,                          BLANK(),  -- neither
+			            HasStart && HasEnd && milestoneEnd < milestoneStart, 1,        -- end before start
+			            HasStart && Diff = 0,                                1,        -- same day
+			            HasStart,                                            Diff      -- both or start-only
+			        )
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Průběžné Plnění - Komerce
+		lineageTag: 988fb7f1-d3a8-4994-948b-81ed6a838275
+
+	measure 'ROP Milestone Duration (Výstupní Kontrola)' = ```
+			
+			MAXX(
+			    VALUES(MILESTONES_KOMERCE[ROP_Key]),
+			    VAR milestoneStart =
+			        CALCULATE(
+			            MIN(MILESTONES_KOMERCE[Milnik Datum]),
+			            KEEPFILTERS(MILESTONES_KOMERCE[Milnik ID] = 103)
+			        )
+			    VAR milestoneEnd =
+			        CALCULATE(
+			            MAX(MILESTONES_KOMERCE[Milnik Datum]),
+			            KEEPFILTERS(MILESTONES_KOMERCE[Milnik ID] = 104)
+			        )
+			    VAR HasStart = NOT ISBLANK(milestoneStart)
+			    VAR HasEnd   = NOT ISBLANK(milestoneEnd)
+			    VAR EndOrNow = COALESCE(milestoneEnd, NOW())
+			    VAR Diff     = IF(HasStart, DATEDIFF(milestoneStart, EndOrNow, DAY))
+			    RETURN
+			        SWITCH(
+			            TRUE(),
+			            HasEnd && NOT HasStart,                              1,        -- end only
+			            NOT HasEnd && NOT HasStart,                          BLANK(),  -- neither
+			            HasStart && HasEnd && milestoneEnd < milestoneStart, 1,        -- end before start
+			            HasStart && Diff = 0,                                1,        -- same day
+			            HasStart,                                            Diff      -- both or start-only
+			        )
+			)
+			
+			```
+		formatString: 0
+		displayFolder: Průběžné Plnění - Komerce
+		lineageTag: 37ba0037-da56-4dee-a8ee-3abb9b060763
+
+	measure 'ROP Milestone Duration (KPS4) KPI Formatting' =
+			
+			MAXX(
+			    VALUES( MILESTONES_KOMERCE[ROP_Key] ),
+			    VAR StatusMax =
+			        CALCULATE( MAX( MILESTONES_KOMERCE[ROP KPI Status] ) )
+			    VAR Dur = [ROP Milestone Duration (KPS4)]
+			    RETURN
+			        IF(
+			            Dur >= 2 &&
+			            StatusMax IN { "Beze zpoždění", "Možné zpoždění", "V zpoždění" },
+			            "#F12E49"
+			        )
+			)
+		displayFolder: Průběžné Plnění - Komerce
+		lineageTag: f4ab9ff9-c679-49ac-98e8-ccabd9e8c8ba
+
+	measure 'ROP Milestone Duration (KPS1) KPI Formatting' = ```
+			
+			MAXX(
+			    VALUES( MILESTONES_KOMERCE[ROP_Key] ),
+			    VAR StatusMax =
+			        CALCULATE( MAX( MILESTONES_KOMERCE[ROP KPI Status] ) )
+			    VAR Dur = [ROP Milestone Duration (KPS1)]
+			    RETURN
+			        IF(
+			            Dur >= 2 &&
+			            StatusMax IN { "Beze zpoždění", "Možné zpoždění", "V zpoždění" },
+			            "#F12E49"
+			        )
+			)
+			
+			```
+		displayFolder: Průběžné Plnění - Komerce
+		lineageTag: efb19ab6-5bb9-466a-afea-20c3d98883d2
+
+	measure 'ROP Milestone Duration (Výstupní Kontrola) KPI Formatting' =
+			
+			MAXX(
+			    VALUES( MILESTONES_KOMERCE[ROP_Key] ),
+			    VAR StatusMax =
+			        CALCULATE( MAX( MILESTONES_KOMERCE[ROP KPI Status] ) )
+			    VAR Dur = [ROP Milestone Duration (Výstupní Kontrola)]
+			    RETURN
+			        IF(
+			            Dur >= 2 &&
+			            StatusMax IN { "Beze zpoždění", "Možné zpoždění", "V zpoždění" },
+			            "#F12E49"
+			        )
+			)
+		displayFolder: Průběžné Plnění - Komerce
+		lineageTag: 8a3578d7-511f-46cc-80b7-0eba61d2eae3
+
+	measure 'ROP Milestone Duration (Dispečer) KPI Formatting' = ```
+			
+			MAXX(
+			    VALUES( MILESTONES_KOMERCE[ROP_Key] ),
+			    VAR StatusMax =
+			        CALCULATE( MAX( MILESTONES_KOMERCE[ROP KPI Status] ) )
+			    VAR Dur = [ROP Milestone Duration (Dispečer)]
+			    RETURN
+			        IF(
+			            Dur >= 7 &&
+			            StatusMax IN { "Beze Zpoždění", "Možné Zpoždění", "V Zpoždění" },
+			            "#F12E49"
+			        )
+			)
+			
+			```
+		displayFolder: Průběžné Plnění - Komerce
+		lineageTag: 3dd5196a-0e29-4588-a13f-e0eca8039dde
+
+	measure 'Průběžné Plnění HP za IA' = ```
+			
+			-- 1. Získáme unikátní seznam ROP_Key, které v Lednu splnily daný Milník
+			VAR FilteredROP = 
+			    CALCULATETABLE ( 
+			        VALUES ( FACT_VYSTAVBA_MILNIK[ROP_Key] )
+			    )
+			
+			RETURN
+			IF ( 
+			    -- 2. Tato podmínka zajistí, že se ve vizuálu IA/KIA zobrazí jen ty řádky,
+			    -- které mají v Lednu aspoň jeden záznam v milnících
+			    NOT ISEMPTY ( FilteredROP ),
+			
+			    CALCULATE ( 
+			        SUM ( FACT_VYSTAVBA_SUBJEKT[Pocet HP] ),
+			        -- 3. Klíčový krok: "Vstříkneme" vyfiltrované klíče ROP přímo do dimenze ROP.
+			        -- Tím zajistíme, že FACT_VYSTAVBA_SUBJEKT uvidí jen ty ROPy z Ledna.
+			        TREATAS ( FilteredROP, DIM_ROP[ROP_Key] )
+			    )
+			)
+			```
+		formatString: 0
+		displayFolder: Průběžné Plnění
+		lineageTag: 58e9c9fa-0283-4e0f-9f31-004c6a55124d
+
+	measure 'Obousměrné filtrování Subjekt' =
+			
+			INT ( NOT ISEMPTY ( FACT_VYSTAVBA_SUBJEKT ) )
+		formatString: 0
+		lineageTag: c682d528-3e39-48e2-9d34-8b3f686b1004
+
+	measure 'Počet HP Subjekt' = ```
+			
+			CALCULATE ( 
+			    SUM ( FACT_VYSTAVBA_SUBJEKT[Pocet HP] ),
+			    -- Toto dočasně zapne obousměrný vztah pro tento výpočet
+			    CROSSFILTER ( DIM_ROP[ROP_Key], FACT_VYSTAVBA[ROP_Key], BOTH )
+			)
+			```
+		formatString: #,0
+		lineageTag: 2f31f8ed-ee01-4664-a304-8c948a4fe0c8
+
+	measure 'Počet HP Subjekt Milnik' = ```
+			
+			CALCULATE ( 
+			    SUM ( FACT_VYSTAVBA_SUBJEKT[Pocet HP] ),
+			    -- Toto dočasně zapne obousměrný vztah pro tento výpočet
+			    CROSSFILTER ( DIM_ROP[ROP_Key], FACT_VYSTAVBA_MILNIK[ROP_Key], BOTH )
+			)
+			```
+		formatString: #,0
+		lineageTag: c06d15b4-2f42-495e-b28f-3e2b04d5e385
+
+	measure 'Dodavatel Projekce' = ```
+			
+			VAR Plneni = [Průběžné Plnění HP za IA]
+			RETURN
+			IF ( 
+			    NOT ISBLANK ( Plneni ), 
+			    CALCULATE (
+			        MAX ( DIM_DODAVATEL[Dodavatel] ),
+			        DIM_FAZE[Faze] = "V Projekci",
+			        ALL ( DIM_MILESTONE[Milnik] ),
+			        ALL ( DIM_CALENDAR ),
+			        CROSSFILTER ( FACT_VYSTAVBA_MILNIK[Dodavatel_Key], DIM_DODAVATEL[Dodavatel_Key], BOTH )
+			    )
+			)
+			```
+		displayFolder: Průběžné Plnění
+		lineageTag: 07f04412-ff3e-46c2-be69-78108e6a6aa0
+
+	measure 'Dodavatel Realizace' =
+			
+			VAR Plneni = [Průběžné Plnění HP za IA]
+			RETURN
+			IF (
+			    NOT ISBLANK ( Plneni ), -- Kontrola, zda existuje HP
+			    CALCULATE (
+			        MAX ( DIM_DODAVATEL[Dodavatel] ),
+			        DIM_FAZE[Faze] IN { "V Realizaci", "Dokumentace Odevzdána", "Home Passed", "V Komerci" }, -- ošetření chyby, kdy je KIA v Realizaci, ale vybrané roky nemá žádné HP v realizaci. Dodavatel se skryl - vložením více následných fázi se daný problém ošetří.
+			        ALL ( DIM_MILESTONE[Milnik] ),
+			        ALL ( DIM_CALENDAR ),
+			        CROSSFILTER ( FACT_VYSTAVBA_MILNIK[Dodavatel_Key], DIM_DODAVATEL[Dodavatel_Key], Both )
+			    )
+			)
+		displayFolder: Průběžné Plnění
+		lineageTag: e265e613-ad40-4545-abba-0ce44bb15f04
+
+	measure 'ZPS Počet' = DISTINCTCOUNT ( FACT_VYSTAVBA[KIA_Key] )
+		formatString: 0
+		displayFolder: Aktuální Status
+		lineageTag: aec494a1-109c-4ba3-8e49-064f401c843b
+
+	measure 'ZPS Počet Karta' = CONCATENATE ( FORMAT ( DISTINCTCOUNT ( FACT_VYSTAVBA[KIA_Key] ), "#,0" ), " Projektů")
+		displayFolder: Aktuální Status
+		lineageTag: 7f7fa759-beb8-4379-b1aa-aa32b19ce842
+
+	measure 'Typ Subjektu' =
+			
+			VAR _selectedSubjekty =
+			    SUMMARIZE (
+			        FILTER (
+			            VALUES ( DIM_SUBJEKT ),
+			            NOT ISBLANK ( DIM_SUBJEKT[Subjekt] )
+			                && NOT ISBLANK ( [Počet HP Subjekt] )
+			        ),
+			        DIM_SUBJEKT[Subjekt],
+			        DIM_SUBJEKT[Subjekt Poradi]
+			    )
+			RETURN
+			    IF (
+			        ISBLANK ( [Počet HP Subjekt] ),
+			        BLANK (),
+			        CONCATENATEX (
+			            _selectedSubjekty,
+			            DIM_SUBJEKT[Subjekt],
+			            ", ",
+			            [Subjekt Poradi],
+			            ASC
+			        )
+			    )
+		displayFolder: Aktuální Status
+		lineageTag: 47545df9-5012-4580-b927-210be650e2f3
+
+	measure 'Typ Aktivity' =
+			
+			VAR _selectedAktivity =
+			    SUMMARIZE (
+			        FILTER (
+			            VALUES ( DIM_ROP ),
+			            NOT ISBLANK ( DIM_ROP[Typ Aktivity] )
+			                && NOT ISBLANK ( [Počet HP Subjekt] )
+			        ),
+			        DIM_ROP[Typ Aktivity]
+			    )
+			RETURN
+			    IF (
+			        ISBLANK ( [Počet HP Subjekt] ),
+			        BLANK (),
+			        CONCATENATEX (
+			            _selectedAktivity,
+			            DIM_ROP[Typ Aktivity],
+			            ", "
+			        )
+			    )
+		displayFolder: Aktuální Status
+		lineageTag: 712fc786-4682-4b7b-af0a-4a47d8b8a07f
+
+	measure 'IK1 Schváleno' = ```
+			
+			    CALCULATE(
+			        MAX(DIM_IK_ZAPIS[Datum IK]),
+			        DIM_IK_ZAPIS[Status (Kalkulovan)] = "SCHVÁLENO",
+			        DIM_IK_ZAPIS[Prvni Schvaleny Zaznam Pro KIU a IK Level bez Pripoloze a IK0 a IK3] = 1,
+			        DIM_IK_ZAPIS[IK Level (Calc)] = "IK1",
+			        TREATAS(VALUES(DIM_KIA[KIA]), DIM_IK_ZAPIS[KIA])
+			    )
+			```
+		formatString: dd.mm.yy
+		displayFolder: FAST Lite
+		lineageTag: 7b8edb9e-8362-471e-b93a-dfa741710a45
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure 'IK2 Schváleno' = ```
+			
+			    CALCULATE(
+			        MAX(DIM_IK_ZAPIS[Datum IK]),
+			        DIM_IK_ZAPIS[Status (Kalkulovan)] = "SCHVÁLENO",
+			        DIM_IK_ZAPIS[Prvni Schvaleny Zaznam Pro KIU a IK Level bez Pripoloze a IK0 a IK3] = 1,
+			        DIM_IK_ZAPIS[IK Level (Calc)] = "IK2",
+			        TREATAS(VALUES(DIM_KIA[KIA]), DIM_IK_ZAPIS[KIA])
+			    )
+			```
+		formatString: dd.mm.yy
+		displayFolder: FAST Lite
+		lineageTag: b23ded81-969d-4785-bce3-c888d9b7f985
+
+		annotation PBI_FormatHint = {"isCustom":true}
+
+	measure HasOneProject =
+			
+			IF(HASONEVALUE(DIM_KIA[KIA]), 1, 0)
+		formatString: 0
+		displayFolder: FAST Lite
+		lineageTag: 9cde6c14-a32f-4753-bb31-6de95a5762ef
+
+	measure PoznamkaPc =
+			
+			VAR LastChange =
+			    SELECTEDVALUE ( DIM_KIA[Poznamka - Naposled Upraveno] )
+			VAR RawNote =
+			    SELECTEDVALUE ( DIM_KIA[Poznamka] )
+			VAR NormText =
+			    SUBSTITUTE (
+			        SUBSTITUTE ( RawNote, UNICHAR ( 13 ) & UNICHAR ( 10 ), UNICHAR ( 10 ) ),
+			        UNICHAR ( 13 ),
+			        UNICHAR ( 10 )
+			    )
+			VAR NoDoubles =
+			    SUBSTITUTE ( NormText, UNICHAR ( 10 ) & UNICHAR ( 10 ), UNICHAR ( 10 ) )
+			VAR Header =
+			    IF (
+			        ISBLANK ( LastChange ),
+			        "Naposledy Změněno: Nedostupno",
+			        "Naposledy Změněno: " & LastChange
+			    )
+			VAR Body =
+			    IF ( ISBLANK ( NoDoubles ), "Nedostupno", NoDoubles )
+			VAR Combined =
+			    Header & "<<HDR>>" & Body
+			RETURN
+			    SUBSTITUTE ( Combined, UNICHAR ( 10 ), "|||" )
+		displayFolder: FAST Lite
+		lineageTag: e7d689bf-2655-4a47-a41d-1c4d7cf220cf
+
+	measure PoznamkaProjekce =
+			
+			VAR LastChange =
+			    SELECTEDVALUE ( DIM_KIA[Projekce - Poznamka Projektovy Koordinator Naposled Upraveno] )
+			VAR RawNote =
+			    SELECTEDVALUE ( DIM_KIA[Projekce - Poznamka Projektovy Koordinator] )
+			VAR NormText =
+			    SUBSTITUTE (
+			        SUBSTITUTE ( RawNote, UNICHAR ( 13 ) & UNICHAR ( 10 ), UNICHAR ( 10 ) ),
+			        UNICHAR ( 13 ),
+			        UNICHAR ( 10 )
+			    )
+			VAR NoDoubles =
+			    SUBSTITUTE ( NormText, UNICHAR ( 10 ) & UNICHAR ( 10 ), UNICHAR ( 10 ) )
+			VAR Header =
+			    IF (
+			        ISBLANK ( LastChange ),
+			        "Naposledy Změněno: Nedostupno",
+			        "Naposledy Změněno: " & LastChange
+			    )
+			VAR Body =
+			    IF ( ISBLANK ( NoDoubles ), "Nedostupno", NoDoubles )
+			VAR Combined =
+			    Header & "<<HDR>>" & Body
+			RETURN
+			    SUBSTITUTE ( Combined, UNICHAR ( 10 ), "|||" )
+		displayFolder: FAST Lite
+		lineageTag: 13b1dfe4-4985-4694-8ea2-5a10d6a79dfd
+
+	measure 'Počet HP Subjekt RFS' =
+			
+			CALCULATE (
+			    SUM ( FACT_VYSTAVBA_SUBJEKT[Pocet HP] ),
+			    CROSSFILTER ( DIM_ROP[ROP_Key], FACT_VYSTAVBA[ROP_Key], BOTH ),
+			    DIM_FAZE[Faze Short] = "RFS"
+			)
+		formatString: 0
+		lineageTag: d145cc02-7d71-45fa-aa5e-b137cc5ce6cc
+
+	measure 'Dokumentace Odevzdaná' = ```
+			
+			CALCULATE (    
+			    MINX(
+			        FACT_VYSTAVBA,
+			        COALESCE(
+			            FACT_VYSTAVBA[Konec Real],
+			            FACT_VYSTAVBA[Konec Forecast]
+			        )
+			    ),
+			    DIM_SUBFAZE[Subfaze] = "Příprava Dokumentace Rozvláknení"
+			)
+			```
+		formatString: Short Date
+		displayFolder: ROP do Komerce
+		lineageTag: c89bc97c-0c1a-4f72-a026-d296f8ab30ed
+
+	measure 'Spuštěno do Komerce' = ```
+			
+			CALCULATE ( 
+			    MAX ( FACT_VYSTAVBA[Konec Real] ),
+			    DIM_SUBFAZE[Subfaze] = "Spuštění do Komerce" -- odcapováno
+			)
+			```
+		formatString: Short Date
+		displayFolder: ROP do Komerce
+		lineageTag: 584b97d5-d080-4c86-80ce-c9f6a125c759
+
+	measure 'KPI Trváni' =
+			
+			DATEDIFF(
+			    [Dokumentace Odevzdaná],
+			    COALESCE(
+			        [Spuštěno do Komerce],
+			        TODAY()
+			    ),
+			    DAY
+			)
+		formatString: 0
+		displayFolder: ROP do Komerce
+		lineageTag: 1ad24018-24ee-4c03-a4d4-d1de6463d222
+
+	measure 'KPI Status' =
+			
+			VAR StatusROP = CALCULATE ( MAX ( DIM_STAV[Stav] ), DIM_SUBFAZE[Subfaze] = "Příprava Dokumentace Rozvláknení" )
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    StatusROP = "Hotovo", "Home Passed",
+			    StatusROP = "Pozastaveno", "Čeká na Přívod/VR",
+			    --NOT ISBLANK([Reklamace Duration]), "Reklamace",
+			    [KPI Trváni] <= 20, "Beze Zpoždění",
+			    [KPI Trváni] <= 30, "Možné Zpoždění",
+			    NOT ISBLANK ( [KPI Trváni] ), "Ve Zpoždění",
+			    BLANK()
+			)
+		displayFolder: ROP do Komerce
+		lineageTag: 0f04d75d-c359-4027-9586-ab763b275798
+
+	measure Test = ```
+			
+			CALCULATE(
+			    COUNTROWS(VALUES(DIM_STAV[Stav])),
+			    DIM_SUBFAZE[Subfaze] = "Příprava Dokumentace Rozvláknení"
+			)
+			
+			```
+		formatString: 0
+		displayFolder: ROP do Komerce
+		lineageTag: 375249c6-2a12-4ff9-a58e-2c98b54a62e0
+
+	measure 'KPS4 Trvání' =
+			
+			VAR milestoneStart = [Dokumentace Odevzdaná]
+			VAR milestoneEnd =
+			    CALCULATE (
+			        MAX ( FACT_VYSTAVBA[Konec Real] ),
+			        FACT_VYSTAVBA[Subfaze_Key] = "37"
+			    )
+			VAR HasStart = NOT ISBLANK(milestoneStart)
+			VAR HasEnd   = NOT ISBLANK(milestoneEnd)
+			VAR EndOrNow = COALESCE(milestoneEnd, NOW())
+			VAR Diff     = IF(HasStart, DATEDIFF(milestoneStart, EndOrNow, DAY))
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    HasEnd && NOT HasStart,                              1,        -- end only
+			    NOT HasEnd && NOT HasStart,                          BLANK(),  -- neither
+			    HasStart && HasEnd && milestoneEnd < milestoneStart, 1,        -- end before start
+			    HasStart && Diff = 0,                                1,        -- same day
+			    HasStart,                                            Diff      -- both or start-only
+			)
+		formatString: 0
+		displayFolder: ROP do Komerce
+		lineageTag: f3f52238-280e-4a54-9d43-e7814e5d9ad8
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				    Source = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [Column1 = _t]),
+				    #"Changed Type" = Table.TransformColumnTypes(Source,{{"Column1", type text}}),
+				    #"Removed Columns" = Table.RemoveColumns(#"Changed Type",{"Column1"})
+				in
+				    #"Removed Columns"
+
+	annotation PBI_ResultType = Table
+

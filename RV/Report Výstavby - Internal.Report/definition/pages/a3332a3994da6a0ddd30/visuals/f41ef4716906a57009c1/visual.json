@@ -1,0 +1,689 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "f41ef4716906a57009c1",
+  "position": {
+    "x": 0,
+    "y": 55.180908391070048,
+    "z": 7001,
+    "height": 219.73826020015395,
+    "width": 1270.1462663587374,
+    "tabOrder": 8001
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_KIA"
+                    }
+                  },
+                  "Property": "KIA"
+                }
+              },
+              "queryRef": "DIM_KIA.KIA",
+              "nativeQueryRef": "KIA"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_KIA"
+                    }
+                  },
+                  "Property": "Projekt"
+                }
+              },
+              "queryRef": "DIM_KIA.Projekt",
+              "nativeQueryRef": "Projekt"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "ROP ID"
+                }
+              },
+              "queryRef": "DIM_ROP.ROP ID",
+              "nativeQueryRef": "ROP ID"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "Region Nova Optika"
+                }
+              },
+              "queryRef": "DIM_ROP.Region Nova Optika",
+              "nativeQueryRef": "Region Nova Optika"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "CRM ROP Upravil"
+                }
+              },
+              "queryRef": "DIM_ROP.CRM ROP Upravil",
+              "nativeQueryRef": "Poslední Aktualizace",
+              "displayName": "Poslední Aktualizace"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "KPI Dokumentace Odevzdana"
+                }
+              },
+              "queryRef": "DIM_ROP.KPI Dokumentace Odevzdana",
+              "nativeQueryRef": "Dokumentace Odevzdana",
+              "displayName": "Dokumentace Odevzdana"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "KPI Spusteni do Komerce"
+                }
+              },
+              "queryRef": "DIM_ROP.KPI Spusteni do Komerce",
+              "nativeQueryRef": "Spusteno do Komerce",
+              "displayName": "Spusteno do Komerce"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_ROP"
+                        }
+                      },
+                      "Property": "KPI Trvani Dni"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(DIM_ROP.KPI Trvani Dni)",
+              "nativeQueryRef": "KPI Trvani",
+              "displayName": "KPI Trvani"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "KPI Status Komerce"
+                }
+              },
+              "queryRef": "DIM_ROP.KPI Status Komerce",
+              "nativeQueryRef": "KPI Status",
+              "displayName": "KPI Status"
+            },
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DIM_ROP"
+                        }
+                      },
+                      "Property": "Reklamace Duration"
+                    }
+                  },
+                  "Function": 0
+                }
+              },
+              "queryRef": "Sum(DIM_ROP.Reklamace Duration)",
+              "nativeQueryRef": "Reklamace Trvání",
+              "displayName": "Reklamace Trvání"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "KPS4 Trvání"
+                }
+              },
+              "queryRef": "_Measures.KPS4 Trvání",
+              "nativeQueryRef": "KPS4 Trvání"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "Reklamace Typ"
+                }
+              },
+              "queryRef": "DIM_ROP.Reklamace Typ",
+              "nativeQueryRef": "Reklamace Typ"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "Reklamace Resitel"
+                }
+              },
+              "queryRef": "DIM_ROP.Reklamace Resitel",
+              "nativeQueryRef": "Reklamace Resitel"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DIM_ROP"
+                      }
+                    },
+                    "Property": "KPI Trvani Dni"
+                  }
+                },
+                "Function": 0
+              }
+            },
+            "direction": "Descending"
+          }
+        ]
+      }
+    },
+    "objects": {
+      "total": [
+        {
+          "properties": {
+            "totals": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "autoSizeColumnWidth": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "values": [
+        {
+          "properties": {
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnWidth": [
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "131.39666134401588D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_KIA.Projekt"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.0238492410062D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_ROP.KPI Dokumentace Odevzdana"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "82.7961962974753D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_ROP.KPI Spusteni do Komerce"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "47.30714837230653D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(DIM_ROP.KPI Trvani Dni)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "92.5411889268962D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_ROP.Region Nova Optika"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "94.52655068584346D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_ROP.CRM ROP Upravil"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.55577299822292D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_ROP.Reklamace Resitel"
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "border": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "color": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 0,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            },
+            "radius": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'ROP Detail'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "9D"
+                }
+              }
+            },
+            "bold": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "verticalSpacing": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "lockAspect": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "764975d4267a643ab2db",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_KIA"
+              }
+            },
+            "Property": "KIA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "8dc881ddc3034a000d12",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_KIA"
+              }
+            },
+            "Property": "Projekt"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "69fba81e627b17740733",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ROP"
+              }
+            },
+            "Property": "ROP ID"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "43d90d642d4978e94639",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ROP"
+              }
+            },
+            "Property": "Region Nova Optika"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "16deea3c1a936780dd4b",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ROP"
+              }
+            },
+            "Property": "KPI Dokumentace Odevzdana"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "d080e32c9d530a37312a",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ROP"
+              }
+            },
+            "Property": "KPI Spusteni do Komerce"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "3ace3c19a0a26b8ceb44",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_ROP"
+                  }
+                },
+                "Property": "KPI Trvani Dni"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "531568492863ed1a6731",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ROP"
+              }
+            },
+            "Property": "KPI Status Komerce"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "eaa4d0bc4ee0a05d374e",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DIM_ROP"
+                  }
+                },
+                "Property": "Reklamace Duration"
+              }
+            },
+            "Function": 0
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "3428f120ccdc82de07a3",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ROP"
+              }
+            },
+            "Property": "Reklamace Resitel"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "7dd97c9fb9c86d74b8e6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ROP"
+              }
+            },
+            "Property": "Reklamace Typ"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "9b184df7a12a10a20c87",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ROP"
+              }
+            },
+            "Property": "CRM ROP Upravil"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "41a92df0c4217a097467",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "KPS4 Trvání"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

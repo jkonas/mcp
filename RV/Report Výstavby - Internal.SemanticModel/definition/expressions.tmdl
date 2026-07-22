@@ -1,0 +1,22 @@
+/// Public a Internal Schema
+expression Schema = "SNBX_DS_REP_VYSTAVBY_PUBLIC_L2" meta [IsParameterQuery=true, List={"SNBX_DS_REP_VYSTAVBY_INTERNAL_L2", "SNBX_DS_REP_VYSTAVBY_PUBLIC_L2"}, DefaultValue="SNBX_DS_REP_VYSTAVBY_INTERNAL_L2", Type="Text", IsParameterQueryRequired=true]
+	lineageTag: 75f946f7-b1b7-4a38-9606-5aca322e1c6f
+	queryGroup: Environment
+
+	annotation PBI_ResultType = Text
+
+	annotation PBI_NavigationStepName = Navigation
+
+expression FACT_VYSTAVBA_FAZE =
+		let
+		    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+		    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_FACT_VYSTAVBA = Source{[Schema=Schema,Item="FACT_VYSTAVBA_FAZE"]}[Data]
+		in
+		    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_FACT_VYSTAVBA
+	lineageTag: 0f9ac251-0529-4538-b8ea-c00a8459100f
+	queryGroup: 'Dim Model'
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,268 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmark/2.1.0/schema.json",
+  "displayName": "V IK2",
+  "name": "aef55874741370079721",
+  "options": {
+    "applyOnlyToTargetVisuals": true,
+    "targetVisualNames": [
+      "dd854a42400402c35993",
+      "d5991caf3d09dc8bd2d4",
+      "1c30fb7c07bcbc310613",
+      "728cc9d215d9984a27bb",
+      "fa60e7e4058a15c012ac",
+      "f955d30457b639193d08",
+      "a3a0866c71400e65843b",
+      "f9e5b0c5a2b0883b4475",
+      "7b427145a8caa90904ed",
+      "da2c79fc9107cb04e4e0",
+      "01392370a480e24e597b",
+      "5f60ab200e05be2d7446",
+      "330714cc880007a9ccac",
+      "694fbe4066b574d548c0",
+      "6a8d228c48b6851e5750",
+      "437b77b70e025b58ee08",
+      "339f0b8939b2c471e8ab",
+      "b146f2f1db45bcd5a4d1",
+      "58c8c702d0db7dd33db4",
+      "6df80ce53857a991b60b",
+      "f8127d00534d24be155a",
+      "d8bb86025730e53a5eb9",
+      "356c6382eca54c719006",
+      "dffc6e9cae087335769c",
+      "12b9e393b4e170872068",
+      "681916d722258d6cba9c"
+    ],
+    "suppressActiveSection": true,
+    "suppressData": true
+  },
+  "explorationState": {
+    "version": "1.3",
+    "activeSection": "a037c31108494ab6aaed",
+    "filters": {
+      "byName": {
+        "66c04c5408d0991b90d9": {
+          "name": "66c04c5408d0991b90d9",
+          "type": "Categorical",
+          "filter": {
+            "Version": 2,
+            "From": [
+              {
+                "Name": "d",
+                "Entity": "DIM_SUBSTATUS",
+                "Type": 0
+              }
+            ],
+            "Where": [
+              {
+                "Condition": {
+                  "Not": {
+                    "Expression": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "d"
+                                }
+                              },
+                              "Property": "Substatus"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Dokumentace Odevzdána - Nevykabelované Domy'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Home Passed - Nevykabelované Domy'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'V Realizaci - Akvizice Neprojednána'"
+                              }
+                            }
+                          ],
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Zásobník ABC - Neschvalitelné HP'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "DIM_SUBSTATUS"
+                }
+              },
+              "Property": "Substatus"
+            }
+          },
+          "howCreated": 1
+        },
+        "e788e1d080c04ab0c073": {
+          "name": "e788e1d080c04ab0c073",
+          "type": "Categorical",
+          "filter": {
+            "Version": 2,
+            "From": [
+              {
+                "Name": "d",
+                "Entity": "DIM_ROP",
+                "Type": 0
+              }
+            ],
+            "Where": [
+              {
+                "Condition": {
+                  "Not": {
+                    "Expression": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "d"
+                                }
+                              },
+                              "Property": "Typ Budovy"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'Jiná Stavba'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          },
+          "expression": {
+            "Column": {
+              "Expression": {
+                "SourceRef": {
+                  "Entity": "DIM_ROP"
+                }
+              },
+              "Property": "Typ Budovy"
+            }
+          },
+          "howCreated": 1
+        }
+      }
+    },
+    "sections": {
+      "a037c31108494ab6aaed": {
+        "filters": {
+          "byExpr": [
+            {
+              "name": "baab1904798910590dbd",
+              "type": "Categorical",
+              "filter": {
+                "Version": 2,
+                "From": [
+                  {
+                    "Name": "d",
+                    "Entity": "DIM_KIA",
+                    "Type": 0
+                  }
+                ],
+                "Where": [
+                  {
+                    "Condition": {
+                      "In": {
+                        "Expressions": [
+                          {
+                            "Column": {
+                              "Expression": {
+                                "SourceRef": {
+                                  "Source": "d"
+                                }
+                              },
+                              "Property": "KIA"
+                            }
+                          }
+                        ],
+                        "Values": [
+                          [
+                            {
+                              "Literal": {
+                                "Value": "'PRPRO1'"
+                              }
+                            }
+                          ]
+                        ]
+                      }
+                    }
+                  }
+                ]
+              },
+              "expression": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_KIA"
+                    }
+                  },
+                  "Property": "KIA"
+                }
+              },
+              "howCreated": 5
+            }
+          ]
+        },
+        "visualContainers": {},
+        "visualContainerGroups": {
+          "b02ca71283996c89caa6": {
+            "isHidden": false
+          }
+        }
+      }
+    },
+    "objects": {
+      "merge": {
+        "outspacePane": [
+          {
+            "properties": {
+              "expanded": {
+                "expr": {
+                  "Literal": {
+                    "Value": "true"
+                  }
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}

@@ -1,0 +1,81 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/bookmarksMetadata/1.0.0/schema.json",
+  "items": [
+    {
+      "name": "dd368f1d48a9913a083c",
+      "displayName": "Status IA Tabulka/Mapa",
+      "children": [
+        "83687b704e9965800345",
+        "02fbab10a3c42aa4d0b2"
+      ]
+    },
+    {
+      "name": "bedd929940c01a126e61",
+      "displayName": "IA Detail - Sub-Screens",
+      "children": [
+        "e2e9c071c78912e74901",
+        "17d7aba04c34ad35ae0a",
+        "5855e90e5d0e2eb160b0",
+        "8c44292a01596ba70c73",
+        "d4922a533b0390611c1b",
+        "d536e7bc078696067979",
+        "f200ee6c97c5cee55c60",
+        "be5699043800ad4a1222",
+        "aef55874741370079721",
+        "bd3b42d7dd9c4730baec",
+        "a2d9babb60ec3d3300a4",
+        "14a84561b87c9773085c",
+        "57066ec0cd2e9c280698",
+        "fb375776a82c7de0c840"
+      ]
+    },
+    {
+      "name": "a0d77a63c3d25a025cbc",
+      "displayName": "Průběžné Plnění Měsíc/Týden",
+      "children": [
+        "366cb63249b63640710c",
+        "6e56f1763a71ce00b0a7"
+      ]
+    },
+    {
+      "name": "b96ae91d4c70b40d2143",
+      "displayName": "Forecast/Model",
+      "children": [
+        "eb38c716918a417980b8",
+        "9850cccece1c51e31755"
+      ]
+    },
+    {
+      "name": "231665e38e796edca3e0",
+      "displayName": "Utilizace Dodavatelů",
+      "children": [
+        "affeb6870a062ca74aa1",
+        "b1e8c0e02ab18edd4771"
+      ]
+    },
+    {
+      "name": "e6a27df21890a252d003",
+      "displayName": "Průběžné Plnění - Komerce - ROP Detail",
+      "children": [
+        "642cfa2ab81821c3b673",
+        "28b6f209d7a094dfdf21"
+      ]
+    },
+    {
+      "name": "649f2575220c7b39445f",
+      "displayName": "Projekce/Realizace",
+      "children": [
+        "299e74351c854470ba02",
+        "1adef45a946d690604e5"
+      ]
+    },
+    {
+      "name": "928cb95a18083c87d6f3",
+      "displayName": "Akvizice/Výstavba",
+      "children": [
+        "f567ad03023e3dc55df2",
+        "c95dd51af40561b0b103"
+      ]
+    }
+  ]
+}

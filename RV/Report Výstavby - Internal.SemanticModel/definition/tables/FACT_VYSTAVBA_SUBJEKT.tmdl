@@ -1,0 +1,62 @@
+table FACT_VYSTAVBA_SUBJEKT
+	lineageTag: d0bcb0fa-4254-4703-a1d2-fad55dd4df81
+
+	column ROP_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 398208ef-25bb-4b14-bfc7-ad2008b825ba
+		summarizeBy: none
+		sourceColumn: ROP_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column KIA_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 22a3e694-58ea-4c24-a177-53e0b02fda15
+		summarizeBy: none
+		sourceColumn: KIA_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subjekt_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: f9d71322-efe3-4750-ac91-db15febbe3b3
+		summarizeBy: none
+		sourceColumn: Subjekt_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Pocet HP'
+		dataType: int64
+		formatString: 0
+		lineageTag: d9e30d21-e406-4163-9ce6-55f4c3bf19bb
+		summarizeBy: sum
+		sourceColumn: Pocet HP
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kpi_Kategorie_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 5239f410-199d-4675-90d3-2d08b3cb7670
+		summarizeBy: count
+		sourceColumn: Kpi_Kategorie_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FACT_VYSTAVBA_SUBJEKT = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP = Source{[Schema=Schema,Item="FACT_VYSTAVBA_SUBJEKT"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

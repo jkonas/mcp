@@ -1,0 +1,301 @@
+table DIM_IK_ZAPIS
+	lineageTag: 43c1a0de-4a99-48d7-a944-ed5a74f4092d
+
+	column KIA
+		dataType: string
+		lineageTag: d4e7849d-5245-4665-8315-1a3f63fe8435
+		summarizeBy: none
+		sourceColumn: KIA
+
+		annotation SummarizationSetBy = Automatic
+
+	column IK_Zapis_Key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: ac7957db-45c4-4708-a105-5564e754dbca
+		summarizeBy: none
+		sourceColumn: IK_Zapis_Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Zdroj Dat'
+		dataType: string
+		lineageTag: e0e629da-c276-4582-924d-199307e7ebc3
+		summarizeBy: none
+		sourceColumn: Zdroj Dat
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IA Jmeno'
+		dataType: string
+		lineageTag: 1e6a1a47-93b7-440b-98ed-260417555ed5
+		summarizeBy: none
+		sourceColumn: IA Jmeno
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Polygon ID'
+		dataType: int64
+		formatString: 0
+		lineageTag: d550ba44-4b97-43da-a262-4ae96055cdb7
+		summarizeBy: count
+		sourceColumn: Polygon ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Datum IK'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ae47144e-a25b-4b1c-871b-c849d14f9e8e
+		summarizeBy: none
+		sourceColumn: Datum IK
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'IK ID'
+		dataType: string
+		lineageTag: 9989e35b-8aba-4e11-95c7-9b2e2f0dd2d6
+		summarizeBy: none
+		sourceColumn: IK ID
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IK Level'
+		dataType: string
+		lineageTag: 1a24a46d-bfc3-4e43-8481-1afdc0c2ec15
+		summarizeBy: none
+		sourceColumn: IK Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IK Level (Calc)'
+		dataType: string
+		lineageTag: 97dc285c-495b-4d3d-9a16-7c01ea9b5885
+		summarizeBy: none
+		sourceColumn: IK Level (Calc)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'IK Level & Date'
+		dataType: string
+		lineageTag: e51fe48c-f262-4e75-a702-8d6c9f7ecfc2
+		summarizeBy: none
+		sourceColumn: IK Level & Date
+
+		annotation SummarizationSetBy = Automatic
+
+	column Status
+		dataType: string
+		lineageTag: fcc19b5a-63e4-4430-98a4-bf06f0b0aded
+		summarizeBy: none
+		sourceColumn: Status
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Status (Kalkulovan)'
+		dataType: string
+		lineageTag: 092d2109-22e0-4144-ae2a-feb67513f875
+		summarizeBy: none
+		sourceColumn: Status (Kalkulovan)
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kontroler
+		dataType: string
+		lineageTag: 9a2609fd-b582-4d0a-a8b9-9f3e73fce55d
+		summarizeBy: none
+		sourceColumn: Kontroler
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAPEX Celkem'
+		dataType: double
+		lineageTag: acd99227-df74-434a-94f8-3d8e69cf7bbd
+		summarizeBy: sum
+		sourceColumn: CAPEX Celkem
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAPEX Ke Schvaleni'
+		dataType: double
+		lineageTag: 1ad225ce-6c77-4218-ad89-ce627bb7f249
+		summarizeBy: sum
+		sourceColumn: CAPEX Ke Schvaleni
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAPEX Akvizice'
+		dataType: double
+		lineageTag: 668cbd1f-e429-4ed9-8059-dca7bddc08b6
+		summarizeBy: sum
+		sourceColumn: CAPEX Akvizice
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAPEX Projekce'
+		dataType: double
+		lineageTag: 3a62223d-fede-4ae9-aa07-8ea4054f2261
+		summarizeBy: sum
+		sourceColumn: CAPEX Projekce
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAPEX Linie'
+		dataType: double
+		lineageTag: 0ea1fc0c-a5e0-4b3d-86b2-58d466043a09
+		summarizeBy: sum
+		sourceColumn: CAPEX Linie
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAPEX Vnitrni Rozvody'
+		dataType: double
+		lineageTag: 1c062250-df53-4be7-a43f-f54b4bb4e8c5
+		summarizeBy: sum
+		sourceColumn: CAPEX Vnitrni Rozvody
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAPEX Po ZP'
+		dataType: double
+		lineageTag: ebfc7302-ea66-4ff0-88fe-b9ca9ee6760a
+		summarizeBy: sum
+		sourceColumn: CAPEX Po ZP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'CAPEX Uvolneny'
+		dataType: double
+		lineageTag: dbe6677c-9b71-4690-a96d-1765d89948e8
+		summarizeBy: sum
+		sourceColumn: CAPEX Uvolneny
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'HP Pocet'
+		dataType: int64
+		formatString: 0
+		lineageTag: 81e00e74-86ca-4ff3-9489-f97b0f0fc556
+		summarizeBy: sum
+		sourceColumn: HP Pocet
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'CAPEX Per HP'
+		dataType: double
+		lineageTag: 0dbdaeb8-41f8-49c6-8e08-d490a7cc1ee1
+		summarizeBy: sum
+		sourceColumn: CAPEX Per HP
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'HP Pocet - BD'
+		dataType: int64
+		formatString: 0
+		lineageTag: 2f88b161-a17c-4f13-9ac1-7a8892b5a91f
+		summarizeBy: sum
+		sourceColumn: HP Pocet - BD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HP Pocet - RD'
+		dataType: int64
+		formatString: 0
+		lineageTag: 3b8a3469-660f-422d-85a4-8ca025216314
+		summarizeBy: sum
+		sourceColumn: HP Pocet - RD
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'HC Pocet - JS'
+		dataType: double
+		lineageTag: 6c45d8e8-08d4-460e-90c3-25ee9f02fab3
+		summarizeBy: sum
+		sourceColumn: HC Pocet - JS
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Prvni Zaznam Pro KIU'
+		dataType: int64
+		formatString: 0
+		lineageTag: 24c53925-d141-4172-8ad9-72afa169b523
+		summarizeBy: sum
+		sourceColumn: Prvni Zaznam Pro KIU
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posledni Zaznam Pro KIU'
+		dataType: int64
+		formatString: 0
+		lineageTag: 87bea818-56c6-4275-9372-67000e0bff13
+		summarizeBy: sum
+		sourceColumn: Posledni Zaznam Pro KIU
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prvni Zaznam Pro KIU a IK Level'
+		dataType: int64
+		formatString: 0
+		lineageTag: a1cba71f-8b62-42a6-aeb1-276e1bb49ae7
+		summarizeBy: sum
+		sourceColumn: Prvni Zaznam Pro KIU a IK Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Posledni Zaznam Pro KIU a IK Level'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b0dea63-8170-4210-ae74-b24b39e47abd
+		summarizeBy: sum
+		sourceColumn: Posledni Zaznam Pro KIU a IK Level
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Prvni Schvaleny Zaznam Pro KIU a IK Level bez Pripoloze a IK0 a IK3'
+		dataType: int64
+		formatString: 0
+		lineageTag: 05e3133f-9ccf-4086-a8ad-14b541e94fbc
+		summarizeBy: sum
+		sourceColumn: Prvni Schvaleny Zaznam Pro KIU a IK Level bez Pripoloze a IK0 a IK3
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_IK_ZAPIS = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP = Source{[Schema=Schema,Item="DIM_IK_ZAPIS"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

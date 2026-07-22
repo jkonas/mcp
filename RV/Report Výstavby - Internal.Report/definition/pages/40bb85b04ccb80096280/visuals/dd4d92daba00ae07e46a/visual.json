@@ -1,0 +1,40 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "dd4d92daba00ae07e46a",
+  "position": {
+    "x": 100,
+    "y": 100,
+    "z": 4001,
+    "height": 300,
+    "width": 300,
+    "tabOrder": 9000
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "ZPS Kategorie"
+                }
+              },
+              "queryRef": "DIM_ROP.ZPS Kategorie",
+              "nativeQueryRef": "Kategorie ZPS",
+              "displayName": "Kategorie ZPS"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "parentGroupName": "b376f0498c0e4d400654"
+}

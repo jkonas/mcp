@@ -1,0 +1,50 @@
+table FACT_REGIONALITA
+	lineageTag: b49bc805-5533-4909-b6a5-cf172fce18b3
+
+	column Dodavatel
+		dataType: string
+		lineageTag: 2cbf86e2-8ff0-4a5d-8e8c-9c3db981fc1a
+		summarizeBy: none
+		sourceColumn: Dodavatel
+
+		annotation SummarizationSetBy = Automatic
+
+	column Kraj
+		dataType: string
+		lineageTag: df3606ab-f42c-454f-ab79-5fb34d15d089
+		summarizeBy: none
+		sourceColumn: Kraj
+
+		annotation SummarizationSetBy = Automatic
+
+	column Preference
+		dataType: int64
+		formatString: 0
+		lineageTag: 68382669-9e9c-48ce-b50b-b34ca501ef2e
+		summarizeBy: sum
+		sourceColumn: Preference
+
+		annotation SummarizationSetBy = Automatic
+
+	column Typ
+		dataType: string
+		lineageTag: 4b01a97a-68bc-4ed8-b02f-aec878de92c6
+		summarizeBy: none
+		sourceColumn: Typ
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FACT_REGIONALITA = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA = Source{[Schema=Schema,Item="FACT_REGIONALITA"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

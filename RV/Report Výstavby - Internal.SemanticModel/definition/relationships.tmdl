@@ -1,0 +1,166 @@
+relationship 19d3eec5-61f6-569c-aeb9-bcea0eb6a3d2
+	fromColumn: FACT_VYSTAVBA.Dodavatel_Key
+	toColumn: DIM_DODAVATEL.Dodavatel_Key
+
+relationship a8b846cf-3e44-a4d0-14b7-4aff1730e039
+	fromColumn: FACT_VYSTAVBA.IK_Zapis_Key
+	toColumn: DIM_IK_ZAPIS.IK_Zapis_Key
+
+relationship 15357bd4-745a-5ec6-aeaa-e1d1ace088b4
+	fromColumn: FACT_VYSTAVBA.KIA_Key
+	toColumn: DIM_KIA.KIA_Key
+
+relationship 5531f7a1-9dba-c1ad-f78f-635ec602be24
+	fromColumn: FACT_VYSTAVBA.Stav_Key
+	toColumn: DIM_STAV.Stav_Key
+
+relationship 99d5365b-5b71-5815-80e4-dde621c95025
+	fromColumn: FACT_VYSTAVBA.ROP_Key
+	toColumn: DIM_ROP.ROP_Key
+
+relationship 6a20c70a-ad15-7cab-1c1d-d2f19dabb4e2
+	isActive: false
+	fromColumn: FACT_VYSTAVBA.'Start Model'
+	toColumn: DIM_CALENDAR.Datum
+
+relationship 153df5ad-069e-892f-e17d-2b224efed652
+	isActive: false
+	fromColumn: FACT_VYSTAVBA.'Konec Model'
+	toColumn: DIM_CALENDAR.Datum
+
+relationship ebce8fc3-7c3c-abfa-f18c-920d1b449be2
+	crossFilteringBehavior: bothDirections
+	fromColumn: DIM_ROP_PRIZNAK.'ROP ID'
+	toColumn: DIM_ROP.'ROP ID'
+
+relationship 7757af8f-2202-e854-b270-4337ad2b17dd
+	crossFilteringBehavior: bothDirections
+	fromColumn: DIM_KIA_PRIZNAK.KIA
+	toColumn: DIM_KIA.KIA
+
+relationship ceafc981-a2fc-26d5-9df4-85bc1b41be7a
+	fromColumn: FACT_KAPACITA.Dodavatel
+	toColumn: DIM_DODAVATEL.Dodavatel
+
+relationship 19a61b63-2a53-d00a-d11e-be3629c4b211
+	toCardinality: many
+	fromColumn: FACT_KAPACITA.Mesic
+	toColumn: DIM_CALENDAR.'Mesic Rok Razeni'
+
+relationship 8867ba42-0557-e66f-5eef-77473e16cb03
+	toCardinality: many
+	fromColumn: FACT_REGIONALITA.Kraj
+	toColumn: DIM_KIA.Kraj
+
+relationship a7febe2d-6366-5bc4-c936-4dbbbb0c2a04
+	fromColumn: FACT_REGIONALITA.Dodavatel
+	toColumn: DIM_DODAVATEL.Dodavatel
+
+relationship 673d82c4-19a2-7349-e094-16aea887a67e
+	crossFilteringBehavior: bothDirections
+	fromColumn: DIM_DODAVATEL_SUBTYPE.Dodavatel_Key
+	toColumn: DIM_DODAVATEL.Dodavatel_Key
+
+relationship 8cd02fca-1f98-795b-960a-ef066565150a
+	fromColumn: FACT_VYSTAVBA.Faze_Key
+	toColumn: DIM_FAZE.Faze_Key
+
+relationship 22551be4-1d59-7f3a-0bc1-e6392b53ded2
+	fromColumn: MILESTONES_KOMERCE.ROP_Key
+	toColumn: DIM_ROP.ROP_Key
+
+relationship fda88dd7-ba0d-5062-5081-36850108b407
+	fromColumn: FACT_REALIZACE.TypEtapy_Key
+	toColumn: DIM_TYP_ETAPY.TypEtapy_Key
+
+relationship 721d566c-4d7a-97e6-409e-b40c740e04bd
+	fromColumn: FACT_REALIZACE.KIA_Key
+	toColumn: DIM_KIA.KIA_Key
+
+relationship ee6074d2-a084-115d-fdda-4e03273b1111
+	fromColumn: FACT_REALIZACE.DodavatelEtapa_Key
+	toColumn: DIM_DODAVATEL.Dodavatel_Key
+
+relationship c1eab7d7-ab60-6df9-8028-fc2c415f7d42
+	crossFilteringBehavior: bothDirections
+	toCardinality: many
+	fromColumn: MILESTONES_KOMERCE.ROP_Key
+	toColumn: MILESTONES_KOMERCE_ROP.ROP_Key
+
+relationship 3e99dbbe-2639-b845-dfbc-bbc93ed1ce38
+	fromColumn: FACT_VYSTAVBA.Subfaze_Key
+	toColumn: DIM_SUBFAZE.Subfaze_Key
+
+relationship 1f25d9fc-0dfa-11e8-26d9-9d24c6c9e7cf
+	fromColumn: KIA_AGG_DATES.SUB_FAZE_ID
+	toColumn: DIM_SUBFAZE.Subfaze_Key
+
+relationship 463b160d-c07b-0a12-86cc-140baae36304
+	fromColumn: KIA_AGG_DATES.KIA
+	toColumn: DIM_KIA.KIA
+
+relationship 31c0a25c-47a1-2596-9662-657088b4f421
+	fromColumn: KIA_AGG_DATES.FAZE_ID
+	toColumn: DIM_FAZE.Faze_Key
+
+relationship 3abea94c-9227-aaad-8a30-4f10ca36b514
+	fromColumn: FACT_VYSTAVBA_SUBJEKT.Subjekt_Key
+	toColumn: DIM_SUBJEKT.Subjekt_Key
+
+relationship 8eb04eae-8c36-524e-eab5-df90ce768c53
+	fromColumn: FACT_VYSTAVBA_SUBJEKT.ROP_Key
+	toColumn: DIM_ROP.ROP_Key
+
+relationship cf10c471-3fe1-330e-717d-566d5348067f
+	fromColumn: FACT_VYSTAVBA_SUBJEKT.KIA_Key
+	toColumn: DIM_KIA.KIA_Key
+
+relationship b429166b-5af7-a51a-ab22-3597852eefd2
+	fromColumn: FACT_VYSTAVBA_MILNIK.Stav_Key
+	toColumn: DIM_STAV.Stav_Key
+
+relationship a0b02d15-1865-726d-cafd-cc5b3b777a5e
+	fromColumn: FACT_VYSTAVBA_MILNIK.Faze_Key
+	toColumn: DIM_FAZE.Faze_Key
+
+relationship 475f3dc4-0763-e133-aa87-76d195afd0d2
+	fromColumn: FACT_VYSTAVBA_MILNIK.ROP_Key
+	toColumn: DIM_ROP.ROP_Key
+
+relationship cd8a7d50-e2c3-8653-d485-797303cac283
+	fromColumn: FACT_VYSTAVBA_MILNIK.Datum
+	toColumn: DIM_CALENDAR.Datum
+
+relationship fccfc21b-10ed-821b-00d5-3a4d31f55f58
+	fromColumn: FACT_VYSTAVBA_MILNIK.IK_Zapis_Key
+	toColumn: DIM_IK_ZAPIS.IK_Zapis_Key
+
+relationship efb327e2-bbe3-2710-e0fd-086a42d7bbca
+	fromColumn: FACT_VYSTAVBA_MILNIK.KIA_Key
+	toColumn: DIM_KIA.KIA_Key
+
+relationship b88278d3-f282-fc47-d4b4-a24e3e41aeee
+	fromColumn: FACT_VYSTAVBA_MILNIK.Milnik_Key
+	toColumn: DIM_MILESTONE.Milnik_Key
+
+relationship 920f46e9-8fb1-9dbc-babd-962cbc4588cb
+	fromColumn: FACT_VYSTAVBA_MILNIK.Dodavatel_Key
+	toColumn: DIM_DODAVATEL.Dodavatel_Key
+
+relationship eae90374-3266-ea3a-0c4f-2437de257aae
+	crossFilteringBehavior: bothDirections
+	fromColumn: FACT_DATA_QUALITY_INCIDENTS.ROP_ID
+	toColumn: DATA_QUALITY_BASE.ROP_ID
+
+relationship a39c9d16-fc59-2a1e-7012-4048d05dd614
+	fromColumn: FACT_DATA_QUALITY_INCIDENTS.AKTUALNI_FAZE
+	toColumn: DIM_FAZE.Faze
+
+relationship 3cb88bd4-5e46-bbb6-e75f-7cd3c0e70d90
+	fromColumn: FACT_DATA_QUALITY_INCIDENTS.KIA
+	toColumn: DIM_KIA.KIA
+
+relationship 3f224cb8-f7b6-a820-da00-5c2b8b698534
+	fromColumn: FACT_DATA_QUALITY_INCIDENTS.ROP_ID
+	toColumn: DIM_ROP.'ROP ID'
+

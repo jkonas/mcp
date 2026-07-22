@@ -1,0 +1,62 @@
+table DIM_SUBJEKT
+	lineageTag: 1981ed85-760b-465e-9cbb-16ec44900d5a
+
+	column Subjekt_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 2ebdc3b3-cacf-4da6-9bf0-4561980a6550
+		summarizeBy: none
+		sourceColumn: Subjekt_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nazev Subjektu'
+		dataType: string
+		lineageTag: bc8f0733-d1f4-478c-a3a8-638b92961806
+		summarizeBy: none
+		sourceColumn: Nazev Subjektu
+
+		annotation SummarizationSetBy = Automatic
+
+	column Subjekt
+		dataType: string
+		lineageTag: 0b3b9b2e-3380-4807-8524-aea47660523d
+		summarizeBy: none
+		sourceColumn: Subjekt
+		sortByColumn: 'Subjekt Poradi'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Typ Subjektu'
+		dataType: string
+		lineageTag: e2ff5a6a-c9e8-44f8-bece-30db3c91afa6
+		summarizeBy: none
+		sourceColumn: Typ Subjektu
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subjekt Poradi'
+		dataType: int64
+		formatString: 0
+		lineageTag: 29a17939-0363-43b1-82be-0020a0f38c0c
+		summarizeBy: none
+		sourceColumn: Subjekt Poradi
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_SUBJEKT = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP = Source{[Schema=Schema,Item="DIM_SUBJEKT"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_ROP
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

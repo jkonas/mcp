@@ -1,0 +1,91 @@
+table FACT_REALIZACE
+	lineageTag: 0e2e2bdc-fc1d-4586-ad54-1edc5fd97586
+
+	column KIA_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 806c6dc3-f561-4fd0-b8bf-dfdade3be2ec
+		summarizeBy: none
+		sourceColumn: KIA_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column Dodavatel_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: ffe3eba0-e973-4229-b578-ecc34c81dda5
+		summarizeBy: count
+		sourceColumn: Dodavatel_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column TypEtapy_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 98c611e9-3fc0-4d48-9b56-6364e1f140a1
+		summarizeBy: none
+		sourceColumn: TypEtapy_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column KVA
+		dataType: string
+		lineageTag: c6621e0e-82ff-4d02-981b-ccdb4f98fd07
+		summarizeBy: none
+		sourceColumn: KVA
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Vytvoreni Etapy'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: d8295c11-376b-4a40-a74d-052de79b1e0c
+		summarizeBy: none
+		sourceColumn: Vytvoreni Etapy
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Pocet HP'
+		dataType: int64
+		formatString: 0
+		lineageTag: d9f96db4-9485-4a5a-aafb-017af7ff3683
+		summarizeBy: sum
+		sourceColumn: Pocet HP
+
+		annotation SummarizationSetBy = Automatic
+
+	column CAPEX
+		dataType: double
+		lineageTag: a3790f2a-33f6-4fd7-be34-a06ec34eb331
+		summarizeBy: sum
+		sourceColumn: CAPEX
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column DodavatelEtapa_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: ed44b813-e6f1-4bd4-9ddf-143732284439
+		summarizeBy: none
+		sourceColumn: DodavatelEtapa_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FACT_REALIZACE = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_FACT_VYSTAVBA = Source{[Schema=Schema,Item="FACT_REALIZACE"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_FACT_VYSTAVBA
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,57 @@
+table DIM_FAZE
+	lineageTag: 6e9cab0f-30ed-4105-815b-be5956d772b0
+
+	column Faze_Key
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: a25ee3ee-33af-49c0-95f0-784f57c57a1f
+		summarizeBy: none
+		sourceColumn: Faze_Key
+
+		changedProperty = IsHidden
+
+		annotation SummarizationSetBy = Automatic
+
+	column Faze
+		dataType: string
+		lineageTag: 5e19aa28-85ca-4443-9a76-bb37d23e066d
+		summarizeBy: none
+		sourceColumn: Faze
+		sortByColumn: 'Faze Poradi'
+
+		changedProperty = SortByColumn
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Faze Poradi'
+		dataType: int64
+		formatString: 0
+		lineageTag: e671b3bc-13ef-4d93-bcc5-d2b4a2c54fc0
+		summarizeBy: sum
+		sourceColumn: Faze Poradi
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Faze Short'
+		dataType: string
+		lineageTag: 806124c5-56b5-48f6-89ec-3ff333ea1940
+		summarizeBy: none
+		sourceColumn: Faze Short
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DIM_FAZE = m
+		mode: import
+		queryGroup: 'Dim Model'
+		source =
+				let
+				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA = Source{[Schema=Schema,Item="DIM_FAZE"]}[Data]
+				in
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_DIM_KIA
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Table
+
