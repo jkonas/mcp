@@ -1452,6 +1452,15 @@ table DIM_KIA
 
 		annotation SummarizationSetBy = Automatic
 
+	column Priorita
+		dataType: int64
+		formatString: 0
+		lineageTag: f48cd1a1-6bc2-448c-8347-b22c96e6a06e
+		summarizeBy: sum
+		sourceColumn: Priorita
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DIM_KIA = m
 		mode: import
 		queryGroup: 'Dim Model'

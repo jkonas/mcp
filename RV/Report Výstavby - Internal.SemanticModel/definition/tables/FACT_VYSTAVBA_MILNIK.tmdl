@@ -64,14 +64,6 @@ table FACT_VYSTAVBA_MILNIK
 
 		annotation SummarizationSetBy = Automatic
 
-	column Milnik_Key
-		dataType: string
-		lineageTag: 30243640-b3c9-4ffa-ba68-dd3d63b00ddb
-		summarizeBy: none
-		sourceColumn: Milnik_Key
-
-		annotation SummarizationSetBy = Automatic
-
 	column 'Pocet HP'
 		dataType: int64
 		formatString: 0
@@ -118,17 +110,34 @@ table FACT_VYSTAVBA_MILNIK
 
 		annotation UnderlyingDateTimeDataType = Date
 
+	column Subfaze_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 93b53ecb-fc30-4ddd-b4b5-7c6932646cf9
+		summarizeBy: count
+		sourceColumn: Subfaze_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column NewMilnik_Key
+		dataType: string
+		lineageTag: 27697c22-236f-49e9-a4f9-957061ab46f9
+		summarizeBy: none
+		sourceColumn: NewMilnik_Key
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FACT_VYSTAVBA_MILNIK = m
 		mode: import
 		queryGroup: 'Dim Model'
 		source =
 				let
 				    Source = Sql.Database("syn-dwhcetin-prod-we-01.sql.azuresynapse.net", "syndpdwhprod", [CreateNavigationProperties=false]),
-				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_FACT_VYSTAVBA = Source{[Schema=Schema,Item="VRP_VYSTAVBA_FAZE_MILNIKY"]}[Data]
+				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_FACT_VYSTAVBA = Source{[Schema=Schema,Item="VRP_VYSTAVBA_MILNIKY"]}[Data]
 				in
 				    SNBX_DS_REP_VYSTAVBY_PUBLIC_L2_FACT_VYSTAVBA
 
 	annotation PBI_NavigationStepName = Navigation
 
-	annotation PBI_ResultType = Exception
+	annotation PBI_ResultType = Table
 

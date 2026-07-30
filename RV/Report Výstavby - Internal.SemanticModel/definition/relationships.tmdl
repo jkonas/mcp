@@ -139,10 +139,6 @@ relationship efb327e2-bbe3-2710-e0fd-086a42d7bbca
 	fromColumn: FACT_VYSTAVBA_MILNIK.KIA_Key
 	toColumn: DIM_KIA.KIA_Key
 
-relationship b88278d3-f282-fc47-d4b4-a24e3e41aeee
-	fromColumn: FACT_VYSTAVBA_MILNIK.Milnik_Key
-	toColumn: DIM_MILESTONE.Milnik_Key
-
 relationship 920f46e9-8fb1-9dbc-babd-962cbc4588cb
 	fromColumn: FACT_VYSTAVBA_MILNIK.Dodavatel_Key
 	toColumn: DIM_DODAVATEL.Dodavatel_Key
@@ -163,4 +159,8 @@ relationship 3cb88bd4-5e46-bbb6-e75f-7cd3c0e70d90
 relationship 3f224cb8-f7b6-a820-da00-5c2b8b698534
 	fromColumn: FACT_DATA_QUALITY_INCIDENTS.ROP_ID
 	toColumn: DIM_ROP.'ROP ID'
+
+relationship 98ce6297-5d5a-8ead-a798-3a72d225d1af
+	fromColumn: FACT_VYSTAVBA_MILNIK.NewMilnik_Key
+	toColumn: DIM_MILESTONE.NewMilnik_Key
 

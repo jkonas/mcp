@@ -208,9 +208,18 @@ table FACT_VYSTAVBA
 	column 'Subfaze Duration'
 		dataType: int64
 		formatString: 0
-		lineageTag: 96b66e72-ede3-43df-a384-036e26005832
+		lineageTag: 1d25d21d-ea43-4839-8e43-8d34892e9be2
 		summarizeBy: sum
 		sourceColumn: Subfaze Duration
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Subfaze Duration Real'
+		dataType: int64
+		formatString: 0
+		lineageTag: 539c5c77-7cf4-4ad0-9435-9bd3dab1846e
+		summarizeBy: sum
+		sourceColumn: Subfaze Duration Real
 
 		annotation SummarizationSetBy = Automatic
 

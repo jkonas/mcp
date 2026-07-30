@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "f9f3ea10d464a8b6a346",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "ec4380ee53645de34223",
   "position": {
-    "x": 0,
-    "y": 157.90820153400705,
-    "z": 9000,
-    "height": 254.37095226189422,
-    "width": 503.45627434691789,
-    "tabOrder": 9000
+    "x": 10.509031198686371,
+    "y": 145.02463054187191,
+    "z": 5000,
+    "height": 270.08210180623973,
+    "width": 559.080459770115,
+    "tabOrder": 5000
   },
   "visual": {
     "visualType": "clusteredColumnChart",
@@ -90,7 +90,7 @@
             "position": {
               "expr": {
                 "Literal": {
-                  "Value": "'BottomCenter'"
+                  "Value": "'Top'"
                 }
               }
             },
@@ -359,6 +359,132 @@
               }
             ]
           }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 2,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DIM_MILESTONE"
+                          }
+                        },
+                        "Property": "Milnik"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Dokumentace Odevzdána - Konec Real'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 3,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DIM_MILESTONE"
+                          }
+                        },
+                        "Property": "Milnik"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Dokumentace Odevzdána - Konec Forecast'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DIM_MILESTONE"
+                          }
+                        },
+                        "Property": "Milnik"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Home Passed - Konec Real'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
         }
       ],
       "valueAxis": [
@@ -402,21 +528,21 @@
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "10D"
                 }
               }
             },
             "bold": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
             "heading": {
               "expr": {
                 "Literal": {
-                  "Value": "'Normal'"
+                  "Value": "'Heading3'"
                 }
               }
             },
@@ -430,7 +556,14 @@
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "'left'"
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
                 }
               }
             }
@@ -489,6 +622,19 @@
               "expr": {
                 "Literal": {
                   "Value": "5D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "spacing": [
+        {
+          "properties": {
+            "spaceAbovePlotArea": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
                 }
               }
             }
@@ -653,7 +799,7 @@
         }
       },
       {
-        "name": "4c7a762ad42d833920a0",
+        "name": "9b4563e62306b598b7d5",
         "field": {
           "Column": {
             "Expression": {

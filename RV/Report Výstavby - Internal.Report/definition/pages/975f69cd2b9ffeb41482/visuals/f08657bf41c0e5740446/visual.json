@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "f08657bf41c0e5740446",
   "position": {
     "x": 590,
@@ -1084,7 +1084,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "2df252e99d46ce629bd0",
+        "name": "b463858e0481903e488e",
         "field": {
           "Column": {
             "Expression": {
@@ -1185,7 +1185,7 @@
         }
       },
       {
-        "name": "f9cf6c42ad4db08e4b79",
+        "name": "eaadbf59290596e1eb57",
         "field": {
           "Column": {
             "Expression": {

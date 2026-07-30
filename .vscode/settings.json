@@ -3,6 +3,9 @@
         "reg": true,
         "Get-Command": true,
         "ForEach-Object": true,
-        "Test-Path": true
+        "Test-Path": true,
+        "powerbi-report-author": true,
+        "Get-Item": true,
+        "ConvertFrom-Json": true
     }
 }

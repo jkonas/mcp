@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "1d2ef8e3107748404005",
   "position": {
     "x": 805,
@@ -162,14 +162,14 @@
             "viewportHeight": {
               "expr": {
                 "Literal": {
-                  "Value": "272D"
+                  "Value": "274D"
                 }
               }
             },
             "viewportWidth": {
               "expr": {
                 "Literal": {
-                  "Value": "452.2054203643755D"
+                  "Value": "454.2054203643755D"
                 }
               }
             }

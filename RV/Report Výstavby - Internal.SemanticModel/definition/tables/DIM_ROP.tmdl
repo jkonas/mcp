@@ -416,7 +416,7 @@ table DIM_ROP
 	column 'KPI Trvani Dni'
 		dataType: int64
 		formatString: 0
-		lineageTag: 6e9a6e11-62f8-459b-ad55-e9cd4da70017
+		lineageTag: 5dc8f64e-8668-4670-8fd0-3d78dc425f3e
 		summarizeBy: sum
 		sourceColumn: KPI Trvani Dni
 
@@ -424,7 +424,7 @@ table DIM_ROP
 
 	column 'KPI Status Komerce'
 		dataType: string
-		lineageTag: 5e68ee67-0c00-4868-acf4-a6ac3368f0c6
+		lineageTag: 93c6a415-7695-4202-ad1b-9cdc700fbfd3
 		summarizeBy: none
 		sourceColumn: KPI Status Komerce
 
@@ -432,7 +432,7 @@ table DIM_ROP
 
 	column 'Reklamace Typ'
 		dataType: string
-		lineageTag: f514c536-659b-4d97-a679-da48924934ab
+		lineageTag: cb7b3bfe-8d2a-4cc3-8b5d-c7cf3313027d
 		summarizeBy: none
 		sourceColumn: Reklamace Typ
 
@@ -441,7 +441,7 @@ table DIM_ROP
 	column 'Reklamace Duration'
 		dataType: int64
 		formatString: 0
-		lineageTag: 766c8525-8a55-4031-ad00-f3a1a35fbab2
+		lineageTag: a187dd66-fff0-4458-a5d3-767dcc5cf5d2
 		summarizeBy: sum
 		sourceColumn: Reklamace Duration
 
@@ -449,7 +449,7 @@ table DIM_ROP
 
 	column 'Reklamace Resitel'
 		dataType: string
-		lineageTag: d6ce6ec1-51e6-47d6-a9d8-508929714f65
+		lineageTag: 8271e8c5-e349-4dd3-9848-48ee596fc429
 		summarizeBy: none
 		sourceColumn: Reklamace Resitel
 
@@ -457,7 +457,7 @@ table DIM_ROP
 
 	column 'Status Zpozdeni Bez Reklamace'
 		dataType: string
-		lineageTag: 77c0ea66-8c22-47cf-9672-9f6103e2c3d8
+		lineageTag: 277235e8-2c19-47e4-9b35-ebd9580de30d
 		summarizeBy: none
 		sourceColumn: Status Zpozdeni Bez Reklamace
 
@@ -465,7 +465,7 @@ table DIM_ROP
 
 	column 'CRM ROP Upravil'
 		dataType: string
-		lineageTag: 0699621f-757f-49f6-871d-5971e2893622
+		lineageTag: a15b3726-9bfb-47da-bac4-0fe355a77d5a
 		summarizeBy: none
 		sourceColumn: CRM ROP Upravil
 
@@ -474,7 +474,7 @@ table DIM_ROP
 	column 'KPI Dokumentace Odevzdana'
 		dataType: dateTime
 		formatString: Short Date
-		lineageTag: 2ec5f91f-9926-4eb2-a44b-49cc35015b3a
+		lineageTag: 685f63ec-f43d-4142-bdf5-a01a7d63e9d1
 		summarizeBy: none
 		sourceColumn: KPI Dokumentace Odevzdana
 
@@ -482,12 +482,12 @@ table DIM_ROP
 
 		annotation UnderlyingDateTimeDataType = Date
 
-	column 'KPI Spusteni do Komerce'
+	column 'KPI Home Passed'
 		dataType: dateTime
 		formatString: Short Date
-		lineageTag: 9a76bd02-8568-43e9-ae83-662f46116f86
+		lineageTag: adb787d9-2938-40e9-a49c-c12995b276fa
 		summarizeBy: none
-		sourceColumn: KPI Spusteni do Komerce
+		sourceColumn: KPI Home Passed
 
 		annotation SummarizationSetBy = Automatic
 

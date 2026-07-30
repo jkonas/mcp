@@ -146,182 +146,7 @@
                         [
                           {
                             "Literal": {
-                              "Value": "'Zásobník ABC - Start Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Zásobník ABC - Konec Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V Řešení U ABC - Start Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V Řešení U ABC - Konec Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Zásobník Plánování - Start Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Zásobník Plánování - Konec Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V Plánování - Start Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V Plánování - Konec Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V IK1 - Start Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V IK1 - Konec Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Zásobník Projekce - Start Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Zásobník Projekce - Konec Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V Projekci - Start Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V Projekci - Konec Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V IK2 - Start Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V IK2 - Konec Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Zásobník Realizace - Start Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Zásobník Realizace - Konec Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V Realizaci - Start Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V Realizaci - Konec Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Dokumentace Odevzdána - Start Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Dokumentace Odevzdána - Konec Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Home Passed - Start Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'Home Passed - Konec Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V Komerci - Start Model'"
-                            }
-                          }
-                        ],
-                        [
-                          {
-                            "Literal": {
-                              "Value": "'V Komerci - Konec Model'"
+                              "Value": "null"
                             }
                           }
                         ]
@@ -477,41 +302,8 @@
         "howCreated": "User"
       },
       {
-        "name": "f4e71c620070e3d9ba48",
-        "displayName": "WiFi Překryv",
-        "ordinal": 6,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ROP_PRIZNAK"
-              }
-            },
-            "Property": "WiFi Prekryv"
-          }
-        },
-        "type": "Categorical",
-        "howCreated": "User"
-      },
-      {
-        "name": "89bd7db77c0d8eb0e78f",
-        "ordinal": 7,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_ROP"
-              }
-            },
-            "Property": "Prstenec Ano/Ne"
-          }
-        },
-        "type": "Advanced",
-        "howCreated": "User"
-      },
-      {
         "name": "023e9008346210019dee",
-        "ordinal": 8,
+        "ordinal": 6,
         "field": {
           "Column": {
             "Expression": {
@@ -523,6 +315,63 @@
           }
         },
         "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DIM_MILESTONE",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Not": {
+                  "Expression": {
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "Milnik"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'KPS4 - Konec Real'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'KPS1 - Konec Real'"
+                            }
+                          }
+                        ],
+                        [
+                          {
+                            "Literal": {
+                              "Value": "'Výstupní Kontrola - Konec Real'"
+                            }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
         "howCreated": "User",
         "objects": {
           "general": [
@@ -539,6 +388,39 @@
             }
           ]
         }
+      },
+      {
+        "name": "f4e71c620070e3d9ba48",
+        "displayName": "WiFi Překryv",
+        "ordinal": 7,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ROP_PRIZNAK"
+              }
+            },
+            "Property": "WiFi Prekryv"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User"
+      },
+      {
+        "name": "89bd7db77c0d8eb0e78f",
+        "ordinal": 8,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_ROP"
+              }
+            },
+            "Property": "Prstenec Ano/Ne"
+          }
+        },
+        "type": "Advanced",
+        "howCreated": "User"
       },
       {
         "name": "00ad7ae5de60936949a1",
@@ -621,6 +503,37 @@
         },
         "type": "Advanced",
         "howCreated": "User"
+      },
+      {
+        "name": "c4a09855ab2ddd012eee",
+        "ordinal": 14,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_KIA"
+              }
+            },
+            "Property": "Priorita"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ],
     "filterSortOrder": "Custom"

@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "9a7f9a6ca326b372d00f",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "efd48f85dded62ade8cb",
   "position": {
-    "x": 411,
-    "y": 0.140964324126422,
-    "z": 2000,
-    "height": 40,
-    "width": 132,
-    "tabOrder": 2000
+    "x": 580,
+    "y": 85,
+    "z": 11000,
+    "height": 50.443349753694584,
+    "width": 120,
+    "tabOrder": 11000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -23,12 +23,12 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Počet HP"
+                  "Property": "Počet HP Subjekt Milnik"
                 }
               },
-              "queryRef": "_Measures.Počet HP",
-              "nativeQueryRef": "HP Beze Zpoždění",
-              "displayName": "HP Beze Zpoždění"
+              "queryRef": "_Measures.Počet HP Subjekt Milnik",
+              "nativeQueryRef": "Reklamace HP",
+              "displayName": "Reklamace HP"
             }
           ]
         }
@@ -43,7 +43,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Počet HP"
+                "Property": "Počet HP Subjekt Milnik"
               }
             },
             "direction": "Descending"
@@ -61,8 +61,8 @@
                 "color": {
                   "expr": {
                     "ThemeDataColor": {
-                      "ColorId": 4,
-                      "Percent": 0
+                      "ColorId": 7,
+                      "Percent": -0.5
                     }
                   }
                 }
@@ -77,13 +77,6 @@
       "layout": [
         {
           "properties": {
-            "cellPadding": {
-              "expr": {
-                "Literal": {
-                  "Value": "8L"
-                }
-              }
-            },
             "alignment": {
               "expr": {
                 "Literal": {
@@ -91,17 +84,24 @@
                 }
               }
             },
-            "style": {
-              "expr": {
-                "Literal": {
-                  "Value": "'Cards'"
-                }
-              }
-            },
             "orientation": {
               "expr": {
                 "Literal": {
                   "Value": "1D"
+                }
+              }
+            },
+            "cellPadding": {
+              "expr": {
+                "Literal": {
+                  "Value": "8L"
+                }
+              }
+            },
+            "style": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Cards'"
                 }
               }
             }
@@ -139,13 +139,6 @@
                 }
               }
             },
-            "horizontalAlignment": {
-              "expr": {
-                "Literal": {
-                  "Value": "'center'"
-                }
-              }
-            },
             "bold": {
               "expr": {
                 "Literal": {
@@ -162,6 +155,13 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "horizontalAlignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
                 }
               }
             },
@@ -186,34 +186,52 @@
         },
         {
           "properties": {
-            "labelDisplayUnits": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "-1D"
+                  "Value": "true"
                 }
               }
-            },
-            "customFormatString": {
-              "expr": {
-                "Literal": {
-                  "Value": "'#,0'"
-                }
-              }
-            },
+            }
+          }
+        },
+        {
+          "properties": {
             "labelPrecision": {
               "expr": {
                 "Literal": {
                   "Value": "0L"
                 }
               }
+            },
+            "labelDisplayUnits": {
+              "expr": {
+                "Literal": {
+                  "Value": "1D"
+                }
+              }
             }
           },
           "selector": {
-            "metadata": "_Measures.Počet HP"
+            "metadata": "_Measures.Počet HP Subjekt Milnik"
           }
         }
       ],
       "label": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          },
+          "selector": {
+            "id": "default"
+          }
+        },
         {
           "properties": {
             "show": {
@@ -230,10 +248,10 @@
                 }
               }
             },
-            "fontSize": {
+            "textWrap": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "true"
                 }
               }
             },
@@ -248,10 +266,17 @@
                   }
                 }
               }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "8D"
+                }
+              }
             }
           },
           "selector": {
-            "id": "default"
+            "metadata": "_Measures.Počet HP Subjekt Milnik"
           }
         }
       ],
@@ -265,14 +290,7 @@
                 }
               }
             },
-            "topMargin": {
-              "expr": {
-                "Literal": {
-                  "Value": "0L"
-                }
-              }
-            },
-            "bottomMargin": {
+            "leftMargin": {
               "expr": {
                 "Literal": {
                   "Value": "0L"
@@ -286,7 +304,14 @@
                 }
               }
             },
-            "leftMargin": {
+            "topMargin": {
+              "expr": {
+                "Literal": {
+                  "Value": "7L"
+                }
+              }
+            },
+            "bottomMargin": {
               "expr": {
                 "Literal": {
                   "Value": "0L"
@@ -341,25 +366,46 @@
             "verticalSpacing": {
               "expr": {
                 "Literal": {
-                  "Value": "4L"
+                  "Value": "2L"
                 }
               }
             }
           },
           "selector": {
-            "id": "default"
+            "metadata": "_Measures.Počet HP Subjekt Milnik"
           }
         }
       ]
     },
     "visualContainerObjects": {
-      "background": [
+      "padding": [
         {
           "properties": {
-            "show": {
+            "top": {
               "expr": {
                 "Literal": {
-                  "Value": "false"
+                  "Value": "0D"
+                }
+              }
+            },
+            "bottom": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "left": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
+                }
+              }
+            },
+            "right": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -379,40 +425,6 @@
           }
         }
       ],
-      "padding": [
-        {
-          "properties": {
-            "top": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "bottom": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "right": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            },
-            "left": {
-              "expr": {
-                "Literal": {
-                  "Value": "0D"
-                }
-              }
-            }
-          }
-        }
-      ],
       "title": [
         {
           "properties": {
@@ -423,10 +435,30 @@
                 }
               }
             },
-            "text": {
+            "titleWrap": {
               "expr": {
                 "Literal": {
-                  "Value": "'Card - HP Beze Zpoždění'"
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "background": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            },
+            "transparency": {
+              "expr": {
+                "Literal": {
+                  "Value": "0D"
                 }
               }
             }
@@ -449,19 +481,19 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "b3b5d88e6861104ec954",
   "filterConfig": {
     "filters": [
       {
-        "name": "50a83fd4e8d78c9074a0",
+        "name": "bec4693e44cad0b7d03b",
+        "ordinal": 0,
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "MILESTONES_KOMERCE"
+                "Entity": "DIM_ROP"
               }
             },
-            "Property": "ROP KPI Status"
+            "Property": "KPI Status Komerce"
           }
         },
         "type": "Categorical",
@@ -469,8 +501,8 @@
           "Version": 2,
           "From": [
             {
-              "Name": "m",
-              "Entity": "MILESTONES_KOMERCE",
+              "Name": "d",
+              "Entity": "DIM_ROP",
               "Type": 0
             }
           ],
@@ -483,10 +515,10 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Source": "m"
+                            "Source": "d"
                           }
                         },
-                        "Property": "ROP KPI Status"
+                        "Property": "KPI Status Komerce"
                       }
                     }
                   ],
@@ -494,7 +526,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Beze zpoždění'"
+                          "Value": "'Reklamace'"
                         }
                       }
                     ]
@@ -505,7 +537,23 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "cfd20d3c7230d20a7310",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Počet HP Subjekt Milnik"
+          }
+        },
+        "type": "Advanced"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

@@ -335,6 +335,37 @@
         },
         "type": "Advanced",
         "howCreated": "User"
+      },
+      {
+        "name": "3e0aee9cb2e7b5d03b7e",
+        "ordinal": 13,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_KIA"
+              }
+            },
+            "Property": "Priorita"
+          }
+        },
+        "type": "Categorical",
+        "howCreated": "User",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
       }
     ],
     "filterSortOrder": "Custom"

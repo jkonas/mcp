@@ -44,6 +44,23 @@ table DIM_MILESTONE
 
 		annotation SummarizationSetBy = Automatic
 
+	column Subfaze_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: 6ceaea56-0dd5-40a8-bb83-40d8ca039e78
+		summarizeBy: none
+		sourceColumn: Subfaze_Key
+
+		annotation SummarizationSetBy = Automatic
+
+	column NewMilnik_Key
+		dataType: string
+		lineageTag: 3503ddf3-74f6-4779-b643-62cce459df1f
+		summarizeBy: none
+		sourceColumn: NewMilnik_Key
+
+		annotation SummarizationSetBy = Automatic
+
 	partition DIM_MILESTONE = m
 		mode: import
 		queryGroup: 'Dim Model'

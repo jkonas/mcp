@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "cdb27cdc1c48e400263e",
   "position": {
     "x": 80,
@@ -279,13 +279,18 @@
         "sort": [
           {
             "field": {
-              "Column": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "DIM_KIA"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "FACT_VYSTAVBA"
+                      }
+                    },
+                    "Property": "Pocet HP"
                   }
                 },
-                "Property": "Kvalita Vyplnenosti (%)"
+                "Function": 0
               }
             },
             "direction": "Descending"

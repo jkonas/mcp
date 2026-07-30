@@ -9539,7 +9539,7 @@ cultureInfo cs-CZ
 			          }
 			        },
 			        {
-			          "HP Reklamace": {
+			          "HP Home Passed": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9549,7 +9549,7 @@ cultureInfo cs-CZ
 			          }
 			        },
 			        {
-			          "HP Home Passed": {
+			          "HP Reklamace": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9569,7 +9569,7 @@ cultureInfo cs-CZ
 			          }
 			        },
 			        {
-			          "HP Možné Zpoždění": {
+			          "HP V Zpoždení": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -9579,7 +9579,7 @@ cultureInfo cs-CZ
 			          }
 			        },
 			        {
-			          "HP V Zpoždení": {
+			          "HP Možné Zpoždění": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -18953,6 +18953,86 @@ cultureInfo cs-CZ
 			          "počet HP subjekt milnik": {
 			            "State": "Generated"
 			          }
+			        },
+			        {
+			          "Dok. Odevzdaná HP (Forecast)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Ve Zpoždění HP": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Dok. Odevzdaná HP (Real)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Možné zpoždění HP": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Home Passed HP (Real)": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Bez Zpoždění HP": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Počet HP": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        },
+			        {
+			          "Reklamace HP": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
 			        }
 			      ]
 			    },
@@ -20177,132 +20257,6 @@ cultureInfo cs-CZ
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.468
-			          }
-			        }
-			      ]
-			    },
-			    "fact_vystavba_milnik.milnik_key": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "FACT_VYSTAVBA_MILNIK",
-			          "ConceptualProperty": "Milnik_Key"
-			        }
-			      },
-			      "State": "Generated",
-			      "Visibility": {
-			        "Value": "Hidden"
-			      },
-			      "Terms": [
-			        {
-			          "milnik key": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Milnik_Key": {
-			            "Type": "Noun",
-			            "State": "Generated",
-			            "Weight": 0.99
-			          }
-			        },
-			        {
-			          "milnik solution": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.475
-			          }
-			        },
-			        {
-			          "milnik explanation": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.475
-			          }
-			        },
-			        {
-			          "milnik basis": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.475
-			          }
-			        },
-			        {
-			          "milnik recipe": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.475
-			          }
-			        },
-			        {
-			          "milnik interpretation": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.475
-			          }
-			        },
-			        {
-			          "milnik resolution": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.475
-			          }
-			        },
-			        {
-			          "milnik answer": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.461
-			          }
-			        },
-			        {
-			          "milnik mean": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.461
-			          }
-			        },
-			        {
-			          "milnik secret": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.461
-			          }
-			        },
-			        {
-			          "milnik source": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.461
 			          }
 			        }
 			      ]
@@ -30585,21 +30539,136 @@ cultureInfo cs-CZ
 			        }
 			      ]
 			    },
-			    "dim_rop.KPI_trvani_dni": {
+			    "dim_kia.ABC__akvizice_konec_short": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "DIM_ROP",
-			          "ConceptualProperty": "KPI Trvani Dni"
+			          "ConceptualEntity": "DIM_KIA",
+			          "ConceptualProperty": "ABC - Akvizice Konec Short"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "KPI trvani dni": {
+			          "ABC - akvizice konec short": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "ABC akvizice konec short": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "dim_kia.realizace__zahajeni_real_short": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_KIA",
+			          "ConceptualProperty": "Realizace - Zahajeni Real Short"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "realizace - zahajeni real short": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "realizace zahajeni real short": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "dim_kia.realizace__pripravenost_pro_zakaznika_real_short": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_KIA",
+			          "ConceptualProperty": "Realizace - Pripravenost Pro Zakaznika Real Short"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "realizace - pripravenost pro zakaznika real short": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "realizace pripravenost pro zakaznika real short": {
+			            "State": "Generated",
+			            "Weight": 0.97
+			          }
+			        }
+			      ]
+			    },
+			    "dim_rop_priznak.priznak": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_ROP_PRIZNAK",
+			          "ConceptualProperty": "Priznak"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "priznak": {
 			            "State": "Generated"
 			          }
 			        }
 			      ]
+			    },
+			    "dim_kia_priznak.priznak": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_KIA_PRIZNAK",
+			          "ConceptualProperty": "Priznak"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "priznak": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "dim_rop.KPI_dokumentace_odevzdana": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_ROP",
+			          "ConceptualProperty": "KPI Dokumentace Odevzdana"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "KPI dokumentace odevzdana": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "date": {
+			            "State": "Generated",
+			            "Weight": 0.7
+			          }
+			        },
+			        {
+			          "Dokumentace Odevzdana": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ],
+			      "SemanticType": "Time"
 			    },
 			    "dim_rop.KPI_status_komerce": {
 			      "Definition": {
@@ -30727,6 +30796,58 @@ cultureInfo cs-CZ
 			        }
 			      ]
 			    },
+			    "dim_rop.CRM_ROP_upravil": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_ROP",
+			          "ConceptualProperty": "CRM ROP Upravil"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "CRM ROP upravil": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Poslední Aktualizace": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
+			    "dim_rop.KPI_trvani_dni": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_ROP",
+			          "ConceptualProperty": "KPI Trvani Dni"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "KPI trvani dni": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "KPI Trvani": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
+			    },
 			    "dim_rop.reklamace_typ": {
 			      "Definition": {
 			        "Binding": {
@@ -30805,6 +30926,16 @@ cultureInfo cs-CZ
 			              "Agent": "Thesaurus"
 			            },
 			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "Reklamace Trvání": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
 			          }
 			        }
 			      ]
@@ -30941,43 +31072,17 @@ cultureInfo cs-CZ
 			        }
 			      ]
 			    },
-			    "dim_rop.CRM_ROP_upravil": {
+			    "dim_rop.KPI_home_passed": {
 			      "Definition": {
 			        "Binding": {
 			          "ConceptualEntity": "DIM_ROP",
-			          "ConceptualProperty": "CRM ROP Upravil"
+			          "ConceptualProperty": "KPI Home Passed"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "CRM ROP upravil": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "Poslední Aktualizace": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ]
-			    },
-			    "dim_rop.KPI_dokumentace_odevzdana": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_ROP",
-			          "ConceptualProperty": "KPI Dokumentace Odevzdana"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "KPI dokumentace odevzdana": {
+			          "KPI home passed": {
 			            "State": "Generated"
 			          }
 			        },
@@ -30988,7 +31093,7 @@ cultureInfo cs-CZ
 			          }
 			        },
 			        {
-			          "Dokumentace Odevzdana": {
+			          "Home Passed": {
 			            "State": "Suggested",
 			            "Source": {
 			              "Type": "External",
@@ -30999,431 +31104,6 @@ cultureInfo cs-CZ
 			        }
 			      ],
 			      "SemanticType": "Time"
-			    },
-			    "dim_rop.KPI_spusteni_do_komerce": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_ROP",
-			          "ConceptualProperty": "KPI Spusteni do Komerce"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "KPI spusteni do komerce": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        },
-			        {
-			          "Spusteno do Komerce": {
-			            "State": "Suggested",
-			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
-			            },
-			            "Weight": 0.9
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "dim_kia.ABC__akvizice_konec_short": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_KIA",
-			          "ConceptualProperty": "ABC - Akvizice Konec Short"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "ABC - akvizice konec short": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "ABC akvizice konec short": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "dim_kia.realizace__zahajeni_real_short": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_KIA",
-			          "ConceptualProperty": "Realizace - Zahajeni Real Short"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "realizace - zahajeni real short": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "realizace zahajeni real short": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "dim_kia.realizace__pripravenost_pro_zakaznika_real_short": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_KIA",
-			          "ConceptualProperty": "Realizace - Pripravenost Pro Zakaznika Real Short"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "realizace - pripravenost pro zakaznika real short": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "realizace pripravenost pro zakaznika real short": {
-			            "State": "Generated",
-			            "Weight": 0.97
-			          }
-			        }
-			      ]
-			    },
-			    "entity__measure.dokumentace_odevzdaná": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "Dokumentace Odevzdaná"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "dokumentace odevzdaná": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "entity__measure.spuštěno_do_komerce": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "Spuštěno do Komerce"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "spuštěno do komerce": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "date": {
-			            "State": "Generated",
-			            "Weight": 0.7
-			          }
-			        }
-			      ],
-			      "SemanticType": "Time"
-			    },
-			    "entity__measure.KPI_trváni": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "KPI Trváni"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "KPI trváni": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "entity__measure.KPI_status": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "KPI Status"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "KPI status": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "kpi category": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "kpi importance": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "kpi prestige": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "kpi prominence": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.75
-			          }
-			        },
-			        {
-			          "kpi condition": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "kpi class": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "kpi grade": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "kpi level": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "kpi position": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        },
-			        {
-			          "kpi rank": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.727
-			          }
-			        }
-			      ]
-			    },
-			    "entity__measure.test": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "Test"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "test": {
-			            "State": "Generated"
-			          }
-			        },
-			        {
-			          "examination": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "exam": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "assessment": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "investigation": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "analysis": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.491
-			          }
-			        },
-			        {
-			          "quiz": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "trial": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "check": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "experiment": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        },
-			        {
-			          "assay": {
-			            "Type": "Noun",
-			            "State": "Suggested",
-			            "Source": {
-			              "Agent": "Thesaurus"
-			            },
-			            "Weight": 0.476
-			          }
-			        }
-			      ]
-			    },
-			    "dim_rop_priznak.priznak": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_ROP_PRIZNAK",
-			          "ConceptualProperty": "Priznak"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "priznak": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
-			    },
-			    "dim_kia_priznak.priznak": {
-			      "Definition": {
-			        "Binding": {
-			          "ConceptualEntity": "DIM_KIA_PRIZNAK",
-			          "ConceptualProperty": "Priznak"
-			        }
-			      },
-			      "State": "Generated",
-			      "Terms": [
-			        {
-			          "priznak": {
-			            "State": "Generated"
-			          }
-			        }
-			      ]
 			    },
 			    "fact_vystavba.subfaze_duration": {
 			      "Definition": {
@@ -31491,17 +31171,17 @@ cultureInfo cs-CZ
 			        }
 			      ]
 			    },
-			    "entity__measure.KPS4_trvání": {
+			    "fact_vystavba.subfaze_duration_real": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "KPS4 Trvání"
+			          "ConceptualEntity": "FACT_VYSTAVBA",
+			          "ConceptualProperty": "Subfaze Duration Real"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "KPS4 trvání": {
+			          "subfaze duration real": {
 			            "State": "Generated"
 			          }
 			        }
@@ -31523,6 +31203,22 @@ cultureInfo cs-CZ
 			        }
 			      ]
 			    },
+			    "entity__measure.KPS4_trvání": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "KPS4 Trvání"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "KPS4 trvání": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
 			    "entity__measure.výstupní_kontrola_trvání": {
 			      "Definition": {
 			        "Binding": {
@@ -31539,80 +31235,626 @@ cultureInfo cs-CZ
 			        }
 			      ]
 			    },
-			    "entity__measure.připraveno_ke_spuštění_do_komerce_trvání": {
+			    "dim_milestone.subfaze_key": {
 			      "Definition": {
 			        "Binding": {
-			          "ConceptualEntity": "_Measures",
-			          "ConceptualProperty": "Připraveno ke Spuštění do Komerce Trvání"
+			          "ConceptualEntity": "DIM_MILESTONE",
+			          "ConceptualProperty": "Subfaze_Key"
 			        }
 			      },
 			      "State": "Generated",
 			      "Terms": [
 			        {
-			          "připraveno ke spuštění do komerce trvání": {
+			          "subfaze key": {
 			            "State": "Generated"
 			          }
 			        },
 			        {
-			          "Připraveno do Komerce Trvání": {
+			          "Subfaze_Key": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "subfaze solution": {
+			            "Type": "Noun",
 			            "State": "Suggested",
 			            "Source": {
-			              "Type": "External",
-			              "Agent": "PowerBI.VisualColumnRename"
+			              "Agent": "Thesaurus"
 			            },
-			            "Weight": 0.9
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "subfaze explanation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "subfaze basis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "subfaze recipe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "subfaze interpretation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "subfaze resolution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "subfaze answer": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "subfaze mean": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "subfaze secret": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "subfaze source": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        }
+			      ]
+			    },
+			    "dim_milestone.new_milnik_key": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "DIM_MILESTONE",
+			          "ConceptualProperty": "NewMilnik_Key"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "new milnik key": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "NewMilnik_Key": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "new milnik solution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "new milnik explanation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "new milnik basis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "new milnik recipe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "new milnik interpretation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "new milnik resolution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "new milnik answer": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "new milnik mean": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "new milnik secret": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "new milnik source": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        }
+			      ]
+			    },
+			    "fact_vystavba_subjekt.SPOLUPRACE_MASTER_KATEGORIE_key": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_VYSTAVBA_SUBJEKT",
+			          "ConceptualProperty": "SPOLUPRACE_MASTER_KATEGORIE_Key"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "SPOLUPRACE MASTER KATEGORIE key": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "SPOLUPRACE_MASTER_KATEGORIE_Key": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "spoluprace master kategorie solution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "spoluprace master kategorie explanation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "spoluprace master kategorie basis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "spoluprace master kategorie recipe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "spoluprace master kategorie interpretation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "spoluprace master kategorie resolution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.489
+			          }
+			        },
+			        {
+			          "spoluprace master kategorie answer": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        },
+			        {
+			          "spoluprace master kategorie mean": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        },
+			        {
+			          "spoluprace master kategorie secret": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        },
+			        {
+			          "spoluprace master kategorie source": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.474
+			          }
+			        }
+			      ]
+			    },
+			    "fact_vystavba_milnik.subfaze_key": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_VYSTAVBA_MILNIK",
+			          "ConceptualProperty": "Subfaze_Key"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "subfaze key": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Subfaze_Key": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "subfaze solution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "subfaze explanation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "subfaze basis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "subfaze recipe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "subfaze interpretation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "subfaze resolution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.475
+			          }
+			        },
+			        {
+			          "subfaze answer": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "subfaze mean": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "subfaze secret": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        },
+			        {
+			          "subfaze source": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.461
+			          }
+			        }
+			      ]
+			    },
+			    "fact_vystavba_milnik.new_milnik_key": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_VYSTAVBA_MILNIK",
+			          "ConceptualProperty": "NewMilnik_Key"
+			        }
+			      },
+			      "State": "Generated",
+			      "Visibility": {
+			        "Value": "Hidden"
+			      },
+			      "Terms": [
+			        {
+			          "new milnik key": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "NewMilnik_Key": {
+			            "Type": "Noun",
+			            "State": "Generated",
+			            "Weight": 0.99
+			          }
+			        },
+			        {
+			          "new milnik solution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "new milnik explanation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "new milnik basis": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "new milnik recipe": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "new milnik interpretation": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "new milnik resolution": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.482
+			          }
+			        },
+			        {
+			          "new milnik answer": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "new milnik mean": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "new milnik secret": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
+			          }
+			        },
+			        {
+			          "new milnik source": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.468
 			          }
 			        }
 			      ]
 			    }
 			  },
 			  "Relationships": {
-			    "fact_vystavba_milnik_has_dim_dodavatel": {
-			      "Binding": {
-			        "ConceptualEntity": "FACT_VYSTAVBA_MILNIK"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_vystavba_milnik": {
-			          "Target": {
-			            "Entity": "fact_vystavba_milnik"
-			          }
-			        },
-			        "dim_dodavatel": {
-			          "Target": {
-			            "Entity": "dim_dodavatel"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_vystavba_milnik"
-			            },
-			            "Object": {
-			              "Role": "dim_dodavatel"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_vystavba_milniks_have_dim_dodavatels"
-			        },
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_dodavatel"
-			            },
-			            "Object": {
-			              "Role": "fact_vystavba_milnik"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_dodavatels_have_fact_vystavba_milniks"
-			        }
-			      ]
-			    },
 			    "fact_vystavba_milnik_has_dim_milestone": {
 			      "Binding": {
 			        "ConceptualEntity": "FACT_VYSTAVBA_MILNIK"
@@ -31656,6 +31898,52 @@ cultureInfo cs-CZ
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_milestones_have_fact_vystavba_milniks"
+			        }
+			      ]
+			    },
+			    "fact_vystavba_milnik_has_dim_dodavatel": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_VYSTAVBA_MILNIK"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_vystavba_milnik": {
+			          "Target": {
+			            "Entity": "fact_vystavba_milnik"
+			          }
+			        },
+			        "dim_dodavatel": {
+			          "Target": {
+			            "Entity": "dim_dodavatel"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_vystavba_milnik"
+			            },
+			            "Object": {
+			              "Role": "dim_dodavatel"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_vystavba_milniks_have_dim_dodavatels"
+			        },
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_dodavatel"
+			            },
+			            "Object": {
+			              "Role": "fact_vystavba_milnik"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_dodavatels_have_fact_vystavba_milniks"
 			        }
 			      ]
 			    },
@@ -33060,20 +33348,20 @@ cultureInfo cs-CZ
 			        }
 			      ]
 			    },
-			    "entity__measure_has_připraveno_ke_spuštění_do_komerce_trvání": {
+			    "fact_vystavba_milnik_has_subfaze_key": {
 			      "Binding": {
-			        "ConceptualEntity": "_Measures"
+			        "ConceptualEntity": "FACT_VYSTAVBA_MILNIK"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "entity__measure": {
+			        "fact_vystavba_milnik": {
 			          "Target": {
-			            "Entity": "entity__measure"
+			            "Entity": "fact_vystavba_milnik"
 			          }
 			        },
-			        "entity__measure.připraveno_ke_spuštění_do_komerce_trvání": {
+			        "fact_vystavba_milnik.subfaze_key": {
 			          "Target": {
-			            "Entity": "entity__measure.připraveno_ke_spuštění_do_komerce_trvání"
+			            "Entity": "fact_vystavba_milnik.subfaze_key"
 			          }
 			        }
 			      },
@@ -33081,27 +33369,126 @@ cultureInfo cs-CZ
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "entity__measure"
+			              "Role": "fact_vystavba_milnik"
 			            },
 			            "Object": {
-			              "Role": "entity__measure.připraveno_ke_spuštění_do_komerce_trvání"
+			              "Role": "fact_vystavba_milnik.subfaze_key"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Phrasing_measures_have_připraveno_ke_spuštění_do_komerce_trvání"
+			          "ID": "fact_vystavba_milniks_have_subfaze_keys"
 			        }
 			      ]
 			    },
-			    "entity__measure_has_výstupní_kontrola_trvání": {
+			    "fact_vystavba_subjekt_has_SPOLUPRACE_MASTER_KATEGORIE_key": {
 			      "Binding": {
-			        "ConceptualEntity": "_Measures"
+			        "ConceptualEntity": "FACT_VYSTAVBA_SUBJEKT"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "entity__measure": {
+			        "fact_vystavba_subjekt": {
 			          "Target": {
-			            "Entity": "entity__measure"
+			            "Entity": "fact_vystavba_subjekt"
+			          }
+			        },
+			        "fact_vystavba_subjekt.SPOLUPRACE_MASTER_KATEGORIE_key": {
+			          "Target": {
+			            "Entity": "fact_vystavba_subjekt.SPOLUPRACE_MASTER_KATEGORIE_key"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_vystavba_subjekt"
+			            },
+			            "Object": {
+			              "Role": "fact_vystavba_subjekt.SPOLUPRACE_MASTER_KATEGORIE_key"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_vystavba_subjekts_have_SPOLUPRACE_MASTER_KATEGORIE_keys"
+			        }
+			      ]
+			    },
+			    "dim_milestone_has_new_milnik_key": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MILESTONE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_milestone": {
+			          "Target": {
+			            "Entity": "dim_milestone"
+			          }
+			        },
+			        "dim_milestone.new_milnik_key": {
+			          "Target": {
+			            "Entity": "dim_milestone.new_milnik_key"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_milestone"
+			            },
+			            "Object": {
+			              "Role": "dim_milestone.new_milnik_key"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_milestones_have_new_milnik_keys"
+			        }
+			      ]
+			    },
+			    "dim_milestone_has_subfaze_key": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_MILESTONE"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_milestone": {
+			          "Target": {
+			            "Entity": "dim_milestone"
+			          }
+			        },
+			        "dim_milestone.subfaze_key": {
+			          "Target": {
+			            "Entity": "dim_milestone.subfaze_key"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_milestone"
+			            },
+			            "Object": {
+			              "Role": "dim_milestone.subfaze_key"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_milestones_have_subfaze_keys"
+			        }
+			      ]
+			    },
+			    "fact_vystavba_has_entity__measure_výstupní_kontrola_trvání": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_VYSTAVBA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_vystavba": {
+			          "Target": {
+			            "Entity": "fact_vystavba"
 			          }
 			        },
 			        "entity__measure.výstupní_kontrola_trvání": {
@@ -33114,7 +33501,7 @@ cultureInfo cs-CZ
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "entity__measure"
+			              "Role": "fact_vystavba"
 			            },
 			            "Object": {
 			              "Role": "entity__measure.výstupní_kontrola_trvání"
@@ -33122,52 +33509,19 @@ cultureInfo cs-CZ
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Phrasing_measures_have_výstupní_kontrola_trvání"
+			          "ID": "fact_vystavbas_have_výstupní_kontrola_trvání"
 			        }
 			      ]
 			    },
-			    "entity__measure_has_KPS1_trvání": {
+			    "fact_vystavba_has_entity__measure_KPS4_trvání": {
 			      "Binding": {
-			        "ConceptualEntity": "_Measures"
+			        "ConceptualEntity": "FACT_VYSTAVBA"
 			      },
 			      "State": "Generated",
 			      "Roles": {
-			        "entity__measure": {
+			        "fact_vystavba": {
 			          "Target": {
-			            "Entity": "entity__measure"
-			          }
-			        },
-			        "entity__measure.KPS1_trvání": {
-			          "Target": {
-			            "Entity": "entity__measure.KPS1_trvání"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "entity__measure"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.KPS1_trvání"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "Phrasing_measures_have_KPS1_trvání"
-			        }
-			      ]
-			    },
-			    "entity__measure_has_KPS4_trvání": {
-			      "Binding": {
-			        "ConceptualEntity": "_Measures"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "entity__measure": {
-			          "Target": {
-			            "Entity": "entity__measure"
+			            "Entity": "fact_vystavba"
 			          }
 			        },
 			        "entity__measure.KPS4_trvání": {
@@ -33180,7 +33534,7 @@ cultureInfo cs-CZ
 			        {
 			          "Attribute": {
 			            "Subject": {
-			              "Role": "entity__measure"
+			              "Role": "fact_vystavba"
 			            },
 			            "Object": {
 			              "Role": "entity__measure.KPS4_trvání"
@@ -33188,7 +33542,73 @@ cultureInfo cs-CZ
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "Phrasing_measures_have_KPS4_trvání"
+			          "ID": "fact_vystavbas_have_KPS4_trvání"
+			        }
+			      ]
+			    },
+			    "fact_vystavba_has_entity__measure_KPS1_trvání": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_VYSTAVBA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_vystavba": {
+			          "Target": {
+			            "Entity": "fact_vystavba"
+			          }
+			        },
+			        "entity__measure.KPS1_trvání": {
+			          "Target": {
+			            "Entity": "entity__measure.KPS1_trvání"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_vystavba"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.KPS1_trvání"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_vystavbas_have_KPS1_trvání"
+			        }
+			      ]
+			    },
+			    "fact_vystavba_has_subfaze_duration_real": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_VYSTAVBA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_vystavba": {
+			          "Target": {
+			            "Entity": "fact_vystavba"
+			          }
+			        },
+			        "fact_vystavba.subfaze_duration_real": {
+			          "Target": {
+			            "Entity": "fact_vystavba.subfaze_duration_real"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_vystavba"
+			            },
+			            "Object": {
+			              "Role": "fact_vystavba.subfaze_duration_real"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_vystavbas_have_subfaze_duration_reals"
 			        }
 			      ]
 			    },
@@ -33225,337 +33645,7 @@ cultureInfo cs-CZ
 			        }
 			      ]
 			    },
-			    "dim_kia_priznak_has_priznak": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_KIA_PRIZNAK"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_kia_priznak": {
-			          "Target": {
-			            "Entity": "dim_kia_priznak"
-			          }
-			        },
-			        "dim_kia_priznak.priznak": {
-			          "Target": {
-			            "Entity": "dim_kia_priznak.priznak"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_kia_priznak"
-			            },
-			            "Object": {
-			              "Role": "dim_kia_priznak.priznak"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_kia_priznaks_have_priznaks"
-			        }
-			      ]
-			    },
-			    "dim_rop_priznak_has_priznak": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_ROP_PRIZNAK"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_rop_priznak": {
-			          "Target": {
-			            "Entity": "dim_rop_priznak"
-			          }
-			        },
-			        "dim_rop_priznak.priznak": {
-			          "Target": {
-			            "Entity": "dim_rop_priznak.priznak"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_rop_priznak"
-			            },
-			            "Object": {
-			              "Role": "dim_rop_priznak.priznak"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_rop_priznaks_have_priznaks"
-			        }
-			      ]
-			    },
-			    "dim_stav_has_entity__measure_test": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_STAV"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_stav": {
-			          "Target": {
-			            "Entity": "dim_stav"
-			          }
-			        },
-			        "entity__measure.test": {
-			          "Target": {
-			            "Entity": "entity__measure.test"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_stav"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.test"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_stavs_have_test"
-			        }
-			      ]
-			    },
-			    "entity__measure_has_KPI_status": {
-			      "Binding": {
-			        "ConceptualEntity": "_Measures"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "entity__measure": {
-			          "Target": {
-			            "Entity": "entity__measure"
-			          }
-			        },
-			        "entity__measure.KPI_status": {
-			          "Target": {
-			            "Entity": "entity__measure.KPI_status"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "entity__measure"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.KPI_status"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "Phrasing_measures_have_KPI_status"
-			        }
-			      ]
-			    },
-			    "entity__measure_has_KPI_trváni": {
-			      "Binding": {
-			        "ConceptualEntity": "_Measures"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "entity__measure": {
-			          "Target": {
-			            "Entity": "entity__measure"
-			          }
-			        },
-			        "entity__measure.KPI_trváni": {
-			          "Target": {
-			            "Entity": "entity__measure.KPI_trváni"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "entity__measure"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.KPI_trváni"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "Phrasing_measures_have_KPI_trváni"
-			        }
-			      ]
-			    },
-			    "fact_vystavba_has_entity__measure_spuštěno_do_komerce": {
-			      "Binding": {
-			        "ConceptualEntity": "FACT_VYSTAVBA"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_vystavba": {
-			          "Target": {
-			            "Entity": "fact_vystavba"
-			          }
-			        },
-			        "entity__measure.spuštěno_do_komerce": {
-			          "Target": {
-			            "Entity": "entity__measure.spuštěno_do_komerce"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_vystavba"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.spuštěno_do_komerce"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_vystavbas_have_spuštěno_do_komerce"
-			        }
-			      ]
-			    },
-			    "fact_vystavba_has_entity__measure_dokumentace_odevzdaná": {
-			      "Binding": {
-			        "ConceptualEntity": "FACT_VYSTAVBA"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "fact_vystavba": {
-			          "Target": {
-			            "Entity": "fact_vystavba"
-			          }
-			        },
-			        "entity__measure.dokumentace_odevzdaná": {
-			          "Target": {
-			            "Entity": "entity__measure.dokumentace_odevzdaná"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "fact_vystavba"
-			            },
-			            "Object": {
-			              "Role": "entity__measure.dokumentace_odevzdaná"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "fact_vystavbas_have_dokumentace_odevzdaná"
-			        }
-			      ]
-			    },
-			    "dim_kia_has_realizace__pripravenost_pro_zakaznika_real_short": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_KIA"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_kia": {
-			          "Target": {
-			            "Entity": "dim_kia"
-			          }
-			        },
-			        "dim_kia.realizace__pripravenost_pro_zakaznika_real_short": {
-			          "Target": {
-			            "Entity": "dim_kia.realizace__pripravenost_pro_zakaznika_real_short"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_kia"
-			            },
-			            "Object": {
-			              "Role": "dim_kia.realizace__pripravenost_pro_zakaznika_real_short"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_kia_have_realizace__pripravenost_pro_zakaznika_real_short"
-			        }
-			      ]
-			    },
-			    "dim_kia_has_realizace__zahajeni_real_short": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_KIA"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_kia": {
-			          "Target": {
-			            "Entity": "dim_kia"
-			          }
-			        },
-			        "dim_kia.realizace__zahajeni_real_short": {
-			          "Target": {
-			            "Entity": "dim_kia.realizace__zahajeni_real_short"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_kia"
-			            },
-			            "Object": {
-			              "Role": "dim_kia.realizace__zahajeni_real_short"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_kia_have_realizace__zahajeni_real_shorts"
-			        }
-			      ]
-			    },
-			    "dim_kia_has_ABC__akvizice_konec_short": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_KIA"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_kia": {
-			          "Target": {
-			            "Entity": "dim_kia"
-			          }
-			        },
-			        "dim_kia.ABC__akvizice_konec_short": {
-			          "Target": {
-			            "Entity": "dim_kia.ABC__akvizice_konec_short"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_kia"
-			            },
-			            "Object": {
-			              "Role": "dim_kia.ABC__akvizice_konec_short"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_kia_have_ABC__akvizice_konec_shorts"
-			        }
-			      ]
-			    },
-			    "dim_rop_has_KPI_spusteni_do_komerce": {
+			    "dim_rop_has_KPI_home_passed": {
 			      "Binding": {
 			        "ConceptualEntity": "DIM_ROP"
 			      },
@@ -33566,9 +33656,9 @@ cultureInfo cs-CZ
 			            "Entity": "dim_rop"
 			          }
 			        },
-			        "dim_rop.KPI_spusteni_do_komerce": {
+			        "dim_rop.KPI_home_passed": {
 			          "Target": {
-			            "Entity": "dim_rop.KPI_spusteni_do_komerce"
+			            "Entity": "dim_rop.KPI_home_passed"
 			          }
 			        }
 			      },
@@ -33579,78 +33669,12 @@ cultureInfo cs-CZ
 			              "Role": "dim_rop"
 			            },
 			            "Object": {
-			              "Role": "dim_rop.KPI_spusteni_do_komerce"
+			              "Role": "dim_rop.KPI_home_passed"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_rops_have_KPI_spusteni_do_komerces"
-			        }
-			      ]
-			    },
-			    "dim_rop_has_KPI_dokumentace_odevzdana": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_ROP"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_rop": {
-			          "Target": {
-			            "Entity": "dim_rop"
-			          }
-			        },
-			        "dim_rop.KPI_dokumentace_odevzdana": {
-			          "Target": {
-			            "Entity": "dim_rop.KPI_dokumentace_odevzdana"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_rop"
-			            },
-			            "Object": {
-			              "Role": "dim_rop.KPI_dokumentace_odevzdana"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_rops_have_KPI_dokumentace_odevzdanas"
-			        }
-			      ]
-			    },
-			    "dim_rop_has_CRM_ROP_upravil": {
-			      "Binding": {
-			        "ConceptualEntity": "DIM_ROP"
-			      },
-			      "State": "Generated",
-			      "Roles": {
-			        "dim_rop": {
-			          "Target": {
-			            "Entity": "dim_rop"
-			          }
-			        },
-			        "dim_rop.CRM_ROP_upravil": {
-			          "Target": {
-			            "Entity": "dim_rop.CRM_ROP_upravil"
-			          }
-			        }
-			      },
-			      "Phrasings": [
-			        {
-			          "Attribute": {
-			            "Subject": {
-			              "Role": "dim_rop"
-			            },
-			            "Object": {
-			              "Role": "dim_rop.CRM_ROP_upravil"
-			            }
-			          },
-			          "State": "Generated",
-			          "Weight": 0.99,
-			          "ID": "dim_rops_have_CRM_ROP_upravils"
+			          "ID": "dim_rops_have_KPI_home_passed"
 			        }
 			      ]
 			    },
@@ -33786,6 +33810,72 @@ cultureInfo cs-CZ
 			        }
 			      ]
 			    },
+			    "dim_rop_has_KPI_trvani_dni": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_ROP"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_rop": {
+			          "Target": {
+			            "Entity": "dim_rop"
+			          }
+			        },
+			        "dim_rop.KPI_trvani_dni": {
+			          "Target": {
+			            "Entity": "dim_rop.KPI_trvani_dni"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_rop"
+			            },
+			            "Object": {
+			              "Role": "dim_rop.KPI_trvani_dni"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_rops_have_KPI_trvani_dnis"
+			        }
+			      ]
+			    },
+			    "dim_rop_has_CRM_ROP_upravil": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_ROP"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_rop": {
+			          "Target": {
+			            "Entity": "dim_rop"
+			          }
+			        },
+			        "dim_rop.CRM_ROP_upravil": {
+			          "Target": {
+			            "Entity": "dim_rop.CRM_ROP_upravil"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_rop"
+			            },
+			            "Object": {
+			              "Role": "dim_rop.CRM_ROP_upravil"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_rops_have_CRM_ROP_upravils"
+			        }
+			      ]
+			    },
 			    "dim_rop_has_KPI_status_komerce": {
 			      "Binding": {
 			        "ConceptualEntity": "DIM_ROP"
@@ -33819,7 +33909,7 @@ cultureInfo cs-CZ
 			        }
 			      ]
 			    },
-			    "dim_rop_has_KPI_trvani_dni": {
+			    "dim_rop_has_KPI_dokumentace_odevzdana": {
 			      "Binding": {
 			        "ConceptualEntity": "DIM_ROP"
 			      },
@@ -33830,9 +33920,9 @@ cultureInfo cs-CZ
 			            "Entity": "dim_rop"
 			          }
 			        },
-			        "dim_rop.KPI_trvani_dni": {
+			        "dim_rop.KPI_dokumentace_odevzdana": {
 			          "Target": {
-			            "Entity": "dim_rop.KPI_trvani_dni"
+			            "Entity": "dim_rop.KPI_dokumentace_odevzdana"
 			          }
 			        }
 			      },
@@ -33843,12 +33933,177 @@ cultureInfo cs-CZ
 			              "Role": "dim_rop"
 			            },
 			            "Object": {
-			              "Role": "dim_rop.KPI_trvani_dni"
+			              "Role": "dim_rop.KPI_dokumentace_odevzdana"
 			            }
 			          },
 			          "State": "Generated",
 			          "Weight": 0.99,
-			          "ID": "dim_rops_have_KPI_trvani_dnis"
+			          "ID": "dim_rops_have_KPI_dokumentace_odevzdanas"
+			        }
+			      ]
+			    },
+			    "dim_kia_priznak_has_priznak": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_KIA_PRIZNAK"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_kia_priznak": {
+			          "Target": {
+			            "Entity": "dim_kia_priznak"
+			          }
+			        },
+			        "dim_kia_priznak.priznak": {
+			          "Target": {
+			            "Entity": "dim_kia_priznak.priznak"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_kia_priznak"
+			            },
+			            "Object": {
+			              "Role": "dim_kia_priznak.priznak"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_kia_priznaks_have_priznaks"
+			        }
+			      ]
+			    },
+			    "dim_rop_priznak_has_priznak": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_ROP_PRIZNAK"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_rop_priznak": {
+			          "Target": {
+			            "Entity": "dim_rop_priznak"
+			          }
+			        },
+			        "dim_rop_priznak.priznak": {
+			          "Target": {
+			            "Entity": "dim_rop_priznak.priznak"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_rop_priznak"
+			            },
+			            "Object": {
+			              "Role": "dim_rop_priznak.priznak"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_rop_priznaks_have_priznaks"
+			        }
+			      ]
+			    },
+			    "dim_kia_has_realizace__pripravenost_pro_zakaznika_real_short": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_KIA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_kia": {
+			          "Target": {
+			            "Entity": "dim_kia"
+			          }
+			        },
+			        "dim_kia.realizace__pripravenost_pro_zakaznika_real_short": {
+			          "Target": {
+			            "Entity": "dim_kia.realizace__pripravenost_pro_zakaznika_real_short"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_kia"
+			            },
+			            "Object": {
+			              "Role": "dim_kia.realizace__pripravenost_pro_zakaznika_real_short"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_kia_have_realizace__pripravenost_pro_zakaznika_real_short"
+			        }
+			      ]
+			    },
+			    "dim_kia_has_realizace__zahajeni_real_short": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_KIA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_kia": {
+			          "Target": {
+			            "Entity": "dim_kia"
+			          }
+			        },
+			        "dim_kia.realizace__zahajeni_real_short": {
+			          "Target": {
+			            "Entity": "dim_kia.realizace__zahajeni_real_short"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_kia"
+			            },
+			            "Object": {
+			              "Role": "dim_kia.realizace__zahajeni_real_short"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_kia_have_realizace__zahajeni_real_shorts"
+			        }
+			      ]
+			    },
+			    "dim_kia_has_ABC__akvizice_konec_short": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_KIA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_kia": {
+			          "Target": {
+			            "Entity": "dim_kia"
+			          }
+			        },
+			        "dim_kia.ABC__akvizice_konec_short": {
+			          "Target": {
+			            "Entity": "dim_kia.ABC__akvizice_konec_short"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "dim_kia"
+			            },
+			            "Object": {
+			              "Role": "dim_kia.ABC__akvizice_konec_short"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "dim_kia_have_ABC__akvizice_konec_shorts"
 			        }
 			      ]
 			    },
@@ -51281,6 +51536,48 @@ cultureInfo cs-CZ
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_rops_are_in_region_nova_optikas"
+			        }
+			      ]
+			    },
+			    "dim_rop_is_passed_on_KPI_home_passed": {
+			      "Binding": {
+			        "ConceptualEntity": "DIM_ROP"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "dim_rop": {
+			          "Target": {
+			            "Entity": "dim_rop"
+			          }
+			        },
+			        "dim_rop.KPI_home_passed": {
+			          "Target": {
+			            "Entity": "dim_rop.KPI_home_passed"
+			          }
+			        }
+			      },
+			      "SemanticSlots": {
+			        "When": {
+			          "Role": "dim_rop.KPI_home_passed"
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Verb": {
+			            "Verbs": [
+			              {
+			                "pass": {
+			                  "State": "Generated"
+			                }
+			              }
+			            ],
+			            "Object": {
+			              "Role": "dim_rop"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.9,
+			          "ID": "dim_rops_are_passed_on_KPI_home_passed"
 			        }
 			      ]
 			    },

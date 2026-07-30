@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
   "name": "9d3feedadeb7a000e9d1",
   "position": {
     "x": 1110,
@@ -186,13 +186,6 @@
                                 "Value": "2026L"
                               }
                             }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "2025L"
-                              }
-                            }
                           ]
                         ]
                       }
@@ -207,7 +200,7 @@
                                   "Entity": "DIM_CALENDAR"
                                 }
                               },
-                              "Property": "Tyden v Roce Nazev"
+                              "Property": "YEAR_NUM"
                             }
                           }
                         ],
@@ -219,17 +212,6 @@
                                   {
                                     "Literal": {
                                       "Value": "2026L"
-                                    }
-                                  }
-                                ]
-                              }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "2025L"
                                     }
                                   }
                                 ]
@@ -254,9 +236,6 @@
                         "valueMap": [
                           {
                             "0": "2026"
-                          },
-                          {
-                            "0": "2025"
                           }
                         ]
                       }
@@ -296,51 +275,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "ac0b2f2bda090e09e7b9",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_CALENDAR"
-              }
-            },
-            "Property": "Tyden v Roce Nazev"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "5851d64381a01409db0c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_CALENDAR"
-              }
-            },
-            "Property": "YEAR_NUM"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "072c2fc245d909ce2450",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_CALENDAR"
-              }
-            },
-            "Property": "MONTH_NAME"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

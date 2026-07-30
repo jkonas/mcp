@@ -2,20 +2,20 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/report/3.3.0/schema.json",
   "themeCollection": {
     "baseTheme": {
-      "name": "CY26SU05",
+      "name": "CY22SU11",
       "reportVersionAtImport": {
-        "visual": "2.9.0",
-        "report": "3.3.0",
-        "page": "2.3.1"
+        "visual": "1.8.76",
+        "report": "2.0.76",
+        "page": "1.3.76"
       },
       "type": "SharedResources"
     },
     "customTheme": {
-      "name": "Cetin_PBI_Theme5238820397408459.json",
+      "name": "Cetin_PBI_Theme3283108290931025.json",
       "reportVersionAtImport": {
-        "visual": "2.10.0",
-        "report": "3.4.0",
-        "page": "2.3.1"
+        "visual": "1.8.97",
+        "report": "2.0.97",
+        "page": "1.3.97"
       },
       "type": "RegisteredResources"
     }
@@ -67,7 +67,7 @@
             "Property": "KIA"
           }
         },
-        "type": "Advanced",
+        "type": "Categorical",
         "howCreated": "User"
       },
       {
@@ -176,9 +176,9 @@
       "type": "RegisteredResources",
       "items": [
         {
-          "name": "Cetin_PBI_Theme5238820397408459.json",
-          "path": "Cetin_PBI_Theme5238820397408459.json",
-          "type": "CustomTheme"
+          "name": "Cetin_PBI_Theme3283108290931025.json",
+          "path": "Cetin_PBI_Theme3283108290931025.json",
+          "type": "Image"
         },
         {
           "name": "Logo_PPF_ORIZNUTO3405615294091131.png",
@@ -192,8 +192,8 @@
       "type": "SharedResources",
       "items": [
         {
-          "name": "CY26SU05",
-          "path": "BaseThemes/CY26SU05.json",
+          "name": "CY22SU11",
+          "path": "BaseThemes/CY22SU11.json",
           "type": "BaseTheme"
         }
       ]

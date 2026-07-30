@@ -1,14 +1,14 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "a3332a3994da6a0ddd30",
-  "displayName": "Plnění Milníků - HP NEW",
+  "displayName": "Plnění Milníků - HP",
   "displayOption": "FitToPage",
   "height": 720,
   "width": 1280,
   "filterConfig": {
     "filters": [
       {
-        "name": "1dd7e4aba56c2002b940",
+        "name": "f2db855c5be640878d35",
         "ordinal": 0,
         "field": {
           "Column": {
@@ -36,7 +36,7 @@
                 "And": {
                   "Left": {
                     "Comparison": {
-                      "ComparisonKind": 2,
+                      "ComparisonKind": 1,
                       "Left": {
                         "Column": {
                           "Expression": {
@@ -61,7 +61,7 @@
                   },
                   "Right": {
                     "Comparison": {
-                      "ComparisonKind": 4,
+                      "ComparisonKind": 3,
                       "Left": {
                         "Column": {
                           "Expression": {
@@ -76,7 +76,7 @@
                         "DateSpan": {
                           "Expression": {
                             "Literal": {
-                              "Value": "datetime'2027-12-31T00:00:00'"
+                              "Value": "datetime'2028-01-01T00:00:00'"
                             }
                           },
                           "TimeUnit": 5
@@ -220,6 +220,40 @@
           }
         },
         "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DIM_ROP",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "Comparison": {
+                  "ComparisonKind": 0,
+                  "Left": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Source": "d"
+                        }
+                      },
+                      "Property": "ROP ID"
+                    }
+                  },
+                  "Right": {
+                    "Literal": {
+                      "Value": "9735511L"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
         "howCreated": "User"
       }
     ],

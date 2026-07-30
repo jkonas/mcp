@@ -925,184 +925,86 @@ table _Measures
 		formatString: 0
 		lineageTag: d145cc02-7d71-45fa-aa5e-b137cc5ce6cc
 
-	measure 'Dokumentace Odevzdaná' = ```
+	measure 'KPS1 Trvání' =
 			
-			CALCULATE (    
-			    MINX(
-			        FACT_VYSTAVBA,
-			        COALESCE(
-			            FACT_VYSTAVBA[Konec Real],
-			            FACT_VYSTAVBA[Konec Forecast]
-			        )
-			    ),
-			    DIM_SUBFAZE[Subfaze] = "Příprava Dokumentace Rozvláknení"
-			)
-			```
-		formatString: Short Date
-		displayFolder: ROP do Komerce
-		lineageTag: c89bc97c-0c1a-4f72-a026-d296f8ab30ed
-
-	measure 'Spuštěno do Komerce' = ```
-			
-			CALCULATE ( 
-			    MAX ( FACT_VYSTAVBA[Konec Real] ),
-			    DIM_SUBFAZE[Subfaze] = "Spuštění do Komerce" -- odcapováno
-			)
-			```
-		formatString: Short Date
-		displayFolder: ROP do Komerce
-		lineageTag: 584b97d5-d080-4c86-80ce-c9f6a125c759
-
-	measure 'KPI Trváni' =
-			
-			DATEDIFF(
-			    [Dokumentace Odevzdaná],
-			    COALESCE(
-			        [Spuštěno do Komerce],
-			        TODAY()
-			    ),
-			    DAY
+			CALCULATE (
+			    MAX ( FACT_VYSTAVBA[Subfaze Duration Real] ),
+			    FACT_VYSTAVBA[Subfaze_Key] = 38
 			)
 		formatString: 0
 		displayFolder: ROP do Komerce
-		lineageTag: 1ad24018-24ee-4c03-a4d4-d1de6463d222
-
-	measure 'KPI Status' =
-			
-			VAR StatusROP = CALCULATE ( MAX ( DIM_STAV[Stav] ), DIM_SUBFAZE[Subfaze] = "Příprava Dokumentace Rozvláknení" )
-			RETURN
-			SWITCH(
-			    TRUE(),
-			    StatusROP = "Hotovo", "Home Passed",
-			    StatusROP = "Pozastaveno", "Čeká na Přívod/VR",
-			    --NOT ISBLANK([Reklamace Duration]), "Reklamace",
-			    [KPI Trváni] <= 20, "Beze Zpoždění",
-			    [KPI Trváni] <= 30, "Možné Zpoždění",
-			    NOT ISBLANK ( [KPI Trváni] ), "Ve Zpoždění",
-			    BLANK()
-			)
-		displayFolder: ROP do Komerce
-		lineageTag: 0f04d75d-c359-4027-9586-ab763b275798
-
-	measure Test = ```
-			
-			CALCULATE(
-			    COUNTROWS(VALUES(DIM_STAV[Stav])),
-			    DIM_SUBFAZE[Subfaze] = "Příprava Dokumentace Rozvláknení"
-			)
-			
-			```
-		formatString: 0
-		displayFolder: ROP do Komerce
-		lineageTag: 375249c6-2a12-4ff9-a58e-2c98b54a62e0
+		lineageTag: ce384cd2-7bf3-482d-bc4f-df8e28424930
 
 	measure 'KPS4 Trvání' =
 			
-			VAR milestoneStart = [Dokumentace Odevzdaná]
-			VAR milestoneEnd =
-			    CALCULATE (
-			        MAX ( FACT_VYSTAVBA[Konec Real] ),
-			        FACT_VYSTAVBA[Subfaze_Key] = 37
-			    )
-			VAR HasStart = NOT ISBLANK(milestoneStart)
-			VAR HasEnd   = NOT ISBLANK(milestoneEnd)
-			VAR EndOrNow = COALESCE(milestoneEnd, NOW())
-			VAR Diff     = IF(HasStart, DATEDIFF(milestoneStart, EndOrNow, DAY))
-			RETURN
-			SWITCH(
-			    TRUE(),
-			    HasEnd && NOT HasStart,                              1,        -- end only
-			    NOT HasEnd && NOT HasStart,                          BLANK(),  -- neither
-			    HasStart && Diff = 0,                                1,        -- same day
-			    HasStart,                                            Diff      -- both or start-only
+			CALCULATE (
+			    MAX ( FACT_VYSTAVBA[Subfaze Duration Real] ),
+			    FACT_VYSTAVBA[Subfaze_Key] = 37
 			)
 		formatString: 0
 		displayFolder: ROP do Komerce
-		lineageTag: f3f52238-280e-4a54-9d43-e7814e5d9ad8
-
-	measure 'KPS1 Trvání' =
-			
-			VAR milestoneStart =
-			    CALCULATE (
-			        MAX ( FACT_VYSTAVBA[Konec Real] ),
-			        FACT_VYSTAVBA[Subfaze_Key] = 37
-			    )
-			VAR milestoneEnd =
-			    CALCULATE (
-			        MAX ( FACT_VYSTAVBA[Konec Real] ),
-			        FACT_VYSTAVBA[Subfaze_Key] = 38
-			    )
-			VAR HasStart = NOT ISBLANK(milestoneStart)
-			VAR HasEnd   = NOT ISBLANK(milestoneEnd)
-			VAR EndOrNow = COALESCE(milestoneEnd, NOW())
-			VAR Diff     = IF(HasStart, DATEDIFF(milestoneStart, EndOrNow, DAY))
-			RETURN
-			SWITCH(
-			    TRUE(),
-			    HasEnd && NOT HasStart,                              1,        -- end only
-			    NOT HasEnd && NOT HasStart,                          BLANK(),  -- neither
-			    HasStart && Diff = 0,                                1,        -- same day
-			    HasStart,                                            Diff      -- both or start-only
-			)
-		formatString: 0
-		displayFolder: ROP do Komerce
-		lineageTag: f4dccfdd-d120-404f-907d-dcf127ccb7e5
+		lineageTag: 9e88e621-73fe-4460-99bd-8d19fa9e025e
 
 	measure 'Výstupní Kontrola Trvání' =
 			
-			VAR milestoneStart =
-			    CALCULATE (
-			        MAX ( FACT_VYSTAVBA[Konec Real] ),
-			        FACT_VYSTAVBA[Subfaze_Key] = 38
-			    )
-			VAR milestoneEnd =
-			    CALCULATE (
-			        MAX ( FACT_VYSTAVBA[Konec Real] ),
-			        FACT_VYSTAVBA[Subfaze_Key] = 39
-			    )
-			VAR HasStart = NOT ISBLANK(milestoneStart)
-			VAR HasEnd   = NOT ISBLANK(milestoneEnd)
-			VAR EndOrNow = COALESCE(milestoneEnd, NOW())
-			VAR Diff     = IF(HasStart, DATEDIFF(milestoneStart, EndOrNow, DAY))
-			RETURN
-			SWITCH(
-			    TRUE(),
-			    HasEnd && NOT HasStart,                              1,        -- end only
-			    NOT HasEnd && NOT HasStart,                          BLANK(),  -- neither
-			    HasStart && Diff = 0,                                1,        -- same day
-			    HasStart,                                            Diff      -- both or start-only
+			CALCULATE (
+			    MAX ( FACT_VYSTAVBA[Subfaze Duration Real] ),
+			    FACT_VYSTAVBA[Subfaze_Key] = 39
 			)
 		formatString: 0
 		displayFolder: ROP do Komerce
-		lineageTag: d455aba5-6edc-4fe3-8d72-b68bf005d90d
+		lineageTag: 8781081d-44af-4903-be81-076fc2272df3
 
-	measure 'Připraveno ke Spuštění do Komerce Trvání' =
+	measure 'KPS4 Trvání Format' =
 			
-			VAR milestoneStart =
-			    CALCULATE (
-			        MAX ( FACT_VYSTAVBA[Konec Real] ),
-			        FACT_VYSTAVBA[Subfaze_Key] = 39
-			    )
-			VAR milestoneEnd =
-			    CALCULATE (
-			        MAX ( FACT_VYSTAVBA[Konec Real] ),
-			        FACT_VYSTAVBA[Subfaze_Key] = 40
-			    )
-			VAR HasStart = NOT ISBLANK(milestoneStart)
-			VAR HasEnd   = NOT ISBLANK(milestoneEnd)
-			VAR EndOrNow = COALESCE(milestoneEnd, NOW())
-			VAR Diff     = IF(HasStart, DATEDIFF(milestoneStart, EndOrNow, DAY))
-			RETURN
-			SWITCH(
-			    TRUE(),
-			    HasEnd && NOT HasStart,                              1,        -- end only
-			    NOT HasEnd && NOT HasStart,                          BLANK(),  -- neither
-			    HasStart && Diff = 0,                                1,        -- same day
-			    HasStart,                                            Diff      -- both or start-only
+			VAR statusKomerce = CALCULATE ( MAX ( DIM_ROP[KPI Status Komerce] ) )
+			VAR duration =
+			CALCULATE (
+			    MAX ( FACT_VYSTAVBA[Subfaze Duration] ),
+			    FACT_VYSTAVBA[Subfaze_Key] = 37
 			)
-		formatString: 0
+			VAR durationReal = [KPS4 Trvání]
+			RETURN
+			IF (
+			    durationReal >= duration && statusKomerce IN {"Ve Zpoždění", "Možné Zpoždění", "Bez Zpoždění"},
+			    "#F12E49"
+			)
 		displayFolder: ROP do Komerce
-		lineageTag: 1b35226d-6e6b-4d58-829b-50721d5ba154
+		lineageTag: 219c1b65-ac52-4805-ac22-4d5e255b7619
+
+	measure 'KPS1 Trvání Format' =
+			
+			VAR statusKomerce = CALCULATE ( MAX ( DIM_ROP[KPI Status Komerce] ) )
+			VAR duration =
+			CALCULATE (
+			    MAX ( FACT_VYSTAVBA[Subfaze Duration] ),
+			    FACT_VYSTAVBA[Subfaze_Key] = 38
+			)
+			VAR durationReal = [KPS1 Trvání]
+			RETURN
+			IF (
+			    durationReal >= duration && statusKomerce IN {"Ve Zpoždění", "Možné Zpoždění", "Bez Zpoždění"},
+			    "#F12E49"
+			)
+		displayFolder: ROP do Komerce
+		lineageTag: c0d24c5c-1fb7-43a2-8f41-f78d2bf5914b
+
+	measure 'Výstupní kontrola Trvání Format' =
+			
+			VAR statusKomerce = CALCULATE ( MAX ( DIM_ROP[KPI Status Komerce] ) )
+			VAR duration =
+			CALCULATE (
+			    MAX ( FACT_VYSTAVBA[Subfaze Duration] ),
+			    FACT_VYSTAVBA[Subfaze_Key] = 39
+			)
+			VAR durationReal = [Výstupní Kontrola Trvání]
+			RETURN
+			IF (
+			    durationReal >= duration && statusKomerce IN {"Ve Zpoždění", "Možné Zpoždění", "Bez Zpoždění"},
+			    "#F12E49"
+			)
+		displayFolder: ROP do Komerce
+		lineageTag: dfe462bd-94dc-4b98-a0ce-6be7cda19cbb
 
 	partition _Measures = m
 		mode: import

@@ -46,6 +46,15 @@ table FACT_VYSTAVBA_SUBJEKT
 
 		annotation SummarizationSetBy = Automatic
 
+	column SPOLUPRACE_MASTER_KATEGORIE_Key
+		dataType: int64
+		formatString: 0
+		lineageTag: e86c4740-15d0-44ad-a571-a1eafbcf9094
+		summarizeBy: count
+		sourceColumn: SPOLUPRACE_MASTER_KATEGORIE_Key
+
+		annotation SummarizationSetBy = Automatic
+
 	partition FACT_VYSTAVBA_SUBJEKT = m
 		mode: import
 		queryGroup: 'Dim Model'

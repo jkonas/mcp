@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "56d1d2430307ac021d38",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "849eeeb26110020428d5",
   "position": {
-    "x": 1109.982337142811,
-    "y": 152.62257135713654,
-    "z": 9001,
-    "height": 262.9601012993088,
-    "width": 159.89031285033352,
-    "tabOrder": 9001
+    "x": 1100.2955665024631,
+    "y": 85.1231527093596,
+    "z": 7000,
+    "height": 330,
+    "width": 170,
+    "tabOrder": 7000
   },
   "visual": {
     "visualType": "slicer",
@@ -200,7 +200,7 @@
                                   "Entity": "DIM_CALENDAR"
                                 }
                               },
-                              "Property": "Tyden v Roce Nazev"
+                              "Property": "YEAR_NUM"
                             }
                           }
                         ],
@@ -275,51 +275,5 @@
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "323cc4253567a1d5c9b4",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_CALENDAR"
-              }
-            },
-            "Property": "Tyden v Roce Nazev"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "4cde86bab792eabc98b2",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_CALENDAR"
-              }
-            },
-            "Property": "YEAR_NUM"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "e74b21b153b086e49006",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_CALENDAR"
-              }
-            },
-            "Property": "MONTH_NAME"
-          }
-        },
-        "type": "Categorical"
-      }
-    ]
   }
 }

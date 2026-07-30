@@ -1,7 +1,7 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
   "name": "975f69cd2b9ffeb41482",
-  "displayName": "Plnění Milníků - HP",
+  "displayName": "Plnění Milníků - HP Old",
   "displayOption": "FitToPage",
   "height": 720,
   "width": 1280,
@@ -121,68 +121,6 @@
         },
         "type": "Categorical",
         "howCreated": "User"
-      },
-      {
-        "name": "8738d557069610b0c051",
-        "ordinal": 7,
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MILESTONES_KOMERCE"
-              }
-            },
-            "Property": "KIA"
-          }
-        },
-        "type": "Advanced",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "m",
-              "Entity": "MILESTONES_KOMERCE",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "m"
-                          }
-                        },
-                        "Property": "KIA"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'ZEJAB2'"
-                        }
-                      }
-                    ],
-                    [
-                      {
-                        "Literal": {
-                          "Value": "'HOVYS2'"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User"
       }
     ],
     "filterSortOrder": "Custom"
@@ -225,5 +163,6 @@
         }
       }
     ]
-  }
+  },
+  "visibility": "HiddenInViewMode"
 }

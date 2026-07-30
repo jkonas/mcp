@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "060c97e3030471317acd",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "4b10d92d6689ab14711d",
   "position": {
-    "x": 525.92020259861761,
-    "y": 152.62257135713654,
-    "z": 8000,
-    "height": 265.60291638774407,
-    "width": 559.61609497616723,
-    "tabOrder": 8000
+    "x": 580.09852216748766,
+    "y": 145.02463054187191,
+    "z": 6000,
+    "height": 270.08210180623973,
+    "width": 509.688013136289,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "barChart",
@@ -60,11 +60,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Počet HP Subjekt"
+                  "Property": "Počet HP Subjekt Milnik"
                 }
               },
-              "queryRef": "_Measures.Počet HP Subjekt",
-              "nativeQueryRef": "Počet HP Subjekt"
+              "queryRef": "_Measures.Počet HP Subjekt Milnik",
+              "nativeQueryRef": "Počet HP Subjekt Milnik"
             }
           ]
         }
@@ -79,7 +79,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Počet HP Subjekt"
+                "Property": "Počet HP Subjekt Milnik"
               }
             },
             "direction": "Descending"
@@ -800,7 +800,7 @@
                   "expr": {
                     "ThemeDataColor": {
                       "ColorId": 4,
-                      "Percent": -0.25
+                      "Percent": 0
                     }
                   }
                 }
@@ -917,6 +917,131 @@
               }
             ]
           }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": -0.25
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DIM_ROP"
+                          }
+                        },
+                        "Property": "KPI Status Komerce"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Bez Zpoždění'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "'#D9B300'"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DIM_ROP"
+                          }
+                        },
+                        "Property": "KPI Status Komerce"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Možné Zpoždění'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DIM_ROP"
+                          }
+                        },
+                        "Property": "KPI Status Komerce"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'V Komerci'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
         }
       ],
       "categoryAxis": [
@@ -979,7 +1104,7 @@
             "position": {
               "expr": {
                 "Literal": {
-                  "Value": "'BottomCenter'"
+                  "Value": "'Top'"
                 }
               }
             },
@@ -1054,28 +1179,28 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Počet HP za Top 25 Projektů v Zpoždení'"
+                  "Value": "'Počet HP za Projekty'"
                 }
               }
             },
             "alignment": {
               "expr": {
                 "Literal": {
-                  "Value": "'center'"
+                  "Value": "'left'"
                 }
               }
             },
             "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "9D"
+                  "Value": "10D"
                 }
               }
             },
             "bold": {
               "expr": {
                 "Literal": {
-                  "Value": "true"
+                  "Value": "false"
                 }
               }
             },
@@ -1088,6 +1213,13 @@
                       "Percent": 0
                     }
                   }
+                }
+              }
+            },
+            "fontFamily": {
+              "expr": {
+                "Literal": {
+                  "Value": "'''Segoe UI Semibold'', wf_segoe-ui_semibold, helvetica, arial, sans-serif'"
                 }
               }
             }
@@ -1270,7 +1402,7 @@
         }
       },
       {
-        "name": "ea560e9f19aeb2cc6cd6",
+        "name": "21d9b4820be9b429d471",
         "field": {
           "Column": {
             "Expression": {
@@ -1284,7 +1416,7 @@
         "type": "Categorical"
       },
       {
-        "name": "f05374f2227c2e65e145",
+        "name": "6e80abff42452be51010",
         "field": {
           "Measure": {
             "Expression": {
@@ -1292,7 +1424,7 @@
                 "Entity": "_Measures"
               }
             },
-            "Property": "Počet HP Subjekt"
+            "Property": "Počet HP Subjekt Milnik"
           }
         },
         "type": "Advanced"

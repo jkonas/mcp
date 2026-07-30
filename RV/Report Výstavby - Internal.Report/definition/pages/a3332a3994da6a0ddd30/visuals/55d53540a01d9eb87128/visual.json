@@ -1,13 +1,13 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "ec049712724432d4949d",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.11.0/schema.json",
+  "name": "55d53540a01d9eb87128",
   "position": {
-    "x": 155,
-    "y": 0,
-    "z": 1000,
-    "height": 50,
-    "width": 150,
-    "tabOrder": 5000
+    "x": 840,
+    "y": 85.1231527093596,
+    "z": 13000,
+    "height": 50.443349753694584,
+    "width": 120,
+    "tabOrder": 13000
   },
   "visual": {
     "visualType": "cardVisual",
@@ -17,23 +17,18 @@
           "projections": [
             {
               "field": {
-                "Aggregation": {
+                "Measure": {
                   "Expression": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Entity": "MILESTONES_KOMERCE_ROP"
-                        }
-                      },
-                      "Property": "Počet HP"
+                    "SourceRef": {
+                      "Entity": "_Measures"
                     }
                   },
-                  "Function": 0
+                  "Property": "Počet HP Subjekt Milnik"
                 }
               },
-              "queryRef": "Sum(MILESTONES_KOMERCE_ROP.Počet HP)",
-              "nativeQueryRef": "HP Dokumentace Odevzdána (Real)",
-              "displayName": "HP Dokumentace Odevzdána (Real)"
+              "queryRef": "_Measures.Počet HP Subjekt Milnik",
+              "nativeQueryRef": "Možné zpoždění HP",
+              "displayName": "Možné zpoždění HP"
             }
           ]
         }
@@ -42,18 +37,13 @@
         "sort": [
           {
             "field": {
-              "Aggregation": {
+              "Measure": {
                 "Expression": {
-                  "Column": {
-                    "Expression": {
-                      "SourceRef": {
-                        "Entity": "MILESTONES_KOMERCE_ROP"
-                      }
-                    },
-                    "Property": "Počet HP"
+                  "SourceRef": {
+                    "Entity": "_Measures"
                   }
                 },
-                "Function": 0
+                "Property": "Počet HP Subjekt Milnik"
               }
             },
             "direction": "Descending"
@@ -71,7 +61,7 @@
                 "color": {
                   "expr": {
                     "Literal": {
-                      "Value": "'#f12e49'"
+                      "Value": "'#D9B300'"
                     }
                   }
                 }
@@ -80,25 +70,6 @@
           },
           "selector": {
             "id": "default"
-          }
-        },
-        {
-          "properties": {
-            "fillColor": {
-              "solid": {
-                "color": {
-                  "expr": {
-                    "ThemeDataColor": {
-                      "ColorId": 2,
-                      "Percent": 0
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "selector": {
-            "metadata": "Sum(MILESTONES_KOMERCE_ROP.Počet HP)"
           }
         }
       ],
@@ -214,13 +185,17 @@
         },
         {
           "properties": {
-            "labelDisplayUnits": {
+            "show": {
               "expr": {
                 "Literal": {
-                  "Value": "-1D"
+                  "Value": "true"
                 }
               }
-            },
+            }
+          }
+        },
+        {
+          "properties": {
             "labelPrecision": {
               "expr": {
                 "Literal": {
@@ -228,23 +203,16 @@
                 }
               }
             },
-            "customFormatString": {
+            "labelDisplayUnits": {
               "expr": {
                 "Literal": {
-                  "Value": "'#,0'"
-                }
-              }
-            },
-            "showBlankAs": {
-              "expr": {
-                "Literal": {
-                  "Value": "'0'"
+                  "Value": "1D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "Sum(MILESTONES_KOMERCE_ROP.Počet HP)"
+            "metadata": "_Measures.Počet HP Subjekt Milnik"
           }
         }
       ],
@@ -272,10 +240,17 @@
                 }
               }
             },
-            "fontSize": {
+            "position": {
               "expr": {
                 "Literal": {
-                  "Value": "8D"
+                  "Value": "'belowValue'"
+                }
+              }
+            },
+            "textWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             },
@@ -291,23 +266,16 @@
                 }
               }
             },
-            "position": {
+            "fontSize": {
               "expr": {
                 "Literal": {
-                  "Value": "'belowValue'"
-                }
-              }
-            },
-            "textWrap": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
+                  "Value": "8D"
                 }
               }
             }
           },
           "selector": {
-            "metadata": "Sum(MILESTONES_KOMERCE_ROP.Počet HP)"
+            "metadata": "_Measures.Počet HP Subjekt Milnik"
           }
         }
       ],
@@ -338,7 +306,7 @@
             "topMargin": {
               "expr": {
                 "Literal": {
-                  "Value": "0L"
+                  "Value": "7L"
                 }
               }
             },
@@ -403,7 +371,7 @@
             }
           },
           "selector": {
-            "metadata": "Sum(MILESTONES_KOMERCE_ROP.Počet HP)"
+            "metadata": "_Measures.Počet HP Subjekt Milnik"
           }
         }
       ]
@@ -512,19 +480,19 @@
     },
     "drillFilterOtherVisuals": true
   },
-  "parentGroupName": "d46bea9ddfbbf41e8637",
   "filterConfig": {
     "filters": [
       {
-        "name": "eb00e1e6c0860062999e",
+        "name": "bec4693e44cad0b7d03b",
+        "ordinal": 0,
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "MILESTONES_KOMERCE_ROP"
+                "Entity": "DIM_ROP"
               }
             },
-            "Property": "EventType"
+            "Property": "KPI Status Komerce"
           }
         },
         "type": "Categorical",
@@ -532,8 +500,8 @@
           "Version": 2,
           "From": [
             {
-              "Name": "m",
-              "Entity": "MILESTONES_KOMERCE_ROP",
+              "Name": "d",
+              "Entity": "DIM_ROP",
               "Type": 0
             }
           ],
@@ -546,10 +514,10 @@
                       "Column": {
                         "Expression": {
                           "SourceRef": {
-                            "Source": "m"
+                            "Source": "d"
                           }
                         },
-                        "Property": "EventType"
+                        "Property": "KPI Status Komerce"
                       }
                     }
                   ],
@@ -557,7 +525,7 @@
                     [
                       {
                         "Literal": {
-                          "Value": "'Dokumentace Odevzdána (Real)'"
+                          "Value": "'Možné Zpoždění'"
                         }
                       }
                     ]
@@ -568,7 +536,23 @@
           ]
         },
         "howCreated": "User"
+      },
+      {
+        "name": "cfd20d3c7230d20a7310",
+        "ordinal": 1,
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Počet HP Subjekt Milnik"
+          }
+        },
+        "type": "Advanced"
       }
-    ]
+    ],
+    "filterSortOrder": "Custom"
   }
 }

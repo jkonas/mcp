@@ -4,7 +4,7 @@
     {
       "ordinal": 0,
       "scrollPosition": {
-        "x": 0,
+        "x": 2412.5,
         "y": 0
       },
       "nodes": [
@@ -225,8 +225,8 @@
         },
         {
           "location": {
-            "x": 2734.3333333333335,
-            "y": 359.29100227790434
+            "x": 2689.3333333333335,
+            "y": 235.54100227790434
           },
           "nodeIndex": "MILESTONES_KOMERCE",
           "nodeLineageTag": "28835e28-4902-4aa7-bd4b-07ea62f00c7d",
@@ -264,10 +264,11 @@
         },
         {
           "location": {
-            "x": 3586.3333333333335,
-            "y": 381.62433561123765
+            "x": 3546.3333333333335,
+            "y": 6.6243356112376546
           },
           "nodeIndex": "MILESTONES_KOMERCE_ROP",
+          "nodeLineageTag": "cc46f71b-2f4b-4b43-85db-9235f21f2bf6",
           "size": {
             "height": 200,
             "width": 234
@@ -547,7 +548,7 @@
       "ordinal": 2,
       "scrollPosition": {
         "x": 0,
-        "y": 51
+        "y": 0
       },
       "nodes": [
         {
@@ -585,11 +586,10 @@
           "nodeIndex": "DIM_MILESTONE",
           "nodeLineageTag": "c5db308d-a043-45e7-81b7-993e06dddf22",
           "size": {
-            "height": 104,
+            "height": 226.28571428571422,
             "width": 234
           },
-          "zIndex": 0,
-          "expandedHeight": 152
+          "zIndex": 0
         },
         {
           "location": {
@@ -675,7 +675,7 @@
         }
       ],
       "name": "Výstavba Milník",
-      "zoomValue": 100,
+      "zoomValue": 70,
       "pinKeyFieldsToTop": false,
       "showExtraHeaderInfo": false,
       "hideKeyFieldsWhenCollapsed": false,
@@ -1020,6 +1020,6 @@
       "tablesLocked": false
     }
   ],
-  "selectedDiagram": "Výstavba",
+  "selectedDiagram": "Výstavba Milník",
   "defaultDiagram": "Všechny tabulky"
 }
