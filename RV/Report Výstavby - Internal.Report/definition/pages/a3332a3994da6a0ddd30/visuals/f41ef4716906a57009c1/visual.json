@@ -2,12 +2,12 @@
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
   "name": "f41ef4716906a57009c1",
   "position": {
-    "x": 0,
-    "y": 55.180908391070048,
-    "z": 7001,
-    "height": 219.73826020015395,
-    "width": 1270.1462663587374,
-    "tabOrder": 8001
+    "x": 2.2939068100358426,
+    "y": 471.39784946236563,
+    "z": 6000,
+    "height": 220.21505376344086,
+    "width": 1269.6774193548388,
+    "tabOrder": 6000
   },
   "visual": {
     "visualType": "tableEx",
@@ -187,6 +187,64 @@
             },
             {
               "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "KPS1 Trvání"
+                }
+              },
+              "queryRef": "_Measures.KPS1 Trvání",
+              "nativeQueryRef": "KPS1 Trvání"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Výstupní Kontrola Trvání"
+                }
+              },
+              "queryRef": "_Measures.Výstupní Kontrola Trvání",
+              "nativeQueryRef": "Výstupní Kontrola Trvání"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Připraveno ke Spuštění do Komerce Trvání"
+                }
+              },
+              "queryRef": "_Measures.Připraveno ke Spuštění do Komerce Trvání",
+              "nativeQueryRef": "Připraveno do Komerce Trvání",
+              "displayName": "Připraveno do Komerce Trvání"
+            },
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "_Measures"
+                    }
+                  },
+                  "Property": "Počet HP Subjekt"
+                }
+              },
+              "queryRef": "_Measures.Počet HP Subjekt",
+              "nativeQueryRef": "Počet HP",
+              "displayName": "Počet HP"
+            },
+            {
+              "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
@@ -284,6 +342,335 @@
               }
             }
           }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "DIM_ROP"
+                                        }
+                                      },
+                                      "Property": "KPI Status Komerce"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Reklamace'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#791725'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "DIM_ROP"
+                                        }
+                                      },
+                                      "Property": "KPI Status Komerce"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Bez Zpoždění'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#cde9d2'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "DIM_ROP"
+                                        }
+                                      },
+                                      "Property": "KPI Status Komerce"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Home Passed'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#61956b'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "DIM_ROP"
+                                        }
+                                      },
+                                      "Property": "KPI Status Komerce"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Čeká na Přívod/VR'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#b3b3b3'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "DIM_ROP"
+                                        }
+                                      },
+                                      "Property": "KPI Status Komerce"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Možné Zpoždění'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#D4E60F'"
+                            }
+                          }
+                        },
+                        {
+                          "Condition": {
+                            "Comparison": {
+                              "ComparisonKind": 0,
+                              "Left": {
+                                "Aggregation": {
+                                  "Expression": {
+                                    "Column": {
+                                      "Expression": {
+                                        "SourceRef": {
+                                          "Entity": "DIM_ROP"
+                                        }
+                                      },
+                                      "Property": "KPI Status Komerce"
+                                    }
+                                  },
+                                  "Function": 3
+                                }
+                              },
+                              "Right": {
+                                "Literal": {
+                                  "Value": "'Ve Zpoždění'"
+                                }
+                              }
+                            },
+                            "Annotations": {
+                              "PowerBI.SQExprEvaluationKind": 1,
+                              "PowerBI.SQExprTextOperatorOption": 2
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#F12E49'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "DIM_ROP.KPI Status Komerce"
+          }
+        },
+        {
+          "properties": {
+            "fontColor": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "Conditional": {
+                      "Cases": [
+                        {
+                          "Condition": {
+                            "And": {
+                              "Left": {
+                                "Comparison": {
+                                  "ComparisonKind": 1,
+                                  "Left": {
+                                    "Aggregation": {
+                                      "Expression": {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Entity": "DIM_ROP"
+                                            }
+                                          },
+                                          "Property": "KPI Trvani Dni"
+                                        }
+                                      },
+                                      "Function": 4
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "30D"
+                                    }
+                                  }
+                                }
+                              },
+                              "Right": {
+                                "Comparison": {
+                                  "ComparisonKind": 3,
+                                  "Left": {
+                                    "Aggregation": {
+                                      "Expression": {
+                                        "Column": {
+                                          "Expression": {
+                                            "SourceRef": {
+                                              "Entity": "DIM_ROP"
+                                            }
+                                          },
+                                          "Property": "KPI Trvani Dni"
+                                        }
+                                      },
+                                      "Function": 4
+                                    }
+                                  },
+                                  "Right": {
+                                    "Literal": {
+                                      "Value": "9999D"
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "Value": {
+                            "Literal": {
+                              "Value": "'#F12E49'"
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "dataViewWildcard": {
+                  "matchingOption": 1
+                }
+              }
+            ],
+            "metadata": "Sum(DIM_ROP.KPI Trvani Dni)"
+          }
         }
       ],
       "columnWidth": [
@@ -292,7 +679,7 @@
             "value": {
               "expr": {
                 "Literal": {
-                  "Value": "131.39666134401588D"
+                  "Value": "65.071136189688D"
                 }
               }
             }
@@ -383,6 +770,253 @@
           },
           "selector": {
             "metadata": "DIM_ROP.Reklamace Resitel"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "103.03808193830757D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Připraveno ke Spuštění do Komerce Trvání"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "77.59139569878695D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(DIM_ROP.Reklamace Duration)"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "48.03225257620964D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.KPS4 Trvání"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "50.3261597927867D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.KPS1 Trvání"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "100.09390901587695D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Výstupní Kontrola Trvání"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "44.49074745734159D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Počet HP Subjekt"
+          }
+        },
+        {
+          "properties": {
+            "value": {
+              "expr": {
+                "Literal": {
+                  "Value": "78.50178654342065D"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "DIM_ROP.Reklamace Typ"
+          }
+        }
+      ],
+      "columnFormatting": [
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(DIM_ROP.KPI Trvani Dni)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "Sum(DIM_ROP.Reklamace Duration)"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.KPS4 Trvání"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.KPS1 Trvání"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Výstupní Kontrola Trvání"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Připraveno ke Spuštění do Komerce Trvání"
+          }
+        },
+        {
+          "properties": {
+            "styleHeader": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Right'"
+                }
+              }
+            }
+          },
+          "selector": {
+            "metadata": "_Measures.Počet HP Subjekt"
           }
         }
       ]
@@ -493,7 +1127,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "764975d4267a643ab2db",
+        "name": "2430012eb8c77003ac28",
         "field": {
           "Column": {
             "Expression": {
@@ -507,7 +1141,7 @@
         "type": "Categorical"
       },
       {
-        "name": "8dc881ddc3034a000d12",
+        "name": "d9402ebb1166d19a0e12",
         "field": {
           "Column": {
             "Expression": {
@@ -521,7 +1155,7 @@
         "type": "Categorical"
       },
       {
-        "name": "69fba81e627b17740733",
+        "name": "637232fc0a1a15d0ecb8",
         "field": {
           "Column": {
             "Expression": {
@@ -535,7 +1169,7 @@
         "type": "Advanced"
       },
       {
-        "name": "43d90d642d4978e94639",
+        "name": "c743ee66a95877976645",
         "field": {
           "Column": {
             "Expression": {
@@ -549,7 +1183,7 @@
         "type": "Categorical"
       },
       {
-        "name": "16deea3c1a936780dd4b",
+        "name": "10c9c0835a806ee810d5",
         "field": {
           "Column": {
             "Expression": {
@@ -563,7 +1197,7 @@
         "type": "Categorical"
       },
       {
-        "name": "d080e32c9d530a37312a",
+        "name": "7030d16e86e069d092b7",
         "field": {
           "Column": {
             "Expression": {
@@ -577,7 +1211,7 @@
         "type": "Categorical"
       },
       {
-        "name": "3ace3c19a0a26b8ceb44",
+        "name": "4d59706ed554610856da",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -596,7 +1230,7 @@
         "type": "Advanced"
       },
       {
-        "name": "531568492863ed1a6731",
+        "name": "4a0a663b6edab00507d0",
         "field": {
           "Column": {
             "Expression": {
@@ -610,7 +1244,7 @@
         "type": "Categorical"
       },
       {
-        "name": "eaa4d0bc4ee0a05d374e",
+        "name": "5b4eebb296d0b84008be",
         "field": {
           "Aggregation": {
             "Expression": {
@@ -629,7 +1263,7 @@
         "type": "Advanced"
       },
       {
-        "name": "3428f120ccdc82de07a3",
+        "name": "8063a5c9026527b20685",
         "field": {
           "Column": {
             "Expression": {
@@ -643,7 +1277,7 @@
         "type": "Categorical"
       },
       {
-        "name": "7dd97c9fb9c86d74b8e6",
+        "name": "d73128e7ebd0bc5076bc",
         "field": {
           "Column": {
             "Expression": {
@@ -657,7 +1291,7 @@
         "type": "Categorical"
       },
       {
-        "name": "9b184df7a12a10a20c87",
+        "name": "4dbffd01836790ad6e92",
         "field": {
           "Column": {
             "Expression": {
@@ -671,7 +1305,7 @@
         "type": "Categorical"
       },
       {
-        "name": "41a92df0c4217a097467",
+        "name": "1d13d6135be8de495d3a",
         "field": {
           "Measure": {
             "Expression": {
@@ -680,6 +1314,62 @@
               }
             },
             "Property": "KPS4 Trvání"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "708c06a32029e23111e8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "KPS1 Trvání"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "f254aed7ae4eaa2042d8",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Výstupní Kontrola Trvání"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "1024e1a4a6904e7e183a",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Připraveno ke Spuštění do Komerce Trvání"
+          }
+        },
+        "type": "Advanced"
+      },
+      {
+        "name": "5f4677f4b67db04b9e4b",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Počet HP Subjekt"
           }
         },
         "type": "Advanced"

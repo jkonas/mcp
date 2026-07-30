@@ -1,13 +1,13 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "9d3feedadeb7a000e9d1",
+  "name": "56d1d2430307ac021d38",
   "position": {
-    "x": 1110,
-    "y": 85.397301349325332,
-    "z": 0,
-    "height": 330,
-    "width": 160,
-    "tabOrder": 6000
+    "x": 1109.982337142811,
+    "y": 152.62257135713654,
+    "z": 9001,
+    "height": 262.9601012993088,
+    "width": 159.89031285033352,
+    "tabOrder": 9001
   },
   "visual": {
     "visualType": "slicer",
@@ -186,13 +186,6 @@
                                 "Value": "2026L"
                               }
                             }
-                          ],
-                          [
-                            {
-                              "Literal": {
-                                "Value": "2025L"
-                              }
-                            }
                           ]
                         ]
                       }
@@ -223,17 +216,6 @@
                                   }
                                 ]
                               }
-                            ],
-                            [
-                              {
-                                "0": [
-                                  {
-                                    "Literal": {
-                                      "Value": "2025L"
-                                    }
-                                  }
-                                ]
-                              }
                             ]
                           ],
                           "columns": [
@@ -254,9 +236,6 @@
                         "valueMap": [
                           {
                             "0": "2026"
-                          },
-                          {
-                            "0": "2025"
                           }
                         ]
                       }
@@ -300,7 +279,7 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "ac0b2f2bda090e09e7b9",
+        "name": "323cc4253567a1d5c9b4",
         "field": {
           "Column": {
             "Expression": {
@@ -314,7 +293,7 @@
         "type": "Categorical"
       },
       {
-        "name": "5851d64381a01409db0c",
+        "name": "4cde86bab792eabc98b2",
         "field": {
           "Column": {
             "Expression": {
@@ -328,7 +307,7 @@
         "type": "Advanced"
       },
       {
-        "name": "072c2fc245d909ce2450",
+        "name": "e74b21b153b086e49006",
         "field": {
           "Column": {
             "Expression": {

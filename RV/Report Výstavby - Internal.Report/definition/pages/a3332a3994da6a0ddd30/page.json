@@ -8,8 +8,92 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "9c5f3dd131c07314782d",
+        "name": "1dd7e4aba56c2002b940",
         "ordinal": 0,
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_CALENDAR"
+              }
+            },
+            "Property": "Datum"
+          }
+        },
+        "type": "Advanced",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DIM_CALENDAR",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "And": {
+                  "Left": {
+                    "Comparison": {
+                      "ComparisonKind": 2,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "d"
+                            }
+                          },
+                          "Property": "Datum"
+                        }
+                      },
+                      "Right": {
+                        "DateSpan": {
+                          "Expression": {
+                            "Literal": {
+                              "Value": "datetime'2025-01-01T00:00:00'"
+                            }
+                          },
+                          "TimeUnit": 5
+                        }
+                      }
+                    }
+                  },
+                  "Right": {
+                    "Comparison": {
+                      "ComparisonKind": 4,
+                      "Left": {
+                        "Column": {
+                          "Expression": {
+                            "SourceRef": {
+                              "Source": "d"
+                            }
+                          },
+                          "Property": "Datum"
+                        }
+                      },
+                      "Right": {
+                        "DateSpan": {
+                          "Expression": {
+                            "Literal": {
+                              "Value": "datetime'2027-12-31T00:00:00'"
+                            }
+                          },
+                          "TimeUnit": 5
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "User"
+      },
+      {
+        "name": "9c5f3dd131c07314782d",
+        "ordinal": 1,
         "field": {
           "Column": {
             "Expression": {
@@ -25,7 +109,7 @@
       },
       {
         "name": "01bbb58dc2810e743d1c",
-        "ordinal": 1,
+        "ordinal": 2,
         "field": {
           "Column": {
             "Expression": {
@@ -42,7 +126,7 @@
       {
         "name": "0e73048d174ce769c658",
         "displayName": "Dokumentace Odevzdána (Real)",
-        "ordinal": 2,
+        "ordinal": 3,
         "field": {
           "Column": {
             "Expression": {
@@ -59,7 +143,7 @@
       {
         "name": "f8f9408a405e3cebd4e0",
         "displayName": "Home Passed (Real)",
-        "ordinal": 3,
+        "ordinal": 4,
         "field": {
           "Column": {
             "Expression": {
@@ -75,7 +159,7 @@
       },
       {
         "name": "43b37dbe902824619c04",
-        "ordinal": 4,
+        "ordinal": 5,
         "field": {
           "Column": {
             "Expression": {
@@ -91,7 +175,7 @@
       },
       {
         "name": "c90a35cebcbe70a0ae58",
-        "ordinal": 5,
+        "ordinal": 6,
         "field": {
           "Column": {
             "Expression": {
@@ -108,7 +192,7 @@
       {
         "name": "ae3def06b4cefd5e8231",
         "displayName": "WiFi Překryv",
-        "ordinal": 6,
+        "ordinal": 7,
         "field": {
           "Column": {
             "Expression": {
@@ -124,7 +208,7 @@
       },
       {
         "name": "ee64cfb7aae0079fa01a",
-        "ordinal": 7,
+        "ordinal": 8,
         "field": {
           "Column": {
             "Expression": {
@@ -136,40 +220,6 @@
           }
         },
         "type": "Advanced",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DIM_ROP",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "Comparison": {
-                  "ComparisonKind": 0,
-                  "Left": {
-                    "Column": {
-                      "Expression": {
-                        "SourceRef": {
-                          "Source": "d"
-                        }
-                      },
-                      "Property": "ROP ID"
-                    }
-                  },
-                  "Right": {
-                    "Literal": {
-                      "Value": "2262426L"
-                    }
-                  }
-                }
-              }
-            }
-          ]
-        },
         "howCreated": "User"
       }
     ],

@@ -1,16 +1,16 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "2fb1120cb6de5bffdce1",
+  "name": "060c97e3030471317acd",
   "position": {
-    "x": 590,
-    "y": 125.71428571428572,
-    "z": 0,
-    "height": 265.71428571428572,
-    "width": 685.71428571428578,
-    "tabOrder": 3000
+    "x": 525.92020259861761,
+    "y": 152.62257135713654,
+    "z": 8000,
+    "height": 265.60291638774407,
+    "width": 559.61609497616723,
+    "tabOrder": 8000
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "barChart",
     "query": {
       "queryState": {
         "Category": {
@@ -20,15 +20,33 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "MILESTONES_KOMERCE"
+                      "Entity": "DIM_KIA"
                     }
                   },
-                  "Property": "Reklamace Typ"
+                  "Property": "KIA"
                 }
               },
-              "queryRef": "MILESTONES_KOMERCE.Reklamace Typ",
-              "nativeQueryRef": "Reklamace Typ",
+              "queryRef": "DIM_KIA.KIA",
+              "nativeQueryRef": "KIA",
               "active": true
+            }
+          ]
+        },
+        "Series": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DIM_ROP"
+                    }
+                  },
+                  "Property": "KPI Status Komerce"
+                }
+              },
+              "queryRef": "DIM_ROP.KPI Status Komerce",
+              "nativeQueryRef": "KPI Status Komerce"
             }
           ]
         },
@@ -42,11 +60,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Počet HP"
+                  "Property": "Počet HP Subjekt"
                 }
               },
-              "queryRef": "_Measures.Počet HP",
-              "nativeQueryRef": "Počet HP"
+              "queryRef": "_Measures.Počet HP Subjekt",
+              "nativeQueryRef": "Počet HP Subjekt"
             }
           ]
         }
@@ -61,12 +79,13 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Počet HP"
+                "Property": "Počet HP Subjekt"
               }
             },
             "direction": "Descending"
           }
-        ]
+        ],
+        "isDefaultSort": true
       }
     },
     "objects": {
@@ -779,13 +798,124 @@
               "solid": {
                 "color": {
                   "expr": {
-                    "Literal": {
-                      "Value": "'#BF001A'"
+                    "ThemeDataColor": {
+                      "ColorId": 4,
+                      "Percent": -0.25
                     }
                   }
                 }
               }
             }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DIM_ROP"
+                          }
+                        },
+                        "Property": "KPI Status Komerce"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Home Passed'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 7,
+                      "Percent": -0.5
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DIM_ROP"
+                          }
+                        },
+                        "Property": "KPI Status Komerce"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Reklamace'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        },
+        {
+          "properties": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "expr": {
+                    "ThemeDataColor": {
+                      "ColorId": 7,
+                      "Percent": 0
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "selector": {
+            "data": [
+              {
+                "scopeId": {
+                  "Comparison": {
+                    "ComparisonKind": 0,
+                    "Left": {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Entity": "DIM_ROP"
+                          }
+                        },
+                        "Property": "KPI Status Komerce"
+                      }
+                    },
+                    "Right": {
+                      "Literal": {
+                        "Value": "'Ve Zpoždění'"
+                      }
+                    }
+                  }
+                }
+              }
+            ]
           }
         }
       ],
@@ -882,6 +1012,32 @@
             }
           }
         }
+      ],
+      "totals": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "ribbonBands": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "false"
+                }
+              }
+            }
+          }
+        }
       ]
     },
     "visualContainerObjects": {
@@ -898,7 +1054,7 @@
             "text": {
               "expr": {
                 "Literal": {
-                  "Value": "'Počet HP vs Typ Reklamace'"
+                  "Value": "'Počet HP za Top 25 Projektů v Zpoždení'"
                 }
               }
             },
@@ -1042,54 +1198,24 @@
   "filterConfig": {
     "filters": [
       {
-        "name": "257d0c0541a070de3620",
+        "name": "4da06570ab17ea0a4491",
         "field": {
           "Column": {
             "Expression": {
               "SourceRef": {
-                "Entity": "MILESTONES_KOMERCE"
+                "Entity": "DIM_ROP"
               }
             },
-            "Property": "KIA"
+            "Property": "KPI Status Komerce"
           }
         },
-        "type": "TopN",
-        "howCreated": "User"
-      },
-      {
-        "name": "a26f99ce654d33a745d1",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MILESTONES_KOMERCE"
-              }
-            },
-            "Property": "ROP KPI Status"
-          }
-        },
-        "type": "Advanced",
-        "howCreated": "User"
-      },
-      {
-        "name": "2dfd505456e3b9e0624c",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "MILESTONES_KOMERCE"
-              }
-            },
-            "Property": "Reklamace Typ"
-          }
-        },
-        "type": "Advanced",
+        "type": "Categorical",
         "filter": {
           "Version": 2,
           "From": [
             {
-              "Name": "m",
-              "Entity": "MILESTONES_KOMERCE",
+              "Name": "d",
+              "Entity": "DIM_ROP",
               "Type": 0
             }
           ],
@@ -1098,23 +1224,43 @@
               "Condition": {
                 "Not": {
                   "Expression": {
-                    "Comparison": {
-                      "ComparisonKind": 0,
-                      "Left": {
-                        "Column": {
-                          "Expression": {
-                            "SourceRef": {
-                              "Source": "m"
+                    "In": {
+                      "Expressions": [
+                        {
+                          "Column": {
+                            "Expression": {
+                              "SourceRef": {
+                                "Source": "d"
+                              }
+                            },
+                            "Property": "KPI Status Komerce"
+                          }
+                        }
+                      ],
+                      "Values": [
+                        [
+                          {
+                            "Literal": {
+                              "Value": "null"
                             }
-                          },
-                          "Property": "Reklamace Typ"
-                        }
-                      },
-                      "Right": {
-                        "Literal": {
-                          "Value": "null"
-                        }
-                      }
+                          }
+                        ]
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        },
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "isInvertedSelectionMode": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
                     }
                   }
                 }
@@ -1122,8 +1268,35 @@
             }
           ]
         }
+      },
+      {
+        "name": "ea560e9f19aeb2cc6cd6",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DIM_KIA"
+              }
+            },
+            "Property": "KIA"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "f05374f2227c2e65e145",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "_Measures"
+              }
+            },
+            "Property": "Počet HP Subjekt"
+          }
+        },
+        "type": "Advanced"
       }
     ]
-  },
-  "isHidden": true
+  }
 }

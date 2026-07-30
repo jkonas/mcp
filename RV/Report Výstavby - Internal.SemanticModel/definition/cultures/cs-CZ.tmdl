@@ -31424,6 +31424,146 @@ cultureInfo cs-CZ
 			          }
 			        }
 			      ]
+			    },
+			    "fact_vystavba.subfaze_duration": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "FACT_VYSTAVBA",
+			          "ConceptualProperty": "Subfaze Duration"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "subfaze duration": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "subfaze length": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "subfaze extent": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "subfaze interval": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.5
+			          }
+			        },
+			        {
+			          "subfaze period": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        },
+			        {
+			          "subfaze spell": {
+			            "Type": "Noun",
+			            "State": "Suggested",
+			            "Source": {
+			              "Agent": "Thesaurus"
+			            },
+			            "Weight": 0.485
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.KPS4_trvání": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "KPS4 Trvání"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "KPS4 trvání": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.KPS1_trvání": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "KPS1 Trvání"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "KPS1 trvání": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.výstupní_kontrola_trvání": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Výstupní Kontrola Trvání"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "výstupní kontrola trvání": {
+			            "State": "Generated"
+			          }
+			        }
+			      ]
+			    },
+			    "entity__measure.připraveno_ke_spuštění_do_komerce_trvání": {
+			      "Definition": {
+			        "Binding": {
+			          "ConceptualEntity": "_Measures",
+			          "ConceptualProperty": "Připraveno ke Spuštění do Komerce Trvání"
+			        }
+			      },
+			      "State": "Generated",
+			      "Terms": [
+			        {
+			          "připraveno ke spuštění do komerce trvání": {
+			            "State": "Generated"
+			          }
+			        },
+			        {
+			          "Připraveno do Komerce Trvání": {
+			            "State": "Suggested",
+			            "Source": {
+			              "Type": "External",
+			              "Agent": "PowerBI.VisualColumnRename"
+			            },
+			            "Weight": 0.9
+			          }
+			        }
+			      ]
 			    }
 			  },
 			  "Relationships": {
@@ -32917,6 +33057,171 @@ cultureInfo cs-CZ
 			          "State": "Generated",
 			          "Weight": 0.99,
 			          "ID": "dim_dodavatels_have_fact_vystavbas"
+			        }
+			      ]
+			    },
+			    "entity__measure_has_připraveno_ke_spuštění_do_komerce_trvání": {
+			      "Binding": {
+			        "ConceptualEntity": "_Measures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__measure": {
+			          "Target": {
+			            "Entity": "entity__measure"
+			          }
+			        },
+			        "entity__measure.připraveno_ke_spuštění_do_komerce_trvání": {
+			          "Target": {
+			            "Entity": "entity__measure.připraveno_ke_spuštění_do_komerce_trvání"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__measure"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.připraveno_ke_spuštění_do_komerce_trvání"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_measures_have_připraveno_ke_spuštění_do_komerce_trvání"
+			        }
+			      ]
+			    },
+			    "entity__measure_has_výstupní_kontrola_trvání": {
+			      "Binding": {
+			        "ConceptualEntity": "_Measures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__measure": {
+			          "Target": {
+			            "Entity": "entity__measure"
+			          }
+			        },
+			        "entity__measure.výstupní_kontrola_trvání": {
+			          "Target": {
+			            "Entity": "entity__measure.výstupní_kontrola_trvání"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__measure"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.výstupní_kontrola_trvání"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_measures_have_výstupní_kontrola_trvání"
+			        }
+			      ]
+			    },
+			    "entity__measure_has_KPS1_trvání": {
+			      "Binding": {
+			        "ConceptualEntity": "_Measures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__measure": {
+			          "Target": {
+			            "Entity": "entity__measure"
+			          }
+			        },
+			        "entity__measure.KPS1_trvání": {
+			          "Target": {
+			            "Entity": "entity__measure.KPS1_trvání"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__measure"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.KPS1_trvání"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_measures_have_KPS1_trvání"
+			        }
+			      ]
+			    },
+			    "entity__measure_has_KPS4_trvání": {
+			      "Binding": {
+			        "ConceptualEntity": "_Measures"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "entity__measure": {
+			          "Target": {
+			            "Entity": "entity__measure"
+			          }
+			        },
+			        "entity__measure.KPS4_trvání": {
+			          "Target": {
+			            "Entity": "entity__measure.KPS4_trvání"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "entity__measure"
+			            },
+			            "Object": {
+			              "Role": "entity__measure.KPS4_trvání"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "Phrasing_measures_have_KPS4_trvání"
+			        }
+			      ]
+			    },
+			    "fact_vystavba_has_subfaze_duration": {
+			      "Binding": {
+			        "ConceptualEntity": "FACT_VYSTAVBA"
+			      },
+			      "State": "Generated",
+			      "Roles": {
+			        "fact_vystavba": {
+			          "Target": {
+			            "Entity": "fact_vystavba"
+			          }
+			        },
+			        "fact_vystavba.subfaze_duration": {
+			          "Target": {
+			            "Entity": "fact_vystavba.subfaze_duration"
+			          }
+			        }
+			      },
+			      "Phrasings": [
+			        {
+			          "Attribute": {
+			            "Subject": {
+			              "Role": "fact_vystavba"
+			            },
+			            "Object": {
+			              "Role": "fact_vystavba.subfaze_duration"
+			            }
+			          },
+			          "State": "Generated",
+			          "Weight": 0.99,
+			          "ID": "fact_vystavbas_have_subfaze_durations"
 			        }
 			      ]
 			    },

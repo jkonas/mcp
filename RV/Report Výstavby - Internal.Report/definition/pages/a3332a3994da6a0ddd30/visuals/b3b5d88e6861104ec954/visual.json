@@ -4,10 +4,10 @@
   "position": {
     "x": 591.72802404207357,
     "y": 80,
-    "z": 3000,
+    "z": 2000,
     "height": 40.211446486189629,
     "width": 680,
-    "tabOrder": 1000
+    "tabOrder": 0
   },
   "visualGroup": {
     "displayName": "Statistika HP (Milnik)",

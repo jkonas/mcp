@@ -1002,7 +1002,7 @@ table _Measures
 			VAR milestoneEnd =
 			    CALCULATE (
 			        MAX ( FACT_VYSTAVBA[Konec Real] ),
-			        FACT_VYSTAVBA[Subfaze_Key] = "37"
+			        FACT_VYSTAVBA[Subfaze_Key] = 37
 			    )
 			VAR HasStart = NOT ISBLANK(milestoneStart)
 			VAR HasEnd   = NOT ISBLANK(milestoneEnd)
@@ -1013,13 +1013,96 @@ table _Measures
 			    TRUE(),
 			    HasEnd && NOT HasStart,                              1,        -- end only
 			    NOT HasEnd && NOT HasStart,                          BLANK(),  -- neither
-			    HasStart && HasEnd && milestoneEnd < milestoneStart, 1,        -- end before start
 			    HasStart && Diff = 0,                                1,        -- same day
 			    HasStart,                                            Diff      -- both or start-only
 			)
 		formatString: 0
 		displayFolder: ROP do Komerce
 		lineageTag: f3f52238-280e-4a54-9d43-e7814e5d9ad8
+
+	measure 'KPS1 Trvání' =
+			
+			VAR milestoneStart =
+			    CALCULATE (
+			        MAX ( FACT_VYSTAVBA[Konec Real] ),
+			        FACT_VYSTAVBA[Subfaze_Key] = 37
+			    )
+			VAR milestoneEnd =
+			    CALCULATE (
+			        MAX ( FACT_VYSTAVBA[Konec Real] ),
+			        FACT_VYSTAVBA[Subfaze_Key] = 38
+			    )
+			VAR HasStart = NOT ISBLANK(milestoneStart)
+			VAR HasEnd   = NOT ISBLANK(milestoneEnd)
+			VAR EndOrNow = COALESCE(milestoneEnd, NOW())
+			VAR Diff     = IF(HasStart, DATEDIFF(milestoneStart, EndOrNow, DAY))
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    HasEnd && NOT HasStart,                              1,        -- end only
+			    NOT HasEnd && NOT HasStart,                          BLANK(),  -- neither
+			    HasStart && Diff = 0,                                1,        -- same day
+			    HasStart,                                            Diff      -- both or start-only
+			)
+		formatString: 0
+		displayFolder: ROP do Komerce
+		lineageTag: f4dccfdd-d120-404f-907d-dcf127ccb7e5
+
+	measure 'Výstupní Kontrola Trvání' =
+			
+			VAR milestoneStart =
+			    CALCULATE (
+			        MAX ( FACT_VYSTAVBA[Konec Real] ),
+			        FACT_VYSTAVBA[Subfaze_Key] = 38
+			    )
+			VAR milestoneEnd =
+			    CALCULATE (
+			        MAX ( FACT_VYSTAVBA[Konec Real] ),
+			        FACT_VYSTAVBA[Subfaze_Key] = 39
+			    )
+			VAR HasStart = NOT ISBLANK(milestoneStart)
+			VAR HasEnd   = NOT ISBLANK(milestoneEnd)
+			VAR EndOrNow = COALESCE(milestoneEnd, NOW())
+			VAR Diff     = IF(HasStart, DATEDIFF(milestoneStart, EndOrNow, DAY))
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    HasEnd && NOT HasStart,                              1,        -- end only
+			    NOT HasEnd && NOT HasStart,                          BLANK(),  -- neither
+			    HasStart && Diff = 0,                                1,        -- same day
+			    HasStart,                                            Diff      -- both or start-only
+			)
+		formatString: 0
+		displayFolder: ROP do Komerce
+		lineageTag: d455aba5-6edc-4fe3-8d72-b68bf005d90d
+
+	measure 'Připraveno ke Spuštění do Komerce Trvání' =
+			
+			VAR milestoneStart =
+			    CALCULATE (
+			        MAX ( FACT_VYSTAVBA[Konec Real] ),
+			        FACT_VYSTAVBA[Subfaze_Key] = 39
+			    )
+			VAR milestoneEnd =
+			    CALCULATE (
+			        MAX ( FACT_VYSTAVBA[Konec Real] ),
+			        FACT_VYSTAVBA[Subfaze_Key] = 40
+			    )
+			VAR HasStart = NOT ISBLANK(milestoneStart)
+			VAR HasEnd   = NOT ISBLANK(milestoneEnd)
+			VAR EndOrNow = COALESCE(milestoneEnd, NOW())
+			VAR Diff     = IF(HasStart, DATEDIFF(milestoneStart, EndOrNow, DAY))
+			RETURN
+			SWITCH(
+			    TRUE(),
+			    HasEnd && NOT HasStart,                              1,        -- end only
+			    NOT HasEnd && NOT HasStart,                          BLANK(),  -- neither
+			    HasStart && Diff = 0,                                1,        -- same day
+			    HasStart,                                            Diff      -- both or start-only
+			)
+		formatString: 0
+		displayFolder: ROP do Komerce
+		lineageTag: 1b35226d-6e6b-4d58-829b-50721d5ba154
 
 	partition _Measures = m
 		mode: import

@@ -530,34 +530,6 @@
             }
           ]
         }
-      },
-      {
-        "name": "9bea99cfecec97a1c874",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DIM_CALENDAR"
-              }
-            },
-            "Property": "Mesic Cislo Lomeno Rok Kratky"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "8579f17ccb20656d9801",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "KIA_AGG_DATES"
-              }
-            },
-            "Property": "HP_FAZI_V_MESIACI"
-          }
-        },
-        "type": "Advanced"
       }
     ]
   }
